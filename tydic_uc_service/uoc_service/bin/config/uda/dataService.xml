@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<service data="com.tydic.unicom.uoc.common.vo.WebRedisVo" type="redis"> 
+	</service>
+</services>

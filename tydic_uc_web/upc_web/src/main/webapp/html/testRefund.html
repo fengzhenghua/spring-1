@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="../js/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("#paySubmitBtn").bind("click", function(){
+		
+		$.post("http://127.0.0.1:8090/upc_web/authority/testReq/testRefund",{
+			"order_id":$("#order_id").val(),
+			"total_fee":$("#total_fee").val(),
+			"real_fee":$("#real_fee").val()
+		},function(msg){
+			if(msg.type == "success"){
+				//发起退款
+				$.post("http://127.0.0.1:8090/upc_web/authority/busiReq/refund", {"data": msg.args.data}, function(msg){
+					msg = eval('(' + msg +')');
+					if(msg.type == "success"){
+						$.post("http://127.0.0.1:8090/upc_web/authority/testReq/dealrefund", {"data": msg.args.data}, function(msg){
+							alert(msg);
+						});
+					}
+					else{
+						alert(msg.content);
+					}
+				});
+			}
+			else{
+				alert(msg.content);
+			}
+		});
+		
+	    return false;  
+	});
+});
+</script>
+</head>
+<body>
+退款订单号：<input type="text" id="order_id" /><br/>
+原支付金额：<input type="text" id="total_fee" /><br/>
+退款金额：<input type="text" id="real_fee" /><br/>
+<button id="paySubmitBtn">确认提交</button>
+</body>
+</html>

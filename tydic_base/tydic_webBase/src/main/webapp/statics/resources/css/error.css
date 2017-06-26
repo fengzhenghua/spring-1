@@ -1,0 +1,16 @@
+@import url("share.css");
+.logo_bg{background:#FFF;}
+.logo{width:1000px; margin:0 auto; height:87px; background:#FFF;}
+.logo .logo_l{float:left; width:510px;}
+.sub_menu{height:3px; background:#3F3B3A; color:#FFF;}
+.content{width:998px; border:1px solid #DBDBDB; background:#FFF; margin:10px auto;min-height: 400px;}
+
+.content_tip_error{width:400px; margin:0 auto; padding-top:100px;}
+.content_tip_error .content_tip_error_left{float:left; width:140px;}
+.content_tip_error .content_tip_error_right div{padding:5px 0; font-size:14px; color:#666;}
+.content_tip_error .content_tip_error_right div a{color:#3D82DF; text-decoration:underline;}
+.content_tip_error .content_tip_error_right div a:hover{color:#F08200;}
+.content_tip_error .content_tip_error_right span{color:#EB0000; font-family:Arial, Helvetica, sans-serif;}
+
+.footer{height:3px; color:#FFF; text-align:center; background:#3F3B3A; margin:20px 0 5px 0;}
+.copyright{text-align:center; height:30px; line-height:30px;}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://code.alibabatech.com/schema/dubbo 
+           http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	<!-- <dubbo:application name="demo-userTest-app" />
+	<dubbo:registry address="zookeeper://172.168.1.215:2181" />
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	<dubbo:protocol name="dubbo" port="20881" />
+	<dubbo:provider timeout="100000" retries="0"></dubbo:provider> -->
+	
+	<!-- 工作流服务 -->
+	<dubbo:service interface="com.tydic.unicom.service.workFlow.service.interfaces.JbpmTemplate"	ref="jbpmTemplate" /> 
+    <bean id="jbpmTemplate" class="com.tydic.unicom.service.workFlow.service.impl.JbpmTemplateImpl">
+        <property name="processEngine" ref="processEngine"/>
+        <property name="dataSource" ref="dataSourceJbpm"/>
+    </bean>
+
+	<bean id="dataSourceJbpm" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@172.168.1.183:1521:newbss" />
+		<property name="username" value="crm_pub" />
+		<property name="password" value="crm_pub" />
+	</bean>
+	
+	 <bean id="sf"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceJbpm" />
+		 <!--<property name="packagesToScan">
+			<list>
+				<value>com.comando.model</value>
+			</list>
+		</property> -->
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle10gDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:config/jbpm/jbpm.execution.hbm.xml</value>
+				<value>classpath:config/jbpm/jbpm.history.hbm.xml</value>
+				<value>classpath:config/jbpm/jbpm.identity.hbm.xml</value>
+				<value>classpath:config/jbpm/jbpm.repository.hbm.xml</value>
+				<value>classpath:config/jbpm/jbpm.task.hbm.xml</value>
+		    </list>
+		</property>
+	</bean> 
+	
+	<bean id="springHelper" class="org.jbpm.pvm.internal.processengine.SpringHelper">
+        <property name="jbpmCfg" value="config/jbpm/jbpm.cfg.xml"></property>
+    </bean>
+    
+    <bean id="processEngine" factory-bean="springHelper" factory-method="createProcessEngine"/>
+
+	<!-- 配置事务管理器 -->
+	<!-- <bean id="transactionManager"	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceJbpm" />
+	</bean> -->
+
+	<!-- <aop:config proxy-target-class="true">
+		<aop:pointcut id="businessMethod" expression="execution(* com.tydic.unicom.service.cache.service.*Serv.*(..))" />
+		<aop:advisor pointcut-ref="businessMethod" advice-ref="txAdvice" />
+	</aop:config> -->
+
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" />
+			<tx:method name="delete*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" />
+			<tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" />
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />	
+		</tx:attributes>
+	</tx:advice> -->
+</beans>

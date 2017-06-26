@@ -1,0 +1,61 @@
+body{*position:relative!important; _position:relative;}
+.container{width:936px; height:auto; margin:0 auto; padding:5px 0;}
+/* 常用功能区域 */
+.top_area{width:100%; padding-top:10px; background:url(../images/home_top_bg1.png) no-repeat left top;}
+.top_area img{cursor:pointer;}
+.top_area .top_sign{margin-left:222px; padding:2px 10px; font-weight:bold; font-size:14px; font-family:"微软雅黑"; color:#f2f2f2; border:2px solid white; border-bottom:none; background-color:#63500e;}
+.top_area .top_search{width:488px; margin:0 auto; border:2px solid white; background-color:#63500e;}
+.top_area .top_search input[type=text]{width:430px; padding:5px 10px; font-size:20px; font-family:"微软雅黑"; color:#f2f2f2; border:none; background-color:#63500e;}
+.top_area .top_search img{margin-top:-10px;}
+.top_area .top_list{width:100%; height:195px; margin-top:20px; background:url(../images/home_top_bg2.png) no-repeat left top;}
+.top_area .top_list .top_arrow{margin-top:75px; padding:0 15px;}
+.top_area .top_list .top_arrow .arrow_left{width:22px; height:34px; display:inline-block; *zoom:1; *display:inline; background:url(../images/home_left_arrow.png) no-repeat left top; cursor:pointer;}
+.top_area .top_list .top_arrow .arrow_left_active{width:22px; height:34px; display:inline-block; *zoom:1; *display:inline; background:url(../images/home_left_arrow_active.png) no-repeat left top; cursor:pointer;}
+.top_area .top_list .top_arrow .arrow_right{width:22px; height:34px; display:inline-block; *zoom:1; *display:inline; background:url(../images/home_right_arrow.png) no-repeat left top; cursor:pointer;}
+.top_area .top_list .top_arrow .arrow_right_active{width:22px; height:34px; display:inline-block; *zoom:1; *display:inline; background:url(../images/home_right_arrow_active.png) no-repeat left top; cursor:pointer;}
+.top_area .top_list .top_options{padding:30px 0 0 30px;}
+.top_area .top_list .top_option{width:100px; height:150px; margin:0 25px; vertical-align:bottom; display:inline-block; *zoom:1; *display:inline; cursor:pointer;}
+.top_area .top_list .top_option .top_text{padding-top:105px; text-align:center; font-size:16px; font-family:"微软雅黑"; color:white;}
+
+.top_area .top_list .top_option:hover{background:url(../images/home_phone_cur.png) no-repeat left top;}
+/* .top_area .top_list .top_option:hover .top_text{ display:none;} */
+	
+.business_head{padding:10px 20px; font-weight:bold; font-size:16px; font-family:"黑体"; color:#333333; border:1px solid #e6e6e6; background-color:#e6e6e6;}
+.business_head i{width:17px; height:15px; display:inline-block; *zoom:1; *display:inline;}
+.business_head span{margin-left:5px;}
+.business_head a{font-weight:normal; font-size:14px; float:right;}
+.business_body{border:1px solid #e6e6e6;}
+/* 快速受理通道区域 */
+.quick_area{width:100%;}
+.quick_area .quick_accept_icon{background:url(../images/home_quick_accept.png) no-repeat left top;}
+.quick_area .quick_options{padding:20px 0 20px 25px;}
+.quick_area .quick_option{width:134px; height:100px; margin:0 20px; vertical-align:bottom; display:inline-block; *zoom:1; *display:inline; cursor:pointer;}
+.quick_area .quick_option .quick_text{padding:50px 5px 0 5px; text-align:center; font-size:14px; font-family:"微软雅黑"; color:#808080;}
+.quick_area .quick_option .hot_icon{ height:26px; margin:-13px 0 0 105px;}
+
+/* lgw 2016-6-28 */
+.quick_area .quick_option:hover { background:url(../images/home_quick_cur.png) no-repeat left top;}
+.quick_area .quick_option:hover .quick_text{ display:none;}
+
+/* 常用业务区域 */
+.history_area{width:550px;}
+.history_area .business_history_icon{background:url(../images/home_business_history.png) no-repeat left top;}
+.history_area .history_options{padding:25px 0 25px 15px;}
+.history_area .history_option{width:110px; height:110px; margin:0 8px; vertical-align:bottom; display:inline-block; *zoom:1; *display:inline; cursor:pointer; background:url(../images/home_history_bg.png) no-repeat left top;}
+.history_area .history_option .history_text{padding:35px 10px 0 10px; text-align:center; font-size:20px; font-family:"微软雅黑"; color:#666666;}
+
+.history_area .history_option:hover{ background:url(../images/home_history_bg_cur.png) no-repeat left top;}
+.history_area .history_option:hover .history_text{ display:none;}
+
+/* 系统快捷入口区域 */
+.jump_area{width:380px;}
+.jump_area .jump_page_icon{background:url(../images/home_jump_page.png) no-repeat left top;}
+.jump_area .jump_options{padding:35px 0 15px 15px;}
+.jump_area .jump_option{width:80px; height:110px; margin:0 17px; vertical-align:bottom; display:inline-block; *zoom:1; *display:inline; cursor:pointer; background:url(../images/home_jump_bg.png) no-repeat left top;}
+.jump_area .jump_option .jump_text{padding-top:0; text-align:center; font-size:60px; font-family:"微软雅黑"; color:#808080;}
+.jump_area .jump_option .jump_text_full{padding-top:5px; text-align:center; font-size:16px; font-family:"微软雅黑"; color:#808080;}
+
+.jump_area .jump_option:hover{background:url(../images/home_jump_bg_cur.png) no-repeat left top;}
+.jump_area .jump_option:hover .jump_text{color:white;}
+
+.copyright{color:#999; font-size:12px; font-family:Arial, Helvetica, sans-serif; text-align:center; height:36px; line-height:36px;}

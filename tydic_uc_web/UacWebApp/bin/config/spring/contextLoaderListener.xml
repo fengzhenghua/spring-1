@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 
+<!-- 	<context:property-placeholder location="file:${UAC_REST_PROPERTY_FILE}"/> -->
+<!-- 	<context:property-placeholder location="file:D:/Work/Tydic/SourceCode/UC_Develop/conf/UacProperties.properties"/>-->	
+	<dubbo:application name="UacWebApp" />
+	<dubbo:registry address="zookeeper://localhost:2181" />
+	
+	<dubbo:reference  id= "OperServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.OperServDu" />
+	
+	<dubbo:reference  id= "OperRelationServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.OperRelationServDu" />
+	
+	<dubbo:reference  id= "UniformInfoOperServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.UniformInfoOperServDu" />
+	
+	<dubbo:reference  id= "RuleOperRoleServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.RuleOperRoleServDu" />
+	
+	<dubbo:reference  id= "InfoMenuServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.InfoMenuServDu" />
+	
+	<dubbo:reference  id= "InfoDeptServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.InfoDeptServDu" />
+	
+	<dubbo:reference  id= "InfoOperServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.InfoOperServDu" />
+	
+	<dubbo:reference  id= "InfoBaseOperServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.InfoBaseOperServDu" />
+
+	<dubbo:reference  id= "InfoAgentDevelopersServDu"  interface="com.tydic.unicom.uac.business.common.interfaces.InfoAgentDevelopersServDu" />
+	
+	<dubbo:reference  id="GetOptionalOperServDu" interface="com.tydic.unicom.uac.business.common.interfaces.GetOptionalOperServDu"/>
+</beans>

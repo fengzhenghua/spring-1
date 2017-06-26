@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:aop="http://www.springframework.org/schema/aop" 
+		xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:task="http://www.springframework.org/schema/task" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task 
+     http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+     
+     <context:property-placeholder order="0" location="file:./dubboDeploy/conf/UpcProperties.properties"/>
+     
+	<!-- 提供给javabean使用的配置文件 -->
+	<!-- <bean id="prop"	class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<array>
+				<value>file:./dubboDeploy/conf/UpcProperties.properties</value>
+			</array>
+		</property>
+	</bean> -->
+	
+	<!-- 对帐单下载 -->
+	<!-- 开发环境下暂时不运行 -->
+    <!-- <bean id="DownloadPayTransServDu" class="com.tydic.unicom.upc.service.task.impl.DownloadPayTransServDuImpl"></bean>
+    <task:scheduled-tasks>    
+        <task:scheduled ref="DownloadPayTransServDu" method="commitWxTransDownload" cron="${wx_download_cron}" />
+        <task:scheduled ref="DownloadPayTransServDu" method="commitAlipayTransDownload" cron="${alipay_download_cron}" />
+    </task:scheduled-tasks>   -->
+	
+    <!--base 公共相关服务-->
+    <import resource="applicationContext_upc_base.xml" />
+    <!--数据库配置接口相关配置-->
+    <import resource="applicationContext_dataSource_upc_oracle.xml" />
+
+</beans>

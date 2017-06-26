@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	<!-- 配置表 -->
+
+	<!-- -->
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="code_list" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="zb_info_agent" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="area_code" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="rule_spec_role" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_dept" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_oper" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="zb_info_agent_relation" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_agent" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="info_order_attr" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="uniform_info_oper" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="log_uniform_info_oper" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="oper_relation_ab" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_commend_oper" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_agent_developers" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_oper_password" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_menu" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="rule_oper_role" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="info_pages_mobile" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="busi_system_para" />
+		<property name="location" value="backend1" />
+	</bean>
+	
+	<!-- <bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database1.username}" />
+		<property name="name" value="code_area" />
+		<property name="location" value="backend1" />
+	</bean> -->
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database2.username}" />
+		<property name="name" value="code_ofr" />
+		<property name="location" value="backend2" />
+	</bean>
+	
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="dev_order_rel" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="info_order" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="oper_order_rel" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="customer_info_verify" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="log_pay_cs" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database3.username}" />
+		<property name="name" value="info_order_fee_detail" />
+		<property name="location" value="backend3" />
+	</bean>
+	
+	<bean class="com.tydic.vds.spring.SimpleTable">
+		<property name="schema" value="${jdbc.database4.username}" />
+		<property name="name" value="%" />
+		<property name="location" value="backend4" />
+	</bean>
+
+</beans>

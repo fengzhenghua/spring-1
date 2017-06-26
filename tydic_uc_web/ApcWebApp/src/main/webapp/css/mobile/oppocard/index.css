@@ -1,0 +1,33 @@
+/* .fs{font-size:1.8rem;} */
+.color{color:#a88cc5;}
+.padding1{padding:0 1rem;}
+
+body,html{width:100%;height:100%;background:url(../../../images/mobile/oppoCard/open_card_choose.jpg) no-repeat;background-size:100%;}
+header{height:3.75rem;background:#1b1a1f;}
+.h-text{width:90%;height:100%;color:#fff;text-align:center;line-height:3.75rem;}
+.h-img{width:10%;height:100%;}
+
+.section{width:100%;height:10rem;margin-top:35.5rem;}
+.produce{width:100%;height:1.5rem;line-height:1.5rem;color:#625f4a;text-align:center;}
+.taocan{width:90%;height:8rem;margin:0.5rem auto;}
+.zuo,.you{width:10%;height:100%;}
+.zhong{width:70%;height:100%;margin:0 2% 0 8%;overflow:hidden;}
+
+.zuo i,.you i{display:inline-block;width:4rem;height:4rem;margin-top:2rem;}
+.zuo i{background:url(../../../images/mobile/oppoCard/zuo.png) no-repeat;}
+.zuo i:hover{background:url(../../../images/mobile/oppoCard/zuo-h.png) no-repeat;}
+.you i{background:url(../../../images/mobile/oppoCard/you.png) no-repeat;}
+.you i:hover{background:url(../../../images/mobile/oppoCard/you-h.png) no-repeat;}
+
+.middle,.xia{width:100%;height:1.5rem;line-height:1.5rem;}
+.middle{margin-top:1rem;text-align:right;;text-decoration:underline;}
+.span{display:inline-block;widht:100%;height:100%;text-align:center;text-decoration:underline;}
+.xia{margin-top:4.5rem;}
+
+.z-li{/* width:6.8rem; */width:7rem;margin-right:2.1rem;height:8rem;padding:0.5rem 0.45rem;border-radius:0.8rem;}
+.z-li:hover{background:#e8ab02;}
+.z-top{width:6.1rem;height:4.7rem;}
+.z-bottom{width:100%;font-size:1.6rem;text-align:center;height:3.3rem;line-height:3.3rem;color:#989678;white-space:normal}
+
+.footer{background:#e6e6e6;height:7rem;width:100%;position:fixed;bottom:0;left:0;}
+.shenqing{background:#e60017;border-radius:0.5rem;width:100%;height:5rem;line-height:5rem;position:fixed;bottom:1rem;left:0;color:#fff;text-align:center;}

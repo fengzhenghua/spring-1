@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR1/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/19991/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>POS控件demo页面</title>
+        <style type="text/css">
+        body {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        #mycbbank {
+            border: 1px solid #000000;
+            margin: 10px auto;
+            background-color: #eee;
+        }
+
+            #mycbbank tr {
+                line-height: 23px;
+            }
+
+            #mycbbank th {
+                background-color: #ccc;
+                color: #fff;
+            }
+
+        .oddRow {
+            background-color: #fff;
+        }
+    </style>
+    </head>
+    <body>
+        <object id="CIcCardCtrl" classid="CLSID:091E1D1E-5FF9-4583-AC81-A0AB2CB91190" codebase="http://172.16.18.72/test.cab#version=1,0,0005" >
+        </object> 
+        
+        <table id="mycbbank" width="600px">
+            <tr>
+                <th>交易金额</th>
+                <td><input type="text" id="BUSI_AMT" value="111" ></td>
+                <th>交易类型</th>
+                <td><input type="text" id="BUSI_TRANS_TYPE"  value="交易按钮自动填" ></td>
+            </tr>
+            <tr>
+                <th>业务受理号码</th>
+                <td><input type="text" id="BUSI_CONSTRACT_CELLNO" value="9900" ></td>
+                <th>原始订单号</th>
+                <td><input type="text" id="ORIGINAL_BUSI_ORDER_ID" value="" ></td>
+            </tr>
+            <tr>
+                <th>业务系统编码</th>
+                <td><input type="text" id="BUSI_SYS" value="busisys123" ></td>
+                <th>原始交易类型</th>
+                <td><input type="text" id="ORIGINAL_TRANS_TYPE" value="" ></td>
+            </tr>
+            <tr>
+                <th>业务系统交易发生时间</th>
+                <td><input type="text" id="BUSI_TM" value="交易按钮自动填" ></td>
+                <th>业务侧支付订单号(必选 消费/撤销/退货)</th>
+                <td><input type="text" id="BUSI_ORDER_ID" value="9900000120151128002001849955" ></td>
+            </tr>
+            
+            <tr>
+                <th>业务类型（营业/账管）</th>
+                <td><input type="text" id="BUSI_TYPE" value="1" ></td>
+                <th>营业厅编号（总部渠道编码）</th>
+                <td><input type="text" id="BUSI_NODE_ID" value="123" ></td>
+            </tr>
+            <tr>
+                <th>营业员工号</th>
+                <td><input type="text" id="BUSI_STAFF_ID" value="busistaffid1234" ></td>
+                <th>业务发生省份编码</th>
+                <td><input type="text" id="BUSI_NODE_PRO" value="0591" ></td>
+            </tr>
+            <tr>
+                <th>业务发生地市编码</th>
+                <td><input type="text" id="BUSI_NODE_CITY" value="0591" ></td>
+                <th>业务发生区县编码</th>
+                <td><input type="text" id="BUSI_NODE_AREA" value="" ></td>
+            </tr>
+             <tr>
+                <th>业务办理手机号</th>
+                <td><input type="text" id="BUSI_CELLNO" value="" ></td>
+                <!--<th></th>
+                <td><input type="text" id="text111" value="" ></td>-->
+            </tr>
+
+        </table>
+    <p>
+        <input type="button" value="  消费  " onclick="posConsume()">&nbsp;&nbsp;&nbsp;
+        <input type="button" value="  撤销  " onclick="posCancel()">&nbsp;&nbsp;&nbsp;
+        <input type="button" value="  退货  " onclick="posRefund()">&nbsp;&nbsp;&nbsp;
+        <input type="button" value="  补单  " onclick="posSerach()">&nbsp;&nbsp;&nbsp;
+        <input type="button" value="  冲正  " onclick="posReversal()">&nbsp;&nbsp;&nbsp;
+        <input type="button" value=" 重订购 " onclick="posQuery()">&nbsp;&nbsp;&nbsp;
+        <input type="button" value="  充值  " onclick="posCharge()">&nbsp;&nbsp;&nbsp;
+    </p>
+        
+        <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+        <script type="text/javascript">
+
+            if (!CIcCardCtrl.object) {
+                alert("控件加载失败!");
+            }
+
+            //消费
+            function posConsume() {
+                var jsonParam = getParam("Consume");
+                var backData = CIcCardCtrl.PosConsume(jsonParam);
+                var backData11 =JSON.stringify(backData);
+ alert(backData11);
+var dddd = backData11.replace("{",",");
+                alert(dddd);
+         
+            }
+            //撤销
+            function posCancel() {
+                var jsonParam = getParam("Cancel");
+                var backData = CIcCardCtrl.PosCancel(jsonParam);
+                alert(backData);
+            }
+            //退货
+            function posRefund() {
+                var jsonParam = getParam("Refund");
+                var backData = CIcCardCtrl.PosRefund(jsonParam);
+                alert(backData);
+            }
+            //补单
+            function posSerach() {
+                var jsonParam = getParam("Search");
+                var backData = CIcCardCtrl.PosSerach(jsonParam);
+                alert(backData);
+            }
+            //冲正
+            function posReversal() {
+                var jsonParam = getParam("Reversal");
+                var backData = CIcCardCtrl.PosReversal(jsonParam);
+                alert(backData);
+            }
+            //重订购
+            function posQuery() {
+                var jsonParam = getParam("Query");
+                var backData = CIcCardCtrl.PosQuery(jsonParam);
+                alert(backData);
+            }
+            //充值
+            function posCharge() {
+                var jsonParam = getParam("Charge");
+                var backData = CIcCardCtrl.PosCharge(jsonParam);
+                alert(backData);
+            }
+            //获取参数
+            function getParam(busiTransType) {
+            	
+            	document.getElementById("BUSI_TM").value = getNowDateTime();
+            	document.getElementById("BUSI_TRANS_TYPE").value = busiTransType;
+            	
+                var tradeData = {
+                    "BUSI_AMT": "",
+                    "BUSI_TRANS_TYPE": "",
+                    "BUSI_CONSTRACT_CELLNO": "",
+                    "ORIGINAL_BUSI_ORDER_ID": "",
+                    "BUSI_SYS": "",
+                    "ORIGINAL_TRANS_TYPE": "",
+                    "BUSI_TM": "",
+                    "BUSI_TYPE": "",
+                    "BUSI_NODE_ID": "",
+                    "BUSI_STAFF_ID": "",
+                    "BUSI_NODE_PRO": "",
+                    "BUSI_NODE_CITY": "",
+                    "BUSI_NODE_AREA": "",
+                    "BUSI_CELLNO": "",
+                    "BUSI_ORDER_ID": ""
+                };
+
+                tradeData.BUSI_AMT = document.getElementById("BUSI_AMT").value;
+                tradeData.BUSI_TRANS_TYPE = document.getElementById("BUSI_TRANS_TYPE").value;
+                tradeData.BUSI_CONSTRACT_CELLNO = document.getElementById("BUSI_CONSTRACT_CELLNO").value;
+                tradeData.ORIGINAL_BUSI_ORDER_ID = document.getElementById("ORIGINAL_BUSI_ORDER_ID").value;
+                tradeData.BUSI_SYS = document.getElementById("BUSI_SYS").value;
+                tradeData.ORIGINAL_TRANS_TYPE = document.getElementById("ORIGINAL_TRANS_TYPE").value;
+                tradeData.BUSI_TM =  document.getElementById("BUSI_TM").value;
+                tradeData.BUSI_ORDER_ID = document.getElementById("BUSI_ORDER_ID").value;
+
+                tradeData.BUSI_TYPE = document.getElementById("BUSI_TYPE").value;
+                tradeData.BUSI_NODE_ID = document.getElementById("BUSI_NODE_ID").value;
+                tradeData.BUSI_STAFF_ID = document.getElementById("BUSI_STAFF_ID").value;
+                tradeData.BUSI_NODE_PRO = document.getElementById("BUSI_NODE_PRO").value;
+                tradeData.BUSI_NODE_CITY = document.getElementById("BUSI_NODE_CITY").value;
+                tradeData.BUSI_NODE_AREA = document.getElementById("BUSI_NODE_AREA").value;
+                tradeData.BUSI_CELLNO = document.getElementById("BUSI_CELLNO").value;
+
+            	var jsonParam = JSON.stringify(tradeData);
+            	alert(jsonParam);
+                return jsonParam;
+            }
+            
+            function getNowDateTime() {
+					    var date = new Date();
+					    var seperator1 = "";
+					    var seperator2 = "";
+					    var month = date.getMonth() + 1;
+					    var strDate = date.getDate();
+					    if (month >= 1 && month <= 9) {
+					        month = "0" + month;
+					    }
+					    if (strDate >= 0 && strDate <= 9) {
+					        strDate = "0" + strDate;
+					    }
+					    var hh = date.getHours();
+					    var mm = date.getMinutes();
+					    var ss = date.getSeconds();
+					    if (hh >= 0 && hh <= 9) {
+					        hh = "0" + hh;
+					    }
+							if (mm >= 0 && mm <= 9) {
+					        mm = "0" + mm;
+					    }
+							if (ss >= 0 && ss <= 9) {
+					        ss = "0" + ss;
+					    }
+					    
+					    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+					            + hh + seperator2 + mm
+					            + seperator2 + ss;
+					    
+					    return currentdate;
+					}
+
+        </script>
+    </body>
+</html>

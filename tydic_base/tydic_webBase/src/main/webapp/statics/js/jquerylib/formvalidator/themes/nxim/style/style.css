@@ -1,0 +1,10 @@
+/*validator样式*/
+.onShow{float:left;height:30px;  line-height:30px; font-size:12px; color:#999; text-indent:30px;}
+.onCorrect{float:left;background:url("../images/ico_pass.gif") no-repeat 10px center;color:#EB6100;height:30px; line-height:30px; font-size:12px;text-indent:30px;}
+.onError{float:left;background:url("../images/ico_warning.gif") no-repeat 10px center;color:#EB6100; height:30px; line-height:30px; font-size:12px;text-indent:30px;}
+.onError a{text-decoration:none;color:#6699DD;}
+.onError a:hover{text-decoration:underline; cursor:pointer;color:#FF0000;}
+.onFocus{float:left;background:url("../images/ico_warning.gif") no-repeat 10px center;color:#EB6100; height:30px; line-height:30px; font-size:12px;text-indent:30px;}
+.onLoad{float:left;background:url("../images/ico_onload.gif") no-repeat 10px center;height:30px; line-height:30px;font-size: 12px;
+text-indent:30px;} 
+.inputOnShow{color: #999999}

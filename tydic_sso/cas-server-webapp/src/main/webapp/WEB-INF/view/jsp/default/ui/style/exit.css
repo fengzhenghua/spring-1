@@ -1,0 +1,5 @@
+body{margin:0; padding:0; background:#e9edf5;}
+.logo{height:91px; width:1000px; text-align:center; padding:108px 0 35px 0; margin:0 auto;}
+.content{background:url(../images/exit.png) no-repeat left top; height:28px; line-height:28px; text-align:center; padding-top:70px; margin:0 auto; width:1000px; color:#454545; font-size:14px; font-weight:bold; font-family:"宋体";}
+.content a{display:inline-block; height:28px; line-height:28px; text-align:center; width:104px; font-family:"宋体"; color:#FFF; font-size:12px; font-weight:normal; background:#cb000a; text-decoration:none; margin-left:6px;}
+.content a:hover{color:#CCC;}

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.tydic.unicom"/>
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.sale.interfaces.InfoSaleOrderBusinessServDu" ref="InfoSaleOrderBusinessServDu" />
+    <bean id="InfoSaleOrderBusinessServDu" class="com.tydic.unicom.uoc.business.order.sale.impl.InfoSaleOrderBusinessServDuImpl" />
+
+     <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.OrderModServDu" ref="OrderModServDu"/>
+    <bean id="OrderModServDu" class="com.tydic.unicom.uoc.business.order.service.impl.OrderModServDuImpl" />
+ 
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.ServiceOrderServDu" ref="ServiceOrderServDu"/>
+    <bean id="ServiceOrderServDu" class="com.tydic.unicom.uoc.business.order.service.impl.ServiceOrderServDuImpl" />
+
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.OrderDataBakServDu" ref="OrderDataBakServDu"/>
+    <bean id="OrderDataBakServDu" class="com.tydic.unicom.uoc.business.order.service.impl.OrderDataBakServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.ProcModServDu" ref="ProcModServDu"/>
+    <bean id="ProcModServDu" class="com.tydic.unicom.uoc.business.order.service.impl.ProcModServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.ArtificialTaskServDu" ref="ArtificialTaskServDu"/>
+    <bean id="ArtificialTaskServDu" class="com.tydic.unicom.uoc.business.order.service.impl.ArtificialTaskServDuImpl" />
+ 
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.OrderDetailServDu" ref="OrderDetailServDu"/>
+    <bean id="OrderDetailServDu" class="com.tydic.unicom.uoc.business.order.service.impl.OrderDetailServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.sale.interfaces.QuerySalesOrderListServDu" ref="QuerySalesOrderListServDu"/>
+    <bean id="QuerySalesOrderListServDu" class="com.tydic.unicom.uoc.business.order.sale.impl.QuerySalesOrderListServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.AbilityPlatformForYunWoServDu" ref="AbilityPlatformForYunWoServDu"/>
+    <bean id="AbilityPlatformForYunWoServDu" class="com.tydic.unicom.uoc.business.common.impl.AbilityPlatformForYunWoServDuImpl" />
+ 
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.sale.interfaces.PreOrderServDu" ref="PreOrderServDu" />
+    <bean id="PreOrderServDu" class="com.tydic.unicom.uoc.business.order.sale.impl.PreOrderServDuImpl" />
+    <!-- 获取可选工号，可选部门 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.GetDepartAndOperInfoServDu" ref="GetDepartAndOperInfoServDu" />
+    <bean id="GetDepartAndOperInfoServDu" class="com.tydic.unicom.uoc.business.common.impl.GetDepartAndOperInfoServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.ExpressServDu" ref="ExpressServDu" />
+    <bean id="ExpressServDu" class="com.tydic.unicom.uoc.business.common.impl.ExpressServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.CheckInfoServDu" ref="CheckInfoServDu" />
+    <bean id="CheckInfoServDu" class="com.tydic.unicom.uoc.business.common.impl.CheckInfoServDuImpl" />
+    
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.ActivemqServDu" ref="ActivemqServDu" />
+    <bean id="ActivemqServDu" class="com.tydic.unicom.uoc.business.common.impl.ActivemqServDuImpl" />
+    
+    <!-- 获取地区信息 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.GetRegionInfoServDu" ref="GetRegionInfoServDu" />
+    <bean id="GetRegionInfoServDu" class="com.tydic.unicom.uoc.business.common.impl.GetRegionInfoServDuImpl" />
+    
+    <!-- 获取可选环节 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.GetOptionalTacheServDu" ref="GetOptionalTacheServDu" />
+    <bean id="GetOptionalTacheServDu" class="com.tydic.unicom.uoc.business.common.impl.GetOptionalTacheServDuImpl" />
+    
+    <!-- 顺丰物流相关服务接口 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.SFServiceServDu" ref="SFServiceServDu" />
+    <bean id="SFServiceServDu" class="com.tydic.unicom.uoc.business.common.impl.SFServiceServDuImpl" />
+    
+    <!-- 任务逾期率统计 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.StatisticalTaskOverdueRateServDu" ref="StatisticalTaskOverdueRateServDu" />
+    <bean id="StatisticalTaskOverdueRateServDu" class="com.tydic.unicom.uoc.business.common.impl.StatisticalTaskOverdueRateServDuImpl" />
+    <!-- 订单撤销申请 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.OrderCancelApplyServDu" ref="OrderCancelApplyServDu" />
+    <bean id="OrderCancelApplyServDu" class="com.tydic.unicom.uoc.business.order.service.impl.OrderCancelApplyServDuImpl" />
+     <!--系统服务 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.SystemServiceServDu" ref="SystemServiceServDu" />
+    <bean id="SystemServiceServDu" class="com.tydic.unicom.uoc.business.common.impl.SystemServiceServDuImpl" />
+    <!-- 写卡结果查询、记录接口 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.WriteCardResultServDu" ref="WriteCardResultServDu" />
+    <bean id="WriteCardResultServDu" class="com.tydic.unicom.uoc.business.order.service.impl.WriteCardResultServDuImpl" />
+    <!-- 物流明细报表 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.EsReportDataServDu" ref="EsReportDataServDu" />
+    <bean id="EsReportDataServDu" class="com.tydic.unicom.uoc.business.common.impl.EsReportDataServDuImpl" />
+     <!-- 开户证件上传-->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.SendPhotoServDu" ref="SendPhotoServDu" />
+    <bean id="SendPhotoServDu" class="com.tydic.unicom.uoc.business.order.service.impl.SendPhotoServDuImpl" />
+     <!-- 订单查询触点专用-->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.OrderEnquiryContactServDu" ref="OrderEnquiryContactServDu" />
+    <bean id="OrderEnquiryContactServDu" class="com.tydic.unicom.uoc.business.order.service.impl.OrderEnquiryContactServDuImpl" />
+    
+     <!-- 顺丰物流相关服务接口 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.CqSFServiceServDu" ref="CqSFServiceServDu" />
+    <bean id="CqSFServiceServDu" class="com.tydic.unicom.uoc.business.common.impl.CqSFServiceServDuImpl" />
+    
+    <!-- 加入/退出部门任务组-->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.JoinOrExitDepartTaskForceServDu" ref="JoinOrExitDepartTaskForceServDu" />
+    <bean id="JoinOrExitDepartTaskForceServDu" class="com.tydic.unicom.uoc.business.order.service.impl.JoinOrExitDepartTaskForceServDuImpl" />
+    
+    <!-- 赠款服务 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.pay.interfaces.GrantFeePayServDu" ref="GrantFeePayServDu" />
+    <bean id="GrantFeePayServDu" class="com.tydic.unicom.uoc.business.order.pay.impl.GrantFeePayServDuImpl" />
+    
+    <!-- 报表关服务接口 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.order.service.interfaces.ServiceOrderExprotServDu" ref="ServiceOrderExprotServDu" />
+    <bean id="ServiceOrderExprotServDu" class="com.tydic.unicom.uoc.business.order.service.impl.ServiceOrderExprotServDuImpl" />
+    
+    <!-- 推送消息 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.PushMsgToWebAppBusServDu" ref="PushMsgToWebAppBusServDu" />
+    <bean id="PushMsgToWebAppBusServDu" class="com.tydic.unicom.uoc.business.common.impl.PushMsgToWebAppBusServDuImpl" />
+    
+    <!-- 定时任务相关服务 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.TimingTaskServiceServDu" ref="TimingTaskServiceServDu" />
+    <bean id="TimingTaskServiceServDu" class="com.tydic.unicom.uoc.business.common.impl.TimingTaskServiceServDuImpl" />
+    <!-- AOP订购半年包 -->
+    <dubbo:service interface="com.tydic.unicom.uoc.business.common.interfaces.AopOrderHalfYearPkgServDu" ref="AopOrderHalfYearPkgServDu" />
+    <bean id="AopOrderHalfYearPkgServDu" class="com.tydic.unicom.uoc.business.common.impl.AopOrderHalfYearPkgServDuImpl"></bean>
+</beans>

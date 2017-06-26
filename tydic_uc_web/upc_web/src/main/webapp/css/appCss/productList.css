@@ -1,0 +1,7 @@
+.msg-num{height:14px; line-height:14px; padding:0 5px; background:#EE384F; color:#fff; font-size:10px;	border:1px solid #fff; border-radius:10px; position:absolute; top:-7px; left:32px;}
+.list-lg .productList-title{ display:block; height:18px; line-height:18px; font-size:16px; color:#333;}
+.list-lg .productList-tip{ display:block; height:14px; line-height:14px; padding-top:8px; font-size:14px; color:#999;}
+.position_re{position:relative;}
+@media screen and (max-width: 400px) and (min-width: 221px){
+.list-lg .productList-title{height:17px; line-height:17px; font-size:15px; }
+} 

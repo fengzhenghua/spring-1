@@ -1,0 +1,22 @@
+input.fieldError {
+	border: 1px solid #9E0000 !important;
+    box-shadow: 0 0 5px #FFABB0 inset !important;
+    color: #9E0000 !important;
+   	background:#fffbf5 url(../images/error_input.png) right center no-repeat !important;
+}
+
+select.fieldError {
+	border: 1px solid #9E0000 !important;
+    box-shadow: 0 0 5px #FFABB0 inset !important;
+    color: #9E0000 !important;
+     background:#fffbf5 url(../images/error_select.png) right center no-repeat !important;
+}
+
+label.fieldError {
+	line-height: 23px !important;
+	color: #ffb042 !important;
+	left: -36px;
+	top:-24px;
+	position:relative;
+	width:24px;
+}

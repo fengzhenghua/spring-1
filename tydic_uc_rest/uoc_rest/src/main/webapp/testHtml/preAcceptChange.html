@@ -1,0 +1,1994 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>云销售</title>
+
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../js/webBase/css/tydic.dialog.css">
+<link type="text/css" rel="stylesheet" href="../js/webBase/statics/js/jquerylib/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.css">
+
+<link href="../css/public_pc.css" rel="stylesheet" type="text/css" />
+<link href="../css/pre_accept.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../js/webBase/statics/js/jquerylib/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+<script type="text/javascript" src="../js/webBase/js/tydic.dialog.js"></script>
+
+<script language="javascript" type="text/javascript">
+	$(document).ready(function(){
+		
+		//tab菜单
+		$(".tab_menu").click(function(){
+			//选中
+			$(".tab_menu").children("a").removeClass("current");
+			$(this).children("a").addClass("current");
+			
+			var sub_div = "";
+			sub_div = $(this).children("a").attr("id");
+			
+			//显示对应DIV
+			var sub_cnt = $(".tab_menu").length;
+			for (i=1;i<=sub_cnt;i++) {
+				$("#tab_menu_"+ i + "_sub").hide();
+			}
+			$("#"+sub_div + "_sub").show();
+			
+		});	
+		
+		
+	});
+	
+	function showdiv(popWinId) { 
+		document.getElementById("bg_mask").style.display ="block";
+		document.getElementById(popWinId).style.display ="block";
+	}
+	function hidediv(popWinId) {
+		document.getElementById("bg_mask").style.display ='none';
+		document.getElementById(popWinId).style.display ='none';
+	}
+	
+	function lgwtest() {
+			var dialog=$.dialog({
+			   title:'提示',
+			   content:'该号码未返档，请进行返档操作。',
+			   buttons:[
+					{id:'btn_ok',text:'确定',
+						   onClick:function(){	
+							   dialog.close();
+				
+						   }},  {id:'btn_ok',text:'取消',
+							   onClick:function(){	
+								   dialog.close();
+					
+							   }}
+				   ]
+			}); 
+		};
+	
+	function lgwtestquery() {
+			var dialog=$.dialog({
+			   title:'费用详情',
+			   content:'当月实时话费：<span class="red">56.58</span>元<br>当前可用余额：<span class="red">12.34</span>元<br>普<span class="space3"></span>通<span class="space3"></span>预<span class="space3"></span>存<span class="space3"></span>款：<span class="red">2.34</span>元<br>当月可用分摊款：<span class="red">10.00</span>元<br>当<span class="space8"></span>月<span class="space8"></span>赠<span class="space8"></span>款：<span class="red">0.00</span>元<br>历<span class="space8"></span>史<span class="space8"></span>欠<span class="space8"></span>费：<span class="red">0.00</span>元<br>违<span class="space18"></span>约<span class="space18"></span>金：<span class="red">0.00</span>元',
+			   buttons:[
+					{id:'btn_ok',text:'确定',
+						   onClick:function(){	
+							   dialog.close();
+				
+						   }}
+				   ]
+			}); 
+			$("#dialogClose").hide();
+			
+			
+			//$.message('费用详情','当月实时话费：<span class="red">56.58</span>元<br>当前可用余额：<span class="red">12.34</span>元<br>普<span class="space3"></span>通<span class="space3"></span>预<span class="space3"></span>存<span class="space3"></span>款：<span class="red">2.34</span>元<br>当月可用分摊款：<span class="red">10.00</span>元<br>当<span class="space8"></span>月<span class="space8"></span>赠<span class="space8"></span>款：<span class="red">0.00</span>元<br>历<span class="space8"></span>史<span class="space8"></span>欠<span class="space8"></span>费：<span class="red">0.00</span>元<br>违<span class="space18"></span>约<span class="space18"></span>金：<span class="red">0.00</span>元');
+			
+		};
+	
+	
+</script>
+
+</head>
+
+<body>
+
+<div class="top_new">
+	<div class="top_bg">
+        <div class="top_content">
+        	<img src="../images/banner_income.png"/>              
+            <div class="top_info">
+                <a class="tip" href="javascript:void(0)"><div class="hall_name">营业厅名称：南宁市江南区星光大道34号香格里拉嘉路专营店南宁市江南区星光大道34号香格里拉<span>|</span> 登录人员：巫莹</div>
+                	<span class="tip_info">营业厅名称：南宁市江南区星光大道34号香格里拉嘉路专营店 55555555555555555555555555555<span>|</span> 登录人员：巫莹</span>
+                </a>
+                <a href="javascript:void(0);" class="code_exit">安全退出</a>                
+            </div>
+            <div class="seat text_large24">营业坐席</div>  
+       
+        </div>            
+    </div>
+</div>
+
+<div class="show" style=" *height:auto;">
+        
+    <div class="info">
+    	<div class="padding_blank01"></div>
+        <div class="padding_blank01"></div>
+    	<div class="detail_white">
+            <div class="title_tab">        
+                <span class="text_large24"></span>
+
+                <div class="tab_menu">
+                    <a href="javascript:void(0);" class="" id="tab_menu_1">移网业务</a>
+                </div>
+                <div class="tab_menu">
+                    <a href="javascript:void(0);" class="" id="tab_menu_2">宽带</a>
+                </div>
+                <div class="tab_menu">
+                    <a href="javascript:void(0);" class="" id="tab_menu_3">沃家庭</a>
+                </div>
+                <div class="tab_menu">
+                    <a href="javascript:void(0);" class="" id="tab_menu_4">智慧沃家</a>
+                </div>
+                <div class="tab_menu">
+                    <a href="javascript:void(0);" class="" id="tab_menu_5">变更/返档</a>
+                </div>
+                <div class="tab_menu">
+                    <a href="javascript:void(0);" class="current" id="tab_menu_6">收费</a>
+                </div>
+            </div>   
+            <div class="clear"></div> 
+        </div> 
+        <div class="line_red_top"></div>
+    	<div class="padding_blank10"></div>
+    </div> 
+    
+	<div class="info"  id="tab_menu_1_sub" style="display:none;">
+        <ul class="detail_white">
+        	<li class="list"> 
+            	tab_menu_1_sub
+            </li>
+        </ul>
+        <div class="padding_blank"></div>
+    </div>
+    <div class="info"  id="tab_menu_2_sub" style="display:none;">
+        <ul class="detail_white">
+        	<li class="list"> 
+            	tab_menu_2_sub
+            </li>
+        </ul>
+        <div class="padding_blank"></div>
+    </div>
+    <div class="info"  id="tab_menu_3_sub" style="display:none;">
+        <ul class="detail_white">
+        	<li class="list"> 
+            	tab_menu_3_sub
+            </li>
+        </ul>
+        <div class="padding_blank"></div>
+    </div>
+    <div class="info"  id="tab_menu_4_sub" style="display:none;">
+        <ul class="detail_white">
+        	<li class="list"> 
+            	tab_menu_4_sub
+            </li>
+        </ul>
+        <div class="padding_blank"></div>
+    </div>
+    
+    <!-- 变更/返档 begin -->
+    <div class="info" id="tab_menu_5_sub" style="display:none;">
+    	
+        <!-- 第二层菜单按钮 begin -->
+        <div class="info"  id="seoncd_menus" style="display:block;">
+            <ul class="detail_white">
+                <li class=""> 
+                    <a href="javascript:void(0);" class="btn_white_long">资费/业务包变更</a>
+                    <a href="javascript:void(0);" class="btn_white">补卡</a>
+                    <a href="javascript:void(0);" class="btn_white">预销户</a>
+                    <a href="javascript:void(0);" class="btn_white">长途漫游</a>
+                    <a href="javascript:void(0);" class="btn_white">过户</a>
+                    <a href="javascript:void(0);" class="btn_white">停开机</a>
+                    <a href="javascript:void(0);" class="btn_white">卡解锁</a>
+                    <a href="javascript:void(0);" class="btn_white">积分兑换</a>
+                </li>
+                <div class=" padding_blank10"></div>
+            	<div class="" style=" width:936px; border-bottom:1px solid #CCC;"></div>
+            </ul>
+        </div>
+        <!-- 第二层菜单按钮 end -->
+        
+    	<!-- 查询用户号码 begin -->
+        <div class="title text_big">
+            <span class="text_large24">1</span>查询用户号码
+        </div>
+        
+        <ul class="detail">
+            <div class="padding_blank10"></div>
+            <li class="list padding_no_t">
+                <div class="left">
+                    <div class="left_lable">
+                        <input type="text" placeholder="请输入用户号码" class="input_text width_15"></input>
+                    </div>
+                    <div class="left_data"><a href="javascript:void(0);" class="search_disabled" onclick="lgwtestquery();">查询</a></div>
+                </div>
+            </li>
+
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">用户姓名：</div>
+                    <div class="left_data">张三</div>
+                </div>
+                <div class="right">
+                	<div class="left_lable bold">套餐名称：</div>
+                    <div class="left_data">
+                        
+                        <a class="tip" href="javascript:void(0)">沃3G-基本套餐B（96元）
+                            <span class="tip_info" style=" position:absolute; width:387px; left:0px; top:26px;">
+                            	<span class="bold">沃3G-基本套餐B（96元）</span>
+                                <span class="line_dashed"></span>
+                                <span>套餐月费96元/月，包含国内语音拨打450分钟，国内上网流量80MB。
+                                超出套餐后国内语音拨打0.15元/分钟，国内可视电话拨打0.6元/分钟，流量0.0003元/KB。
+                                赠送可视电话拨打10分钟，12个M，20个T，联通邮箱10GB和来电显示。</span>
+                            </span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">用户号码：</div>
+                    <div class="left_data">18507881234</div>
+                </div>
+                <div class="right">
+                	<div class="left_lable bold">可用余额：</div>
+                    <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                    <a href="javascript:void(0);" onclick="lgwtest();"><div class="input_button">费用详情</div></a>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">号码归属地：</div>
+                    <div class="left_data">南宁</div>
+                </div>
+          
+            </li>
+            
+            <div class="padding_blank10"></div>
+             <li class="text_large">
+                <div class="ok_disabled" disabled="disabled"><a href="javascript:void(0);" disabled="disabled">下一步</a></div>
+            </li>
+            <div class="padding_blank"></div>
+        </ul>
+        
+        <!-- 查询用户号码 end -->
+    
+        <!-- 校验身份证 begin -->
+        <div class="info">
+            <div class="title text_big">
+                <span class="text_large24">2</span>校验用户资料
+            </div>
+            
+            <ul class="detail">
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">过户请校验新机主证件：</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable">选择型号：</div>
+                        <div class="left_data">
+                            <select class="select_down">
+                                <option>通用</option>
+                            </select>
+                        </div>
+                        <a href="javascript:void(0);"><div class="input_button">读取</div></a>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable">校验信息：</div>
+                        <div class="left_data">未校验</div>
+                    </div>
+                </li>
+                
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable">证件类型：</div>
+                        <div class="left_data">身份证</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable">证件号码：</div>
+                        <div class="left_data"></div>
+                    </div>
+                </li>
+                
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable">证件名称：</div>
+                        <div class="left_data">李志强</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable">证件地址：</div>
+                        <div class="left_data">南宁市江南区淡村路12号3栋1单元203房</div>
+                    </div>            
+                </li>
+                
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable">联系电话：</div>
+                        <div class="left_data">
+                            <input type="text" placeholder="18907712316"></input>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable">联系地址：</div>
+                        <div class="left_data">
+                            <input type="text" placeholder="南宁市江南区淡村路12号3栋1单元203房" class="width_32"></input>
+                        </div>
+                    </div>            
+                </li>
+                
+                <li class="list">
+                    <div class="line_dashed_h"></div>
+                </li>
+                
+                <li class="list text_big">
+                    <div class="list_title">本人身份证</div>
+                </li>
+                
+                <li>
+    
+                    <table width="938" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                      <tr>
+                        <td width="468" align="center" style="border-right:1px dashed #CCC;"><table width="340" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                          <tr>
+                            <td height="216" valign="top" class="card_bg_front"><table width="340" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="24"></td>
+                              </tr>
+                            </table>
+                              <table width="340" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="55" height="26"><div style="width:55px;"></div></td>
+                                  <td width="81" height="26" align="left">张三</td>
+                                  <td width="68" height="26"></td>
+                                  <td colspan="2" rowspan="4" valign="top" width="136" align="left"><img src="../images/photo.png" width="94" height="118" class="card_img" /></td>
+                                </tr>
+                                <tr>
+                                  <td width="55" height="26"></td>
+                                  <td height="26" align="left">男</td>
+                                  <td height="26" align="left">汉</td>
+                                </tr>
+                                <tr>
+                                  <td width="55" height="26"></td>
+                                  <td height="26" colspan="2"><table width="149" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td width="57" align="left">1990</td>
+                                      <td width="33" align="left">12</td>
+                                      <td width="59" align="left">12</td>
+                                    </tr>
+                                  </table></td>
+                                </tr>
+                                <tr>
+                                  <td width="55"></td>
+                                  <td height="61" colspan="2" valign="top" class="card_addr"><div style="width:149px;  height:64px; overflow:hidden;">北京市朝阳区北京市朝阳区十八北京市朝阳区北京市朝阳区十八里店乡北京市朝阳区北京市朝阳区十八里店乡北京市朝阳区北京市朝阳区十八里店乡里店乡</div></td>
+                                </tr>
+                              </table>
+                              <table width="340" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="110" height="26">&nbsp;</td>
+                                  <td width="230" align="left">100010199012121136</td>
+                                </tr>
+                              </table>
+                              <table width="340" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td>&nbsp;</td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table></td>
+                        <td width="468" align="center"><table width="340" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                          <tr>
+                            <td height="216" valign="top" class="card_bg_reverse"><table width="340" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                  <td height="148">&nbsp;</td>
+                                </tr>
+                            </table>
+                              <table width="340" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" height="30">&nbsp;</td>
+                                  <td width="205" align="left">北京市公安局</td>
+                                </tr>
+                                <tr>
+                                  <td height="26">&nbsp;</td>
+                                  <td align="left">2010.02.02―2030.02.02</td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                    </table>
+                   
+                </li>         
+                
+                <li class="list"></li>   
+    
+            </ul>
+            <div class="padding_blank10"></div>
+                
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok_disabled left_lable" disabled="disabled" style=" margin-left:10px;"><a href="javascript:void(0);">下一步</a></div>
+                </div>
+            </div>
+            
+            <div class="padding_blank"></div>
+        </div> 
+        <!-- 校验身份证 end -->
+        
+        <!-- 确认订单 begin -->
+        <div class="title text_big">
+            <span class="text_large24">3</span>确认订单
+        </div>
+        
+        <ul class="detail">
+            <div class="padding_blank10"></div>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">用户姓名：</div>
+                    <div class="left_data">张三</div>
+                    <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                </div>
+                <div class="right">
+                	<div class="left_lable bold"><span class="space18"></span>证件号码：</div>
+                    <div class="left_data">11204419541220243X</div>
+                </div>
+            </li>
+            <div class="line_dashed_h"></div>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">手机号码：</div>
+                    <div class="left_data">18507881234</div>
+                    <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                </div>
+            </li>
+            <div class="line_dashed_h"></div>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">业务类型：</div>
+                    <div class="left_data">返档</div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">原<span class="space6"></span>卡<span class="space6"></span>号：</div>
+                    <div class="left_data">8986011339251673556</div>
+                </div>
+            </li>
+            <div class="padding_blank10"></div>
+        </ul>
+        <div class="padding_blank"></div>
+        
+        <div class="text_large">
+            <div class="left ">
+                <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+            </div>
+            <div class="right">
+                <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);">下一步</a></div>
+            </div>
+        </div>
+        <div class="padding_blank10"></div>
+        <!-- 确认订单 end -->
+        
+        <!-- 费用确认 begin -->
+        <div class="info">
+            <div class="title text_big">
+                <span class="text_large24">4</span>费用确认
+            </div>
+        
+            <ul class="detail">
+            	<div class="padding_blank10"></div>
+				<li class="list">
+                	<div class="left" style=" background-color:#FFF; border-left:1px solid #CCC;border-top:1px solid #CCC;border-right:1px solid #CCC;">
+                    	<div class="left_lable bold"><span class=" space12"></span>普通预存款：</div>
+                    </div>
+                </li>
+                <li class="list" style=" padding:0px 0px 0px 0px;">
+                    <div class="left" style=" background-color:#FFF; padding:0px 0px 5px 0px; border-left:1px solid #CCC;border-bottom:1px solid #CCC;border-right:1px solid #CCC;">
+                        <div class="left_lable">
+                            <span class=" space24"></span>应收：<span class="bold">100</span>&nbsp;元
+                        </div>
+                        <div class="right_data">
+                            实收：<input type="text" placeholder="0.00" class="input_text width_8 text_normal_b">&nbsp;元&nbsp;
+                        </div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">
+                            总金额：<span class="red">100.00</span>&nbsp;元
+                        </div>
+
+                    </div>
+                </li>
+                <div class="padding_blank10"></div>
+            </ul>
+		</div> 
+        <!-- 费用确认 end -->
+        
+        <!-- 补卡 begin -->
+        <div class="title text_big">
+            <span class="text_large24">2</span>补卡
+        </div>
+        
+        <ul class="detail">
+            <div class="padding_blank10"></div>
+            <li class="list padding_no_t">
+                <div class="left">
+                    <div class="left_lable bold">用户号码：</div>
+                    <div class="left_data">18507711234</div>
+                </div>
+                <div class="left">
+                	<div class="left_lable bold">用户姓名：</div>
+                    <div class="left_data">张三</div>
+                </div>
+            </li>
+
+            <li class="list">
+                <div class="left">
+                	<div class="left_lable bold">套餐名称：</div>
+                    <div class="left_data">
+                        
+                        <a class="tip" href="javascript:void(0)">沃3G-基本套餐B（96元）
+                            <span class="tip_info" style=" position:absolute; width:387px; left:0px; top:26px;">
+                            	<span class="bold">沃3G-基本套餐B（96元）</span>
+                                <span class="line_dashed"></span>
+                                <span>套餐月费96元/月，包含国内语音拨打450分钟，国内上网流量80MB。
+                                超出套餐后国内语音拨打0.15元/分钟，国内可视电话拨打0.6元/分钟，流量0.0003元/KB。
+                                赠送可视电话拨打10分钟，12个M，20个T，联通邮箱10GB和来电显示。</span>
+                            </span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="right">
+                	<div class="left_lable bold">可用余额：</div>
+                    <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">原<span class="space6"></span>卡<span class="space6"></span>号：</div>
+                    <div class="left_data">8986011339251673556</div>
+                </div>
+            </li>
+            <div class="line_dashed_h"></div>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">请点击下一步并校验身份证后在订单上进行读写卡</div>
+                </div>
+            </li>
+            
+            <div class="padding_blank10"></div>
+        </ul>
+        <div class="padding_blank"></div>
+        
+        <div class="text_large">
+            <div class="left ">
+                <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+            </div>
+            <div class="right">
+                <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);" >下一步</a></div>
+            </div>
+        </div>
+        <div class="padding_blank10"></div>
+        <!-- 补卡 end -->
+        
+        <!-- 读写卡 begin -->
+        <div class="info">
+            <div class="title text_big">
+                <span class="text_large24">7</span>USIM卡
+            </div>
+            
+            <ul class="detail">
+            	<div class="padding_blank10"></div>
+                <li class="list_white">
+                    <input type="text" placeholder="请读卡" class="input_text width_32"></input>
+                </li>
+                 <li class="list_white">
+                    <div class="left">
+                        <div class="left_lable">
+                            <a href="javascript:void(0)" onClick=""><div class="input_button_disabled">读  卡</div></a>
+                        </div>
+                        <div class="left_data">
+                            <a href="javascript:void(0)" onClick=""><div class="input_button">一键写卡</div></a>
+                        </div>
+                    </div>
+                </li>
+                <div class="padding_blank10"></div>
+            </ul>
+        </div> 
+        <!-- 读写卡 end -->
+        
+        <div class="info" style="display:block;">
+    	<!-- 长途漫游 begin -->
+            <div class="title text_big">
+                <span class="text_large24">2</span>长途漫游
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list padding_no_t">
+                    <div class="left">
+                        <div class="left_lable bold">用户号码：</div>
+                        <div class="left_data">18507711234</div>
+                    </div>
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                    </div>
+                </li>
+    
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">用户VIP级别：</div>
+                        <div class="left_data">一星忠诚用户</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">可用余额：</div>
+                        <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">当前通话级别：</div>
+                        <div class="left_data">国内长途</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">当前漫游状态：</div>
+                        <div class="left_data">国内漫游</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">新<span class="space3"></span>通<span class="space3"></span>话<span class="space3"></span>级<span class="space3"></span>别：</div>
+                        <div class="left_data">
+                            <select class="select_down">
+                                <option>国内长途</option>
+                                <option>市话</option>
+                                <option>国际及港澳台长途</option>
+                            </select>
+                        </div>
+                        <a href="javascript:void(0);"><div class="input_button">确 定</div></a>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">新<span class="space3"></span>漫<span class="space3"></span>游<span class="space3"></span>状<span class="space3"></span>态：</div>
+                        <div class="left_data">
+                            <select class="select_down">
+                                <option>国际及港澳台漫游</option>
+                                <option>省内漫游</option>
+                                <option>无漫游</option>
+                            </select>
+                        </div>
+                        <a href="javascript:void(0);"><div class="input_button">确 定</div></a>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">漫游失效时间：</div>
+                        <div class="left_data"></div>
+                    </div>
+    
+                </li>
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);" >下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank10"></div>
+            <!-- 长途漫游 end -->
+            
+            <!-- 确认订单 begin -->
+            <div class="title text_big">
+                <span class="text_large24">4</span>确认订单
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold"><span class="space18"></span>证件号码：</div>
+                        <div class="left_data">11204419541220243X</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">手机号码：</div>
+                        <div class="left_data">18507881234</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">业务类型：</div>
+                        <div class="left_data">长途漫游</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">当前通话级别：</div>
+                        <div class="left_data">国内长途</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">当前漫游状态：</div>
+                        <div class="left_data">国内漫游</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">新<span class="space3"></span>通<span class="space3"></span>话<span class="space3"></span>级<span class="space3"></span>别：</div>
+                        <div class="left_data">国际及港澳台长途</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">新<span class="space3"></span>漫<span class="space3"></span>游<span class="space3"></span>状<span class="space3"></span>态：</div>
+                        <div class="left_data">国际及港澳台漫游</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">生<span class="space8"></span>效<span class="space8"></span>方<span class="space8"></span>式：</div>
+                        <div class="left_data">立即生效</div>
+                    </div>
+    
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">漫游失效时间：</div>
+                        <div class="left_data">2016年8月31日</div>
+                    </div>
+    
+                </li>
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);">下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank10"></div>
+            <!-- 确认订单 end -->
+            
+        </div>
+        
+        <!-- 积分兑换区域 begin -->
+        <div class="info" style="display:block;">
+            <!-- 积分兑换 begin -->
+            <div class="title text_big">
+                <span class="text_large24">2</span>积分兑换
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list padding_no_t">
+                    <div class="left">
+                        <div class="left_lable bold">用户号码：</div>
+                        <div class="left_data">18507711234</div>
+                    </div>
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                    </div>
+                </li>
+    
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">当前积分：</div>
+                        <div class="left_data">1284分</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">可用余额：</div>
+                        <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">可兑换项目</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left width_20">
+                        <div class="left_lable">500MB省内闲时流量</div>
+                    </div>
+                    <div class="left width_15">
+                        <div class="left_data width_8">486积分</div>
+                        <div class="left_data"><div class="radio_checked"></div></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left width_20">
+                        <div class="left_lable">1GB省内闲时流量</div>
+                    </div>
+                    <div class="left width_15">
+                        <div class="left_data width_8">86积分</div>
+                        <div class="left_data"><div class="radio"></div></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left width_20">
+                        <div class="left_lable">本地市话30分钟</div>
+                    </div>
+                    <div class="left width_15">
+                        <div class="left_data width_8">286积分</div>
+                        <div class="left_data"><div class="radio"></div></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left width_20">
+                        <div class="left_lable">国内点对点短信20条</div>
+                    </div>
+                    <div class="left width_15">
+                        <div class="left_data width_8">286积分</div>
+                        <div class="left_data"><div class="radio"></div></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <span class="red">注：兑换项目次月生效</span>
+                    </div>
+                </li>
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);" >下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank10"></div>
+            <!-- 积分兑换 end -->
+            
+            <!-- 确认订单 begin -->
+            <div class="title text_big">
+                <span class="text_large24">4</span>确认订单
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold"><span class="space18"></span>证件号码：</div>
+                        <div class="left_data">11204419541220243X</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">手机号码：</div>
+                        <div class="left_data">18507881234</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">业务类型：</div>
+                        <div class="left_data">积分兑换</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">兑换项目：</div>
+                        <div class="left_data">
+                            <div class="left width_18">
+                                <div class="left_lable">500MB省内闲时流量</div>
+                            </div>
+                            <div class="left width_15">
+                                <div class="left_data width_8">486分</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">生效方式：</div>
+                        <div class="left_data">次月生效</div>
+                    </div>
+    
+                </li>
+    
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);">下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank10"></div>
+            <!-- 积分兑换区域 end -->
+            
+        </div>
+        <!-- 积分兑换 end -->
+        
+        <!-- 停开机区域 begin -->
+        <div class="info" style="display:block;">
+            <!-- 积分兑换 begin -->
+            <div class="title text_big">
+                <span class="text_large24">2</span>停开机
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list padding_no_t">
+                    <div class="left">
+                        <div class="left_lable bold">用户号码：</div>
+                        <div class="left_data">18507711234</div>
+                    </div>
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                    </div>
+                </li>
+    
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">当前状态：</div>
+                        <div class="left_data">正常在用</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">可用余额：</div>
+                        <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">挂<span class="space24"></span><span class="space24"></span>失：</div>
+                        <div class="left_data">
+                            <div class="switch_left">挂失办理</div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">停<span class="space8"></span>机<span class="space8"></span>保<span class="space8"></span>号：</div>
+                        <div class="left_data">
+                            <div class="switch_right switch_clicked">停机保号</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">限制呼出开机：</div>
+                        <div class="left_data">
+                            <div class="switch_left switch_clicked">限制呼出</div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">停机保号续停：</div>
+                        <div class="left_data">
+                            <div class="switch_right">保号续停</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">欠费停机开机：</div>
+                        <div class="left_data">
+                            <div class="switch_left">欠费停机</div>
+                        </div>
+                    </div>
+                </li>
+    
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);" >下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank10"></div>
+            <!-- 积分兑换 end -->
+            
+            <!-- 确认订单 begin -->
+            <div class="title text_big">
+                <span class="text_large24">4</span>确认订单
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold"><span class="space18"></span>证件号码：</div>
+                        <div class="left_data">11204419541220243X</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">手机号码：</div>
+                        <div class="left_data">18507881234</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">业务类型：</div>
+                        <div class="left_data">停开机</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">办理业务：</div>
+                        <div class="left_data">停机保号</div>
+                    </div>
+    
+                </li>
+    
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok left_lable" style=" margin-left:10px;"><a href="javascript:void(0);">下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank10"></div>
+            <!-- 停开机区域 end -->
+            
+        </div>
+        <!-- 积分兑换 end -->
+        
+        <!-- 资费/业务包变更 begin -->
+        <div class="info">
+            <div class="title text_big">
+                <span class="text_large24">2</span>资费/业务包变更
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">用户号码：</div>
+                        <div class="left_data">18507881234</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">当前资费：</div>
+                        <div class="left_data">
+                            
+                            <a class="tip" href="javascript:void(0)">沃3G-基本套餐B（96元）
+                                <span class="tip_info" style=" position:absolute; width:387px; left:0px; top:26px;">
+                                    <span class="bold">沃3G-基本套餐B（96元）</span>
+                                    <span class="line_dashed"></span>
+                                    <span>套餐月费96元/月，包含国内语音拨打450分钟，国内上网流量80MB。
+                                    超出套餐后国内语音拨打0.15元/分钟，国内可视电话拨打0.6元/分钟，流量0.0003元/KB。
+                                    赠送可视电话拨打10分钟，12个M，20个T，联通邮箱10GB和来电显示。</span>
+                                </span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">可用余额：</div>
+                        <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">已参与活动：</div>
+                        <div class="left_data">战略终端合约20160427_沃3G-学生套餐（66元）（预存）</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                
+                <li class="list padding_no_t">
+                    <div class="left">
+                        <div class="left_lable bold">选择新资费：
+                            <input type="text" placeholder="请输入用户号码" class="input_text width_15"></input>
+                        </div>
+                        <div class="left_data"><a href="javascript:void(0);" class="search" onClick="showdiv('fee_search')">查询</a></div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">业务包：</div>
+                        <a href="javascript:void(0);" onclick="showdiv('package_search');"><div class="input_button">变更业务包</div></a>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">生<span class="space4"></span>效<span class="space4"></span>方<span class="space4"></span>式：</div>
+                        <div class="left_data">
+                            <span class="space4"></span><select class="select_down width_15">
+                                <option>次月生效</option>
+                                <option>次日生效</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="right" style="height:auto; line-height:16px;">
+                        <div class="left_lable bold"><span class="space36"></span><span class="space16"></span>新增业务包</div>
+                        <div class="clear"></div>
+                        <div><span class="space36"></span><span class="space16"></span>3G国内流量包-10元100M</div>
+                        <div ><span class="space36"></span><span class="space16"></span>国内流量叠加包-10元100M</div>
+    
+                        <div class="left_lable bold"><span class="space36"></span><span class="space16"></span>取消业务包</div>
+                        <div class="clear"></div>
+                        <div><span class="space36"></span><span class="space16"></span>上网流量短信提醒-按周</div>
+    
+                    </div>
+                </li>
+    
+                <div class="padding_blank10"></div>
+            </ul>
+            
+            <!-- 确认订单 begin -->
+            <div class="title text_big">
+                <span class="text_large24">4</span>确认订单
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold"><span class="space18"></span>证件号码：</div>
+                        <div class="left_data">11204419541220243X</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">手机号码：</div>
+                        <div class="left_data">18507881234</div>
+                        <a href="javascript:void(0);"><div class="input_button float_right">修 改</div></a>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">业务类型：</div>
+                        <div class="left_data">资费/业务包变更</div>
+                    </div>
+                    <div class="right" style="height:auto; line-height:16px;">
+                        <div class="left_lable bold">新增业务包</div>
+                        <div class="clear"></div>
+                        <div>3G国内流量包-10元100M</div>
+                        <div>国内流量叠加包-10元100M</div>
+                        
+                        <div class="left_lable bold">取消业务包</div>
+                        <div class="clear"></div>
+                        <div>上网流量短信提醒-按周</div>
+            
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">原资费名称：</div>
+                        <div class="left_data">沃3G-基本套餐B（96元）</div>
+                    </div>
+                    <div class="right"></div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">新资费名称：</div>
+                        <div class="left_data">沃3G-基本套餐A（186元）</div>
+                    </div>
+                    <div class="right">
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">生<span class="space4"></span>效<span class="space4"></span>方<span class="space4"></span>式：</div>
+                        <div class="left_data">次月生效</div>
+                    </div>
+                    <div class="right"></div>
+                </li>
+                <li class="list">
+                </li>
+    
+                <div class="padding_blank10"></div>
+            </ul>
+            
+            <div class="padding_blank"></div>
+            <div class="text_large">
+                <div class="left ">
+                    <div class="ok right_data" style=" margin-right:10px;"><a href="javascript:void(0);" onclick="showdiv('package_flow_search');">上一步</a></div>
+                </div>
+                <div class="right">
+                    <div class="ok_disabled left_lable" style=" margin-left:10px;"><a href="javascript:void(0);">下一步</a></div>
+                </div>
+            </div>
+            <div class="padding_blank"></div>
+        </div>
+        <!-- 资费/业务包变更 end -->
+        
+        <div class="info" style="display:block;">
+    	<!-- 卡解锁 begin -->
+            <div class="title text_big">
+                <span class="text_large24">2</span>卡解锁
+            </div>
+            
+            <ul class="detail">
+                <div class="padding_blank10"></div>
+                <li class="list padding_no_t">
+                    <div class="left">
+                        <div class="left_lable bold">用户号码：</div>
+                        <div class="left_data">18507711234</div>
+                    </div>
+                    <div class="left">
+                        <div class="left_lable bold">用户姓名：</div>
+                        <div class="left_data">张三</div>
+                    </div>
+                </li>
+    
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">当前状态：</div>
+                        <div class="left_data">正常在用</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">可用余额：</div>
+                        <div class="left_data"><span class="red">12.34</span>&nbsp;元</div>
+                    </div>
+                </li>
+                <div class="line_dashed_h"></div>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">USIM卡号：</div>
+                        <div class="left_data">8986011337597015759</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">PUK1：</div>
+                        <div class="left_data">83747214</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">IMSI号：</div>
+                        <div class="left_data">460017767316763</div>
+                    </div>
+                    <div class="right">
+                        <div class="left_lable bold">PUK2：</div>
+                        <div class="left_data">31404466</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">PIN1：</div>
+                        <div class="left_data">1234</div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <div class="left_lable bold">PIN2：</div>
+                        <div class="left_data">33107431</div>
+                    </div>
+                </li>
+                <div class="padding_blank10"></div>
+            </ul>
+            <div class="padding_blank"></div>
+            
+             <li class="text_large">
+                <div class="ok"><a href="javascript:void(0);" disabled="disabled">确 认</a></div>
+            </li>
+            <div class="padding_blank"></div>
+            <!-- 卡解锁 end -->
+        </div>
+        
+    </div>
+    <!-- 变更/返档 end -->
+    
+    
+    
+    
+    <div class="info"  id="tab_menu_6_sub" style="display:block;">
+    	<!-- 第二层菜单按钮 begin -->
+        <div class="info"  id="seoncd_menus" style="display:block;">
+            <ul class="detail_white">
+                <li class=""> 
+                    <a href="javascript:void(0);" class="btn_white btn_white_cur">话费充值</a>
+                    <a href="javascript:void(0);" class="btn_white">生活缴费</a>
+                </li>
+                <div class=" padding_blank10"></div>
+            	<div class="" style=" width:936px; border-bottom:1px solid #CCC;"></div>
+            </ul>
+        </div>
+        <!-- 第二层菜单按钮 end -->
+        
+    	<!-- 话费充值 begin -->
+        <div class="title text_big">
+        	<span class="text_large24">1</span>话费充值
+        </div>
+        
+        <div class="padding_blank"></div>
+            
+        <div class="charge_area">
+            <div class="charge_img"></div>
+            <div class="charge_vertical"></div>
+                <ul>
+                    <li class="list left" style=" width:454px; height:36px;">
+                        <div class="left_lable">
+                            <div class="left_lable text_large bold">缴<span class="space4"></span>费<span class="space4"></span>号<span class="space4"></span>码：</div>
+                            <div class="left_data">
+                                <input type="text" class="width_25 text_large" placeholder="请输入缴费号码" value=""></input>
+                            </div>
+                            <div class="left_data"><a href="javascript:void(0);" class="search">查询</a></div>
+                        </div>
+                    </li>
+                    
+                    <li class="list left" style=" width:454px; height:36px;">
+                        <div class="left_lable">
+                            <div class="left_lable text_large bold">姓<span class="space36"></span><span class="space9"></span>名：</div>
+                            <div class="left_data text_large">马涌富</div>
+                        </div>
+                    </li>
+
+                    <li class="list left" style=" width:454px; height:36px;">
+                        <div class="left_lable">
+                            <div class="left_lable text_large bold">归属地：</div>
+                            <div class="left_data text_large">南宁</div>
+                        </div>
+                    </li>
+                    
+                    <li class="list left" style=" width:454px; height:36px;">
+                        <div class="left_lable">
+                            <div class="left_lable text_large bold">资费名称：</div>
+                            <div class="left_data text_large">4G全国套餐-76元（新）</div>
+                        </div>
+                    </li>
+                    
+                    <li class="list left" style=" width:454px; height:36px;">
+                        <div class="left_lable">
+                            <div class="left_lable text_large bold">余<span class="space36"></span><span class="space9"></span>额：</div>
+                            <div class="left_data text_large"><span class="red">93.64</span>元</div>
+                        </div>
+                        <div class="right">
+                            <div class="right_data" style=" margin-right:35px; font-size:14px;">
+                                <a href="javascript:void(0);"><div class="input_button">费用详情</div></a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="list left" style=" width:454px; height:36px;">
+                        <div class="left_lable">
+                            <div class="left_lable text_large bold">金<span class="space4"></span>额<span class="space4"></span>(<span class="space4"></span>元<span class="space4"></span>)：</div>
+                            <div class="left_data">
+                                <input type="number" class="width_25 text_large" placeholder="请输入缴费金额，单位元"></input>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    
+                </ul>
+                <div class="clear"></div>
+                <div class="charge_line"></div>
+				
+                <ul>                
+                    <li class="list left text_large bold" style=" width:632px; height:36px; line-height:36px;"><span class="space18"></span>支付方式选择</li>
+                    
+                    <li class="list left" style=" width:632px; height:36px; *height:100px;">
+                        <div class="charge_pay_type">
+	                        <div class="radio_checked" style="height:40px;"></div>
+                            <img src="../images/cash_receive.png" class="left_data" />
+                        	<div class="left_data">现金支付</div>
+                        </div>
+                        
+                        <div class="charge_pay_type">
+	                        <div class="radio" style="height:40px;"></div>
+                            <img src="../images/union_pay.png" class="left_data" />
+                        	<div class="left_data">电脑端蓝牙POS机刷卡</div>
+                        </div>
+                        
+                        <div class="charge_pay_type">
+	                        <div class="radio" style="height:40px;"></div>
+                            <img src="../images/ali_pay.png" class="left_data" />
+                        	<div class="left_data">支付宝扫码支付</div>
+                        </div>
+                        
+                        <div class="charge_pay_type">
+	                        <div class="radio" style="height:40px;"></div>
+                            <img src="../images/wechat_pay.png" class="left_data" />
+                        	<div class="left_data">微信扫码支付</div>
+                        </div>
+                        
+                        <div class="charge_pay_type">
+	                        <div class="radio" style="height:40px;"></div>
+                            <img src="../images/iapple_pay.png" class="left_data" />
+                        	<div class="left_data">苹果支付</div>
+                        </div>
+                        
+                    </li>
+                    
+                    <div class="padding_blank"></div>
+                    <div class="padding_blank"></div>
+                </ul>
+                <div class="clear"></div>
+                <div class="charge_line"></div>
+                <div class="padding_blank10"></div>
+                <div class="text_large">
+                    <div class="text_center">
+                        <span class="ok"><a href="javascript:void(0)" >收 费</a></span>
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div class="padding_blank10"></div>
+            
+            <ul>
+            	<li class="list" style=" width:632px; height:140px;">
+                    <div class="alipayQR">
+                        <img src="../images/alipay_sample.png" />
+                    </div>
+                    <div class=" float_left text_large bold" style=" margin-left:24px;line-height:35px;">支付宝扫码支付注意事项</div>
+                    <div class="float_left text_large" style=" margin-left:24px; width:340px; line-height:28px;">第一个支付宝账户扫码后来未进行支付，切换第二个用户扫码支付时需刷新一下网页重新生成二维码，否则扫码会报错。</div>
+                </li>
+            </ul>
+            
+            <div class="padding_blank"></div>
+            <ul class="detail_white">
+                <div class="" style=" width:936px; border-bottom:1px solid #CCC;"></div>
+                <div class="title text_big">
+                    <span class="text_large24">2</span>纸质收据/电子发票
+                </div>
+                <div class="padding_blank10"></div>
+                <div class="" style=" width:936px; border-bottom:1px solid #CCC;"></div>
+            </ul>
+            <!-- 话费充值 end -->
+            
+        </div>
+        
+        <div class="padding_blank"></div>
+    </div>
+        
+    <div class="clear"></div>
+	<div class="padding_blank"></div>
+	
+</div>
+
+<div class="bg_mask" id="bg_mask">
+	<iframe class="bg_mask_iframe"> </iframe>
+</div>
+
+
+<!-- 弹出窗口 资费 begin -->
+<div class="pop_win" id="fee_search" style="display:none;">
+    <div class="msgbox">
+    	<a href="javascript:hidediv('fee_search');"><div class="msgbox_close"></div></a>
+        <ul class="text_big" style=" padding:10px 0px 10px 0px;">
+            <li><span class="bold">资费</span></li>
+        </ul>
+        <div class="band_phone_small">
+            <input type="text" class="search_input_small" placeholder="请输入关键字进行查询"></input>
+            <a href="javascript:void(0)" class="search" onClick="" style="display:inline-block;">搜索</a>
+        </div>
+    	
+        <div class="scroll_v" style="height:300px; padding-right:40px;">
+            <ul>            
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">000沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999;">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio_checked"></div>
+                    </div>
+                    
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">111沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999;">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px;border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">2222沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                	<div class="left">
+                    	<a class="tip" href="javascript:void(0)">hlhlhl沃派-流量卡15元（新）
+                        	<span class="tip_info width_32" style="z-index:9999">沃派-流量卡15元（新）[月租15元，炫铃5元/月，2G流量王-10元包1G(闲时省内流量)。套餐内包含来电显示和200MB国内流量，超出套餐外流量1元/MB。本地通话资费：拨打本地电话0.15元/分钟，直接拨打国内长途0.15元/分钟，接听电话免费。国内漫游资费：直接拨打国内电话0.60元/分钟，接听0.40元/分钟。当月每使用1MB流量次月月初赠送1分钟本地拨打国内电话时长，其中入网首月额外加送200分钟本地拨打国内电话时长（下半月入网套餐月费及赠送折半）。以上通话不含港澳台电话，其他按国家标准执行。]
+                            </span>
+                        </a>
+                    </div>
+                    <div class="right_data"> 
+                            <div class="radio" onclick="tariffSelect(this)" data="{&quot;product_id&quot;:&quot;G5014&quot;,&quot;ofr_name&quot;:null,&quot;ofr_desc&quot;:null,&quot;product_name&quot;:&quot;沃派-流量卡15元（新）&quot;,&quot;product_desc&quot;:&quot;沃派-流量卡15元（新）[月租15元，炫铃5元/月，2G流量王-10元包1G(闲时省内流量)。套餐内包含来电显示和200MB国内流量，超出套餐外流量1元/MB。本地通话资费：拨打本地电话0.15元/分钟，直接拨打国内长途0.15元/分钟，接听电话免费。国内漫游资费：直接拨打国内电话0.60元/分钟，接听0.40元/分钟。当月每使用1MB流量次月月初赠送1分钟本地拨打国内电话时长，其中入网首月额外加送200分钟本地拨打国内电话时长（下半月入网套餐月费及赠送折半）。以上通话不含港澳台电话，其他按国家标准执行。]&quot;,&quot;market_price&quot;:&quot;0.00&quot;,&quot;bss_product&quot;:&quot;G5014&quot;,&quot;tele_type&quot;:&quot;2G&quot;,&quot;product_type&quot;:&quot;2G&quot;,&quot;ofr_id&quot;:&quot;100000011530&quot;,&quot;ofr_type&quot;:&quot;200&quot;,&quot;activity_flag&quot;:null,&quot;model&quot;:null,&quot;activity_id&quot;:null,&quot;activity_type&quot;:null,&quot;activity_name&quot;:null,&quot;activity_type_name&quot;:null,&quot;deal_flag&quot;:null,&quot;eff_flag&quot;:null,&quo                             t;eff_date&quot;:null,&quot;exp_date&quot;:null,&quot;prepay_flag&quot;:&quot;1&quot;}" id="G5014"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                	<div class="left">
+                    	<a class="tip" href="javascript:void(0)">hlhlh2沃派-流量卡15元（新）
+                        	<span class="tip_info width_32" style="z-index:9999">沃派-流量卡15元（新）[月租15元，炫铃5元/月，2G流量王-10元包1G(闲时省内流量)。套餐内包含来电显示和200MB国内流量，超出套餐外流量1元/MB。本地通话资费：拨打本地电话0.15元/分钟，直接拨打国内长途0.15元/分钟，接听电话免费。国内漫游资费：直接拨打国内电话0.60元/分钟，接听0.40元/分钟。当月每使用1MB流量次月月初赠送1分钟本地拨打国内电话时长，其中入网首月额外加送200分钟本地拨打国内电话时长（下半月入网套餐月费及赠送折半）。以上通话不含港澳台电话，其他按国家标准执行。]
+                            </span>
+                        </a>
+                    </div>
+                    <div class="right_data"> 
+                        <div class="radio" onclick="tariffSelect(this)" data="{&quot;product_id&quot;:&quot;G5014&quot;,&quot;ofr_name&quot;:null,&quot;ofr_desc&quot;:null,&quot;product_name&quot;:&quot;沃派-流量卡15元（新）&quot;,&quot;product_desc&quot;:&quot;沃派-流量卡15元（新）[月租15元，炫铃5元/月，2G流量王-10元包1G(闲时省内流量)。套餐内包含来电显示和200MB国内流量，超出套餐外流量1元/MB。本地通话资费：拨打本地电话0.15元/分钟，直接拨打国内长途0.15元/分钟，接听电话免费。国内漫游资费：直接拨打国内电话0.60元/分钟，接听0.40元/分钟。当月每使用1MB流量次月月初赠送1分钟本地拨打国内电话时长，其中入网首月额外加送200分钟本地拨打国内电话时长（下半月入网套餐月费及赠送折半）。以上通话不含港澳台电话，其他按国家标准执行。]&quot;,&quot;market_price&quot;:&quot;0.00&quot;,&quot;bss_product&quot;:&quot;G5014&quot;,&quot;tele_type&quot;:&quot;2G&quot;,&quot;product_type&quot;:&quot;2G&quot;,&quot;ofr_id&quot;:&quot;100000011530&quot;,&quot;ofr_type&quot;:&quot;200&quot;,&quot;activity_flag&quot;:null,&quot;model&quot;:null,&quot;activity_id&quot;:null,&quot;activity_type&quot;:null,&quot;activity_name&quot;:null,&quot;activity_type_name&quot;:null,&quot;deal_flag&quot;:null,&quot;eff_flag&quot;:null,&quo                             t;eff_date&quot;:null,&quot;exp_date&quot;:null,&quot;prepay_flag&quot;:&quot;1&quot;}" id="G5014"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">33333沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">4444沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">4444沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">4444沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">4444沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                        <a class="tip" href="javascript:void(0)">4444沃3G-基本套餐A（66）
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="radio"></div>
+                    </div>
+                </li>
+				<li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left">
+                    </div>
+                    <div class="right_data">
+                    </div>
+                </li>
+            </ul>
+		</div>
+        
+        <div class="line_dashed_h"></div>
+
+        <ul>
+            <li class="center">
+                <a href="javascript:void(0)" onClick="hidediv('fee_search');"><div class="input_button">确 定</div></a>
+                <a href="javascript:void(0)" onClick="hidediv('fee_search')"><div class="input_button">返 回</div></a>
+            </li>
+        </ul>    
+        
+    </div>
+</div>
+<!-- 弹出窗口 资费 end -->
+
+<!-- 弹出窗口 业务包 begin -->
+<div class="pop_win" id="package_search" style="display:none;">
+    <div class="msgbox">
+    	<a href="javascript:hidediv('package_search');"><div class="msgbox_close"></div></a>
+        <ul class="text_big" style=" padding:10px 0px 10px 0px;">
+            <li><span class="bold">业务包</span></li>
+        </ul>
+        <div class="band_phone_small">
+            <input type="text" class="search_input_small" placeholder="请输入关键字进行查询"></input>
+            <a href="javascript:void(0)" class="search" onClick="" style="display:inline-block;">搜索</a>
+        </div>
+    	
+        <div class="scroll_v" style="height:300px; padding-right:40px;">
+            <ul>
+            	<li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left bold">
+                        当前业务包
+                    </div>
+                </li>
+                <li class="list" style="width:450px; height:52px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px; ">
+                        <a class="tip" href="javascript:void(0)">3G-正式商用基本套餐98（含语音240分钟、可视电话10分钟、12M20T、流量300M）
+                            <span class="tip_info width_32" style="z-index:9999;">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        <a class="tip" href="javascript:void(0)">普通用户上网指令特服（HSPA+）
+                            <span class="tip_info width_32" style="z-index:9999;">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="select_delete"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px;border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        <a class="tip" href="javascript:void(0)">3G用户开通4G网络
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="select_delete"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                	<div class="left" style="width:420px;">
+                    	<a class="tip" href="javascript:void(0)">手机邮箱6元版
+                        	<span class="tip_info width_32" style="z-index:9999">沃派-流量卡15元（新）[月租15元，炫铃5元/月，2G流量王-10元包1G(闲时省内流量)。套餐内包含来电显示和200MB国内流量，超出套餐外流量1元/MB。本地通话资费：拨打本地电话0.15元/分钟，直接拨打国内长途0.15元/分钟，接听电话免费。国内漫游资费：直接拨打国内电话0.60元/分钟，接听0.40元/分钟。当月每使用1MB流量次月月初赠送1分钟本地拨打国内电话时长，其中入网首月额外加送200分钟本地拨打国内电话时长（下半月入网套餐月费及赠送折半）。以上通话不含港澳台电话，其他按国家标准执行。]
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                	<div class="left" style="width:420px;">
+                    	<a class="tip" href="javascript:void(0)">GSM来电转移
+                        	<span class="tip_info width_32" style="z-index:9999">沃派-流量卡15元（新）[月租15元，炫铃5元/月，2G流量王-10元包1G(闲时省内流量)。套餐内包含来电显示和200MB国内流量，超出套餐外流量1元/MB。本地通话资费：拨打本地电话0.15元/分钟，直接拨打国内长途0.15元/分钟，接听电话免费。国内漫游资费：直接拨打国内电话0.60元/分钟，接听0.40元/分钟。当月每使用1MB流量次月月初赠送1分钟本地拨打国内电话时长，其中入网首月额外加送200分钟本地拨打国内电话时长（下半月入网套餐月费及赠送折半）。以上通话不含港澳台电话，其他按国家标准执行。]
+                            </span>
+                        </a>
+                    </div>
+                    <div class="right_data"> 
+                        <div class="select_delete" onclick="tariffSelect(this)" data=""></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left bold">新增业务包
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        <a class="tip" href="javascript:void(0)">3G国内流量包-10元100M
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="select_delete"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        <a class="tip" href="javascript:void(0)">国内流量叠加包-10元100M
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="unselect"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left bold">取消业务包
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        <a class="tip" href="javascript:void(0)">上网流量短信提醒-按周
+                            <span class="tip_info width_32" style="z-index:9999">点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免点击可申请优惠减免</span>
+                        </a>
+                    </div>
+                    <div class="right_data">
+                        <div class="select_delete"></div>
+                    </div>
+                </li>
+                
+				<li class="list" style="width:450px;">
+                    <div class="left">
+                    </div>
+                    <div class="right_data">
+                    </div>
+                </li>
+            </ul>
+		</div>
+        
+        <div class="line_dashed_h"></div>
+
+        <ul>
+            <li class="center">
+                <a href="javascript:void(0)" onClick="hidediv('package_search');"><div class="input_button">确 定</div></a>
+                <a href="javascript:void(0)" onClick="hidediv('package_search')"><div class="input_button">返 回</div></a>
+            </li>
+        </ul>    
+        
+    </div>
+</div>
+<!-- 弹出窗口 业务包 end -->
+
+<!-- 弹出窗口 流量包 begin -->
+<div class="pop_win" id="package_flow_search" style="display:none;">
+    <div class="msgbox">
+    	<a href="javascript:hidediv('package_flow_search');"><div class="msgbox_close"></div></a>
+        <ul class="text_big" style=" padding:10px 0px 10px 0px;">
+            <li><span class="bold">业务包</span></li>
+        </ul>
+        <div class="band_phone_small">
+            <input type="text" class="search_input_small" placeholder="请输入关键字进行查询"></input>
+            <a href="javascript:void(0)" class="search" onClick="" style="display:inline-block;">搜索</a>
+        </div>
+    	
+        <div class="scroll_v" style="height:300px; padding-right:40px;">
+            <ul>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px; ">
+                        3G国内流量包-10元100M
+                    </div>
+                    <div class="right_data">
+                        <div class="btn_checked"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        3G国内流量包-20元300M
+                    </div>
+                    <div class="right_data">
+                        <div class="btn_check"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px;border-bottom:1px solid #CCC;">
+                    <div class="left" style="width:420px;">
+                        3G国内流量包-30元500M
+                    </div>
+                    <div class="right_data">
+                        <div class="btn_check"></div>
+                    </div>
+                </li>
+                <li class="list" style="width:450px; border-bottom:1px solid #CCC;">
+                	<div class="left" style="width:420px;">
+                    	国内流量叠加包-10元100M
+                    </div>
+                    <div class="right_data">
+                        <div class="btn_checked"></div>
+                    </div>
+                </li>
+                
+				<li class="list" style="width:450px;">
+                    <div class="left">
+                    </div>
+                    <div class="right_data">
+                    </div>
+                </li>
+            </ul>
+		</div>
+        
+        <div class="line_dashed_h"></div>
+
+        <ul>
+            <li class="center">
+                <a href="javascript:void(0)" onClick="hidediv('package_flow_search');"><div class="input_button">确 定</div></a>
+                <a href="javascript:void(0)" onClick="hidediv('package_flow_search')"><div class="input_button">返 回</div></a>
+            </li>
+        </ul>    
+        
+    </div>
+</div>
+<!-- 弹出窗口 流量包 end -->
+
+<!-- 弹出窗口 缴费成功 begin 2016-8-31 -->
+<div class="pop_win" id="fee_info" style="display:none">
+    <div class="msgbox">
+    	<div class="padding_blank10"></div>
+        <div class="float_middle text_large bold">
+            费用详情
+        </div>
+        <div class="padding_blank10"></div>
+        
+        <div class="line_dashed_h"></div>
+        <ul class="text_big" style=" padding:10px 0px 10px 50px;">
+        	<!--
+        	<li>
+                <div style="float:left;  padding-left:124px; text-align:left; font-size:14px;">
+                    当月实时话费：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">56.58</span>元
+                </div>
+            </li>
+            <li>
+                <div style="float:left;  padding-left:124px; text-align:left; font-size:14px;">
+                    当前可用余额：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">12.34</span>元
+                </div>
+            </li>
+            <li>
+                <div style="float:left;  padding-left:124px; text-align:left; font-size:14px;">
+                    普<span class="space3"></span>通<span class="space3"></span>预<span class="space3"></span>存<span class="space3"></span>款：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">2.34</span>元
+                </div>
+            </li>
+            <li>
+                <div style="float:left; padding-left:124px; text-align:left; font-size:14px;">
+                    当月可用分摊款：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">10.00</span>元
+                </div>
+            </li>
+            <li>
+                <div style="float:left;  padding-left:124px; text-align:left; font-size:14px;">
+                    当<span class="space8"></span>月<span class="space8"></span>赠<span class="space8"></span>款：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">0.00</span>元
+                </div>
+            </li>
+            <li>
+                <div style="float:left;  padding-left:124px; text-align:left; font-size:14px;">
+                    历<span class="space8"></span>史<span class="space8"></span>欠<span class="space8"></span>费：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">0.00</span>元
+                </div>
+            </li>
+            <li>
+                <div style="float:left;  padding-left:124px; text-align:left; font-size:14px;">
+                    违<span class="space18"></span>约<span class="space18"></span>金：
+                </div>
+                <div style="float:left; width:236px; font-size:14px;">
+                    <span class="red">0.00</span>元
+                </div>
+            </li>-->
+            
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	当月实时话费：<span class="red">56.58</span>元
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	当前可用余额：<span class="red">12.34</span>元
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	普<span class="space3"></span>通<span class="space3"></span>预<span class="space3"></span>存<span class="space3"></span>款：<span class="red">2.34</span>元
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	当月可用分摊款：<span class="red">10.00</span>元
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	当<span class="space8"></span>月<span class="space8"></span>赠<span class="space8"></span>款：<span class="red">0.00</span>元
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	历<span class="space8"></span>史<span class="space8"></span>欠<span class="space8"></span>费：<span class="red">0.00</span>元
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">
+                    	违<span class="space18"></span>约<span class="space18"></span>金：<span class="red">0.00</span>元
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+        
+        <div class="line_dashed_h"></div>
+        <div class="padding_blank10"></div>
+        
+        <div class="center_one">
+       		<a href="javascript:void(0)" onClick="hidediv('fee_info');"><div class="input_button">确 定</div></a>
+        </div>
+        
+    </div>
+</div>
+<!-- 弹出窗口 缴费成功 end 2016-8-31 -->
+
+</body>
+</html>

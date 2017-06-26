@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service data="com.tydic.unicom.service.cache.service.redis.po.RedisData" type="redis">       
+    </service>
+    
+	<service data="com.tydic.unicom.service.cache.service.redis.po.CodeList" type="jdbc">
+		<query>
+			select list_id,type_code,code_id,code_name,seq_id,macro_code,parent_type_code,parent_code_id,eff_flag,province_code,area_code from code_list where 1=1
+		</query>
+		
+		<query name="queryDefaultProvince">
+		    select list_id,type_code,code_id,code_name,seq_id,macro_code,parent_type_code,parent_code_id,eff_flag,province_code,area_code from code_list where 1=1 and type_code=#{filter.type_code}
+		</query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.CodeListMap" type="jdbc">
+	    <query>
+	        select map_list_id,type_code,code_id,map_id,map_name,system,province_code,area_code from code_list_map where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcTaskAssignRule" type="jdbc">
+	    <query>
+	        select id,province_code,area_code,target_depart_no,target_oper_no,tache_code,oper_code,accept_oper_no,accept_depart_no,ext_cond1,ext_cond2,ext_cond3 from proc_task_assign_rule where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.CodeRegion" type="jdbc">
+	    <query>
+	        select region_id,region_code,region_name,upper_region_id,region_level from code_region where 1=1
+	    </query>
+	    
+	    <query name="queryCodeRegionByUpperRegionId">
+	        select region_id,region_code,region_name,upper_region_id,region_level from code_region where 1=1 and upper_region_id=#{filter.upper_region_id}
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.CodeListTabField" type="jdbc">
+	    <query>
+	        select id,real_type,tab_name,field_name,type_code,province_code,area_code from code_list_tab_field where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.CodeType" type="jdbc">
+	    <query>
+	        select type_code,type_name,max_length,load_flag,app_type,data_type,province_code,area_code from code_type where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModApp" type="jdbc">
+	    <query>
+	        select id,mod_code,province_code,area_code,mod_used,used_system,used_service,oper_code,tache_id,oper_limit_time,tele_type from ord_mod_app where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModAttrCheckRule" type="jdbc">
+	    <query>
+	        select id,attr_code,mod_code,mod_check_method,mod_check_desc from ord_attr_check_rule where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModAttrDefine" type="jdbc">
+	    <query>
+	        select id,attr_code,mod_code,attr_name,attr_type,attr_desc,is_allow_null,is_default_value,get_default_type,default_value from ord_attr_define where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModCheckRule" type="jdbc">
+	    <query>
+	        select id,mod_code,mod_check_method,mod_check_desc,input_json from ord_check_rule where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModDefine" type="jdbc">
+	    <query>
+	        select mod_code,mod_name,mod_desc,province_code,area_code,state,json_module,create_staff,create_time,interface_param_json,interface_type from ord_mod_define where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModOperSplitRule" type="jdbc">
+	    <query>
+	        select id,province_code,area_code,source_oper_code,source_oper_name,source_system_code,target_oper_code,target_oper_name from ord_oper_split_rule where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModParaFieldRelation" type="jdbc">
+	    <query>
+	        select id,attr_code,mod_code,table_name,field_name from ord_para_field_relation where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModStateRule" type="jdbc">
+	    <query>
+	        select id,province_code,area_code,oper_code_a,oper_name_a,state_code_a,state_name_a,oper_code_b,oper_name_b,state_code_b,state_name_b,rela_type,rela_desc from ord_state_rule where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModTacheRule" type="jdbc">
+	    <query>
+	        select id,province_code,area_code,oper_code_a,oper_name_a,tache_code_a,tache_name_a,oper_code_b,oper_name_b,tache_code_b,tache_name_b,rela_type,rela_desc from ord_tache_rule where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcFlowParam" type="jdbc">
+	    <query>
+	        select id,proc_mod_code,province_code,area_code,tache_code,cond_param from proc_flow_param where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcModApp" type="jdbc">
+	    <query>
+	        select id,proc_mod_code,proc_mod_name,province_code,area_code,oper_code,used_time_len from proc_mod_app where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcModTache" type="jdbc">
+	    <query>
+	        select tache_code,tache_name,tache_desc,used_time_len,tache_type,is_need_check,oper_type,province_code,area_code from proc_tache where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcModTacheBtn" type="jdbc">
+	    <query>
+	        select id,tache_code,btn_code,btn_desc,sort,call_url,province_code,area_code from proc_tache_btn where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcModTacheLogin" type="jdbc">
+	    <query>
+	        select id,tache_code,role_id,province_code,area_code from proc_tache_login where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcModTacheService" type="jdbc">
+	    <query>
+	        select id,tache_code,service_name,service_desc,sort,input_str,province_code,area_code,queue_id,queue_name,oper_code from proc_tache_service where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.ProcViewInfo" type="jdbc">
+	    <query>
+	        select id,proc_mod_code,tache_code,seq_no from proc_view_info where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.RuleAttrDefine" type="jdbc">
+	    <query>
+	        select attr_code,attr_name,rule_code,province_code,area_code,attr_desc,attr_type,is_golbal_attr,default_value,get_type,get_method from rule_attr_define where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.RuleDefine" type="jdbc">
+	    <query>
+	        select rule_code,type_code,rule_name,province_code,area_code,state,rule_desc,get_type,get_method,create_staff,create_time from rule_define where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.RuleInstance" type="jdbc">
+	    <query>
+	        select id,rule_code,province_code,area_code,target_value,get_method,target_desc,cond_value_1,cond_value_2,cond_value_3,cond_value_4,cond_value_5,cond_value_6,cond_value_7,cond_value_8,cond_value_9,cond_value_10 from rule_instance where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.RuleType" type="jdbc">
+	    <query>
+	        select type_code,type_name,province_code,area_code,type_desc,create_staff,create_time from rule_type where 1=1
+	    </query>
+	</service>
+	
+	<service data="com.tydic.unicom.service.cache.service.redis.po.OrdModMutiTable" type="jdbc">
+	    <query>
+	        select table_name,table_desc from ord_muti_table where 1=1
+	    </query>
+	</service>
+</services>

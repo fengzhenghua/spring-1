@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.tydic.unicom"/>
+    
+    <!-- 爬虫抓取相关的服务 -->
+    <dubbo:service interface="com.tydic.unicom.crawler.business.interfaces.CrawlerServiceBus" ref="CrawlerServiceBus" />
+    <bean id="CrawlerServiceBus" class="com.tydic.unicom.crawler.business.impl.CrawlerServiceBusImpl" />
+    
+    <!-- 获取信息相关服务 -->
+    <dubbo:service interface="com.tydic.unicom.crawler.business.interfaces.GetInfoServiceBus" ref="GetInfoServiceBus" />
+    <bean id="GetInfoServiceBus" class="com.tydic.unicom.crawler.business.impl.GetInfoServiceBusImpl" />
+    
+    <!-- 登录登出相关服务 -->
+    <dubbo:service interface="com.tydic.unicom.crawler.business.interfaces.LoginServiceBus" ref="LoginServiceBus" />
+    <bean id="LoginServiceBus" class="com.tydic.unicom.crawler.business.impl.LoginServiceBusImpl" />
+    
+    <!-- 爬虫回写相关服务 -->
+    <dubbo:service interface="com.tydic.unicom.crawler.business.interfaces.WriteBackServiceBus" ref="WriteBackServiceBus" />
+    <bean id="WriteBackServiceBus" class="com.tydic.unicom.crawler.business.impl.WriteBackServiceBusImpl" />
+</beans>

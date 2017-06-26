@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document pre_accept.css v1.0	*/
+
+/* 内容信息 */
+.list_old_number{width:840px; margin:10px auto 0 auto; padding:5px 20px; border-bottom:2px solid #e7e7e7; cursor:pointer; vertical-align:central;}
+.list_old_number:hover{background-color:#e7e7e7;}
+.list_old_number>div{line-height:20px;}
+.list_old_number>div span{vertical-align:middle;}
+.list_old_number>div img{margin-left:5px;}
+span.lan_type_span{padding:0; cursor:pointer;}
+span.lan_type_span input[type="radio"]{cursor:pointer;}
+
+.num_data{padding-left:4px; margin-right:4px; border:1px solid #e7e7e7; height:26px; line-height:26px; width:200px; background-color:white;}
+.num_old{background-image:url(../images/number_old.png); background-repeat:no-repeat; background-position:140px top; background-size:contain;}
+.num_new{background-image:url(../images/number_new.png); background-repeat:no-repeat; background-position:140px top; background-size:contain;}
+.num_selected{background-image:url(../images/number_selected.png); background-repeat:no-repeat; background-position:600px top; background-size:contain; background-origin:border-box;}
+
+/* 显示 */
+.inline_block{display:inline-block;}

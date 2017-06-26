@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	 http://www.springframework.org/schema/aop 
+	 http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+     http://www.springframework.org/schema/context  
+     http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!--start datasource 数据源 如果适配标准jdbc数据源可一直接写驱动 url username password 如果适配VDS 
+		需写驱动 url 如下方式 -->
+	<context:property-placeholder location="file:E:\UC\tydic_uc_service\uoc_service\src\main\resources\UocProperties.properties"/>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.tydic.vds.jdbc.VdsDriver" />
+		<property name="url"
+			value="jdbc:vds:local://classpath?sid=demo&amp;spring=vds/applicationContext.xml" />
+		<property name="username" value="vds" />
+		<property name="password" value="vds" />
+	</bean>
+	<!--start end -->
+	
+	<!-- activemq -->
+	<!-- activemq 支持 -->
+<!-- 消息监听适配器对应的监听容器 -->
+<!-- <bean id="testMessageListenerAdapterJmsContainer"
+class="com.tydic.uda.resolver.mq.activemq.ActivemqMessageListenerContainer">
+	messageListener 指定 监听类
+	<property name="messageListener" ref="messageListenerAdapter" />
+	接收端监听动态线程池大小 可选
+	<property name="concurrency" value="4-9" />
+	</bean>
+	<bean id="testMessageListenerAdapterJmsContainerYH"
+class="com.tydic.uda.resolver.mq.activemq.ActivemqMessageListenerContainer">
+	messageListener 指定 监听类
+	<property name="messageListener" ref="messageListenerAdapterYH" />
+	接收端监听动态线程池大小 可选
+	<property name="concurrency" value="3-9" />
+	</bean>
+	消息监听适配器
+	<bean id="messageListenerAdapter"
+	class="com.tydic.uda.resolver.mq.activemq.ActivemqMessageListenerAdapter">
+		delegate 指定监听类 (业务侧自定义)必填
+		<property name="delegate">
+			<bean class="com.tydic.uda.test.ActivemqTestListener" />
+		</property>
+		defaultListenerMethod 指定 监听类中默认执行方法 必填
+		<property name="defaultListenerMethod"  value="receiveMessageNoRes" />
+	</bean>
+	<bean id="messageListenerAdapterYH"
+	class="com.tydic.uda.resolver.mq.activemq.ActivemqMessageListenerAdapter">
+		delegate 指定监听类 (业务侧自定义)必填
+		<property name="delegate">
+			<bean class="com.tydic.uda.test.ActivemqTestListenterYH" />
+		</property>
+		defaultListenerMethod 指定 监听类中默认执行方法 必填
+		<property name="defaultListenerMethod"  value="receiveMessageNoResYH" />
+	</bean> -->
+
+	<!-- <bean class="com.tydic.uda.resolver.mq.activemq.ActivemqOperateResolver">
+		消息队列URL 必填
+		<property name="brokerURL" value="tcp://172.168.1.213:61616" />
+		消息中心连接用户名 必填
+		<property name="user" value="system" />
+		消息中心连接密码 必填
+		<property name="password" value="manager" />
+		配置自定义监听 接收端 必填
+		<property name="jmsContainerMap">
+			<map>
+				map 中 key：监听队列目的地，value：监听容器
+				<entry key="test1QueueYH">
+					<ref bean="testMessageListenerAdapterJmsContainer" />
+				</entry>
+				<entry key="test2QueueYH">
+					<ref bean="testMessageListenerAdapterJmsContainerYH" />
+				</entry>
+			</map>
+		</property>
+	</bean> -->
+	<!-- redis 支持 -->
+	<bean class="com.tydic.uda.resolver.redis.RedisOperateResolver">
+		<!-- <property name="address" value="135.24.252.29" />
+		<property name="port" value="6379" /> -->
+		<property name="address" value="${redis.address}" />
+		<property name="port" value="${redis.port}" />
+	</bean>
+	<!-- start UDA jdbc 适配 -->
+	<bean class="com.tydic.uda.service.factory.XmlDataServiceFactory">
+		<!-- <property name="dataSource" ref="dataSource" /> -->
+		<property name="serviceLocations">
+			<list>
+				<value>classpath:config/uda/dataService.xml
+				</value>
+			</list>
+		</property>
+	</bean>
+	<!--start end -->
+	<!-- start 配置事务管理器 -->
+	<!-- <bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="businessMethod"
+			expression="execution(* com.tydic..*Business.*(..))" />
+		<aop:advisor pointcut-ref="businessMethod" advice-ref="txAdvice" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" timeout="180"
+				rollback-for="java.lang.Exception" />
+		</tx:attributes>
+	</tx:advice> -->
+	<!--start end -->
+	<!-- start 业务bean配置 -->
+	<!-- <bean id="testUserBusiness"
+		class="com.tydic.uda.test.business.impl.TestUserBusinessImpl" /> -->
+		
+	<!--start end -->
+</beans>

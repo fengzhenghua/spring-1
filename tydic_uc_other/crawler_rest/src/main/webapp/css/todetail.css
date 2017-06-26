@@ -1,0 +1,45 @@
+.br{border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;-o-border-radius: 4px;}
+.padding10{padding:0 10px;}
+.fs14{font-size:14px;}
+.fs12{font-size:12px;}
+.color{color:#a5a5a5;}
+.cursor{cursor:pointer;}
+/*****订单数据*****/
+.width900{width:900px;overflow:hidden;margin:0 auto;}
+.detailLogo{width:900px;overflow:hidden;padding:10px 0 14px;margin-bottom:10px;background:url(../images/order_detail_logoB.gif) bottom repeat-x;}
+/* .detailTitle{text-align:center;font-weight:600;font-size:20px;margin:30px 0 10px;} */
+.title{width:100%;height:30px;line-height:30px;font-size:18px;}
+.title i{display:inline-block;width:6px;height:25px;vertical-align:middle;background-image:url("imgs/title.png");background-repeat:no-repeat;background-size:6px 25px;background-position:center;}
+.box{width:100%;background:#f2f2f2;margin-top:10px;}
+.infoBoxTop{padding:20px 0;border-bottom:1px solid #ddd;}
+.infoBoxTop table th{width:70px;text-align:left;}
+.infoBoxTop table td{}
+.infoBoxTop table td.tdWidthOne{width:241px;}
+.infoBoxTop table td.tdWidthTwo{width:228px;}
+h2{font-size:16px;}
+h2.fontStyle{font-weight:14px;font-weight:600;margin:0 0 10px 0;}
+.fontStyle{font-weight:14px;font-weight:600;}
+.infoBox{padding:20px 0;border-bottom:1px solid #ddd;}
+.infoBox table th{text-align:center;width:70px;}
+/* .infoBox table td{width:230px;} */
+.closeBtn{margin:20px 0;overflow:hidden;text-align:right;}
+.closeInput{padding:5px 40px;background:#2eb1dd;border:0;color:#fff;font-size:14px;}
+.closeInput:hover{background:#1e92bf;}
+
+.goodsPart ul li span.numIcon{float:none;}
+
+.font-icon{display:inline-block;width:14px;height:14px;margin: 0 0 -2px 1px;background:url(../images/pre_icon.png) no-repeat;}
+
+
+/**全局样式**/
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #333;
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}

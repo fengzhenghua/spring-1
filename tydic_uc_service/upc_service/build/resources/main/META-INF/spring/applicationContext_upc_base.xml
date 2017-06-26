@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task 
+     http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+    <context:component-scan base-package="com.tydic.unicom.upc"/>
+    <context:component-scan base-package="com.tydic.unicom.service"/>
+    
+    <task:annotation-driven />
+    
+    <!-- Sequence序列服务  -->
+	<dubbo:service interface="com.tydic.unicom.service.sequence.service.interfaces.SequenceServ" ref="SequenceServ" /> 
+	<bean id="SequenceServ" class="com.tydic.unicom.service.sequence.service.impl.SequenceServImpl" />
+    
+    <!-- redist缓存服务  -->
+	<dubbo:service interface="com.tydic.unicom.service.cache.service.redis.interfaces.RedisServiceServ" ref="RedisServiceServ" /> 
+	<bean id="RedisServiceServ" class="com.tydic.unicom.service.cache.service.redis.impl.RedisServiceServImpl" />
+
+	<!-- 业务信息管理服务 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.code.interfaces.InfoBusiServDu" ref="InfoBusiServDu" />
+    <bean id="InfoBusiServDu" class="com.tydic.unicom.upc.service.code.impl.InfoBusiServDuImpl" />
+	
+	<!-- 支付中心订单管理 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.inst.interfaces.InfoOrderServDu" ref="InfoOrderServDu" />
+    <bean id="InfoOrderServDu" class="com.tydic.unicom.upc.service.inst.impl.InfoOrderServDuImpl" />
+    
+    <!-- 支付具体参数配置管理 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.code.interfaces.InfoPayParaAttrServDu" ref="InfoPayParaAttrServDu" />
+    <bean id="InfoPayParaAttrServDu" class="com.tydic.unicom.upc.service.code.impl.InfoPayParaAttrServDuImpl" />
+    
+    
+    <!-- 支付方式参数配置管理 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.code.interfaces.InfoBusiPayRelationServDu" ref="InfoBusiPayRelationServDu" />
+    <bean id="InfoBusiPayRelationServDu" class="com.tydic.unicom.upc.service.code.impl.InfoBusiPayRelationServDuImpl" />
+    
+    <!-- 支付记录 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.inst.interfaces.OrderPayTransServDu" ref="OrderPayTransServDu" />
+    <bean id="OrderPayTransServDu" class="com.tydic.unicom.upc.service.inst.impl.OrderPayTransServDuImpl" />
+    
+    <!-- 通知回调的消息队列 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.activemq.interfaces.CustNotifyActivemqServDu" ref="CustNotifyActivemqServDu" />
+    <bean id="CustNotifyActivemqServDu" class="com.tydic.unicom.upc.service.activemq.impl.CustNotifyActivemqServDuImpl" />
+    
+    <!-- 微信支付 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.pay.interfaces.WXPayServDu" ref="WXPayServDu" />
+    <bean id="WXPayServDu" class="com.tydic.unicom.upc.service.pay.impl.WXPayServiceImpl" />
+    
+    <!-- 支付宝支付 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.pay.interfaces.AliPayServDu" ref="AliPayServDu" />
+    <bean id="AliPayServDu" class="com.tydic.unicom.upc.service.pay.impl.AliPayServiceImpl" />
+    
+    <!-- 系统参数配置 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.code.interfaces.SystemBusiParaServDu" ref="SystemBusiParaServDu" />
+    <bean id="SystemBusiParaServDu" class="com.tydic.unicom.upc.service.code.impl.SystemBusiParaServDuImpl" />
+    
+    <!-- 支付明细配置 -->
+	<dubbo:service interface="com.tydic.unicom.upc.service.inst.interfaces.InfoOrderGoodsDetailServDu" ref="InfoOrderGoodsDetailServDu" />
+    <bean id="InfoOrderGoodsDetailServDu" class="com.tydic.unicom.upc.service.inst.impl.InfoOrderGoodsDetailServDuImpl" />
+    
+    <!-- 能力平台配置 -->
+    <dubbo:service interface="com.tydic.unicom.upc.service.capacity.impl.SendMessageToCapacityDu" ref="SendMessageToCapacityDu" />
+    <bean id="SendMessageToCapacityDu" class="com.tydic.unicom.upc.service.capacity.impl.SendMessageToCapacityDuServ" />
+    
+    <!-- 能力平台配置参数 -->
+    <dubbo:service interface="com.tydic.unicom.upc.service.code.interfaces.CapacityParaDu" ref="CapacityParaDu" />
+    <bean id="CapacityParaDu" class="com.tydic.unicom.upc.service.code.impl.CapacityParaDuImpl" />
+    
+    <!-- 对帐单下载 -->
+    <dubbo:service interface="com.tydic.unicom.upc.service.task.interfaces.DownloadPayTransServDu" ref="DownloadPayTransServDu" />
+    <bean id="DownloadPayTransServDu" class="com.tydic.unicom.upc.service.task.impl.DownloadPayTransServDuImpl" />
+    
+    <!-- 支付中心对账 -->
+    <dubbo:service interface="com.tydic.unicom.upc.service.inst.interfaces.PaySettleTransDu" ref="PaySettleTransDu"/>
+    <bean id="PaySettleTransDu" class="com.tydic.unicom.upc.service.inst.impl.PaySettleTransDuImpl"/>
+    
+    
+</beans>

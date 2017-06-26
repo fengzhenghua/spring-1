@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<dubbo:application name="upc_web" />
+	
+	<context:property-placeholder location="classpath*:conf_application*.properties"/> 
+	<dubbo:registry address="${dubbo.registry.address}" />
+	
+	<dubbo:reference  id= "RedisServiceServ"  interface="com.tydic.unicom.service.cache.service.redis.interfaces.RedisServiceServ" />
+	
+	<dubbo:reference  id= "SequenceServ"  interface="com.tydic.unicom.service.sequence.service.interfaces.SequenceServ" />
+	
+	<dubbo:reference  id= "InfoBusiServDu"  interface="com.tydic.unicom.upc.service.code.interfaces.InfoBusiServDu" />
+	
+	<dubbo:reference  id= "InfoOrderServDu"  interface="com.tydic.unicom.upc.service.inst.interfaces.InfoOrderServDu" />
+	
+	<dubbo:reference  id= "InfoPayParaAttrServDu"  interface="com.tydic.unicom.upc.service.code.interfaces.InfoPayParaAttrServDu" />
+	
+	<dubbo:reference  id= "InfoBusiPayRelationServDu"  interface="com.tydic.unicom.upc.service.code.interfaces.InfoBusiPayRelationServDu" />
+	
+	<dubbo:reference  id= "OrderPayTransServDu"  interface="com.tydic.unicom.upc.service.inst.interfaces.OrderPayTransServDu" />
+	
+	<dubbo:reference  id= "CustNotifyActivemqServDu"  interface="com.tydic.unicom.upc.service.activemq.interfaces.CustNotifyActivemqServDu" />
+	
+	<dubbo:reference  id= "AliPayServDu"  interface="com.tydic.unicom.upc.service.pay.interfaces.AliPayServDu" />
+	
+    <dubbo:reference  id= "WXPayServDu"  interface="com.tydic.unicom.upc.service.pay.interfaces.WXPayServDu" />
+	
+	<dubbo:reference  id= "SystemBusiParaServDu"  interface="com.tydic.unicom.upc.service.code.interfaces.SystemBusiParaServDu" />
+	
+	<dubbo:reference  id= "InfoOrderGoodsDetailServDu"  interface="com.tydic.unicom.upc.service.inst.interfaces.InfoOrderGoodsDetailServDu" />
+	<dubbo:reference  id= "CapacityParaDu"  interface="com.tydic.unicom.upc.service.code.interfaces.CapacityParaDu" />
+	
+	<dubbo:reference  id= "DownloadPayTransServDu"  interface="com.tydic.unicom.upc.service.task.interfaces.DownloadPayTransServDu" />
+	
+	<dubbo:reference  id="PaySettleTransDu" interface="com.tydic.unicom.upc.service.inst.interfaces.PaySettleTransDu"/>
+</beans>

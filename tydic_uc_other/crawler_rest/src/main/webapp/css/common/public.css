@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* public CSS Document v2.0
+*/
+body,html{margin:0px; padding:0px; font-size:15px; font-family:"微软雅黑", Heiti SC, "LiHei Pro Medium", LiHei Pro Medium, sans-self; color:#333333;}
+*{-webkit-tap-highlight-color:transparent;}
+
+ul,li,dt,dd,dl,h1,h2,h3,h4,h5,h6,p{padding:0; margin:0; list-style:none;}
+a{text-decoration:none; background-color: transparent;}
+
+p{ display:block; line-height:24px; font-size:16px;}
+
+a:active,
+a:hover{outline: 0;}
+
+.clearfix:after{content: ' ';display: block;clear: both;visibility:hidden;line-height: 0;height:0;}
+
+/* input,textarea,
+input[type="text"]{height:30px; line-height:18px; color:#333333; border:0; padding:0px; font-size:16px; background-color:rgba(255,255,255,0);} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+
+input[type="number"]{-moz-appearance:textfield;}
+
+img{border:0;}
+
+*:focus { -moz-outline-style: none; outline:none; }
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color:#c8c8c8;}
+input:-moz-placeholder, textarea:-moz-placeholder {color:#c8c8c8;}
+input::-moz-placeholder, textarea::-moz-placeholder {color:#c8c8c8;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{color: #c8c8c8;}
+
+.list-must input::-webkit-input-placeholder, .list-must textarea::-webkit-input-placeholder{color:#d60017;}
+.list-must input:-moz-placeholder, .list-must textarea:-moz-placeholder{color:    #e60017;}
+.list-must input::-moz-placeholder, .list-must textarea::-moz-placeholder{color:#e60017;}
+.list-must input:-ms-input-placeholder, .list-must textarea:-ms-input-placeholder{color:#e60017;}
+
+
+table {border-spacing: 0; border-collapse: collapse; border:0px;}
+td,
+th {padding: 0;}
+
+.l{float:left;}
+ .r{float:right;}

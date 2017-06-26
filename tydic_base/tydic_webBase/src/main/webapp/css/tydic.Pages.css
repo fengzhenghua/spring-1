@@ -1,0 +1,74 @@
+.tydic_pages{
+	text-align: right;
+}
+.tydic_pages .current{
+    border: 1px solid #EDEDED;
+    background: none repeat scroll 0 0 #c80009;
+	color: #FFFFFF;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 3px;
+    padding: 0 10px;
+    text-align: center;
+}
+.tydic_pages span.prev{
+    background: url("../images/pre.png") no-repeat scroll 3px center rgba(0, 0, 0, 0);
+    color: #000000;
+    padding-left: 12px;
+}
+.tydic_pages span.next {
+    background: url("../images/next.png") no-repeat scroll 51px center rgba(0, 0, 0, 0);
+    color: #000000;
+    padding-right: 14px;
+}
+.tydic_pages a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EDEDED;
+    color: #000000;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 3px;
+    padding: 0 10px;
+    text-align: center;
+}
+.tydic_pages a:HOVER {
+	background: none repeat scroll 0 0 #c80009;
+	color: #FFFFFF;
+}
+.tydic_pages a.prev {
+    background: url("../images/pre.png") no-repeat scroll 3px center rgba(0, 0, 0, 0);
+    color: #000000;
+    padding-left: 12px;
+}
+.tydic_pages a.prev:HOVER {
+	background: none repeat scroll 0 0 #c80009;
+	color: #FFFFFF;
+}
+.tydic_pages a.next {
+    background: url("../images/next.png") no-repeat scroll 51px center rgba(0, 0, 0, 0);
+    color: #000000;
+    padding-right: 14px;
+}
+.tydic_pages a.next:HOVER {
+	background: none repeat scroll 0 0 #c80009;
+	color: #FFFFFF;
+}
+.tydic_pages_loading{
+  /*   background: none repeat scroll 0 0 #C80009; */
+    font-weight: bold;
+    left: 40%;
+    margin: 5px;
+    padding: 6px;
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    width: auto;
+    border:2px solid #e93737; 
+    border-radius:5px; 
+    box-shadow:1px 0 6px 1px #ffc5c5; 
+    z-index: 91000;
+    color:#eb3534;
+    background:#ffffff;
+}

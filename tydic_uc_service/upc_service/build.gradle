@@ -1,0 +1,171 @@
+apply plugin: 'idea'
+	dependencies { 
+		compile "org.springframework:spring-webmvc:${springVersion}"
+		compile ("org.springframework:spring-test:${springVersion}")
+		compile 'javax.servlet:javax.servlet-api:3.0.1'
+		compile ('com.tydic.uda:uda:1.3.0.9.1') {
+			exclude group: 'org.springframework', module: 'spring'
+		}	
+		compile 'com.tydic.vds:vds-core:2.2.7.1'
+		compile 'com.tydic.vds:vds-sql:2.2.7.1'
+		compile 'com.tydic.vds:vds-spring:2.2.7.1'
+		compile 'com.tydic.vds:vds-log:2.2.7.1'
+		compile 'com.tydic.vds:vds-mas:2.2.7.1'
+		compile 'com.tydic.vds:vds-mdb:2.2.7.1'
+		compile 'com.tydic.vds:vds-vt:2.2.7.1'
+		compile 'com.oracle:ojdbc6:11.2.0.2.0'
+		compile 'junit:junit:4.11'
+		compile 'xinge:xinge:1.0'
+		compile 'com.tydic.unicom:cacheService:1.0-SNAPSHOT'
+		compile 'com.tydic.unicom:util:1.0-SNAPSHOT'
+		compile 'com.tydic.unicom:workFlowService:1.0-SNAPSHOT'
+		compile ("com.tydic.unicom:sequenceService:1.0-SNAPSHOT")		
+		compile 'com.tydic.unicom:vdsBaseService:1.0-SNAPSHOT'
+		compile 'com.tydic.unicom:webUtil:1.0-SNAPSHOT' 
+		compile 'com.tydic.unicom:exception:1.0-SNAPSHOT' 
+		compile 'com.tydic.unicom:ecaop:1.0-SNAPSHOT' 
+		compile ('com.tydic.unicom:upcServiceBaseApi:1.0-SNAPSHOT')
+		/*jbpm*/
+		/*
+		compile 'org.jbpm.jbpm4:jbpm-api:4.4' 
+		compile ('org.jbpm.jbpm4:jbpm-bpmn:4.4' ) { 
+			exclude group: 'org.slf4j', module: 'slf4j-api'
+			exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+		}		
+		compile ('org.jbpm.jbpm4:jbpm-log:4.4')
+		compile ('org.jbpm.jbpm4:jbpm-db:4.4') {
+			exclude group: 'hsqldb', module: 'hsqldb'
+			exclude group: 'com.oracle', module: 'ojdbc6'
+			exclude group: 'postgresql', module: 'postgresql'
+			exclude group: 'org.slf4j', module: 'slf4j-api'
+			exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+		}
+		*/
+		compile ("org.springframework:spring-orm:${springVersion}")
+		compile ("org.hibernate:hibernate-core:${hibernateVersion}")
+		compile ("sun-javamail:mail:1.4")
+		compile ("javax.activation:activation:1.1.1")
+		compile ('org.jasig.cas.client:cas-client-core:3.3.1')
+		compile ('org.jasig.cas:cas-server-core:4.0.0'){
+			exclude group: 'org.hibernate', module: 'hibernate-core'
+			exclude group: 'org.springframework', module: 'spring-webmvc'
+			exclude group: 'com.github.inspektr', module: 'inspektr-audit'
+			exclude group: 'org.springframework.webflow', module: 'spring-webflow'
+			exclude group: 'org.springframework.security', module: 'spring-security-core'
+			exclude group: 'org.jasig.service.persondir', module: 'person-directory-impl'
+			exclude group: 'log4j', module: 'log4j'
+			exclude group: 'commons-codec', module: 'commons-codec'
+			exclude group: 'org.springframework', module: 'spring-orm'
+			exclude group: 'org.springframework', module: 'spring-jdbc'
+			exclude group: 'org.springframework', module: 'spring-core'
+			exclude group: 'org.springframework', module: 'spring-beans'
+			exclude group: 'org.springframework', module: 'spring-context-support'
+			exclude group: 'org.springframework', module: 'spring-tx'
+			exclude group: 'org.springframework', module: 'spring-context'
+			exclude group: 'org.springframework', module: 'spring-test'
+			exclude group: 'org.perf4j', module: 'perf4j'
+			exclude group: 'commons-io', module: 'commons-io'
+			exclude group: 'joda-time', module: 'joda-time'
+			exclude group: 'org.aspectj', module: 'aspectjrt'
+			exclude group: 'javax.validation', module: 'validation-api'
+		}
+		compile ('com.tydic.bos:bos-core:0.9')
+		
+		
+		compile ('org.apache.axis2:axis2:1.6.2')
+		compile ('org.apache.axis2:axis2-transport-local:1.6.2')
+		compile ('org.apache.axis2:axis2-transport-http:1.6.2')
+		compile ('org.apache.ws.commons.axiom:axiom-api:1.2.14')
+		compile ('org.apache.ws.commons.axiom:axiom-impl:1.2.14')
+		compile ('org.apache.ws.commons.schema:XmlSchema:1.4.7')
+		compile ('wsdl4j:wsdl4j:1.6.3')
+		compile ('org.apache.neethi:neethi:3.0.3')
+		compile ('commons-httpclient:commons-httpclient:3.1')
+		compile ('commons-codec:commons-codec:1.9')
+		
+		compile ('org.apache.httpcomponents:httpcore:4.3.2')
+		compile ('org.apache.httpcomponents:httpclient:4.3.2')
+		compile ('com.tydic.open:open-rest-sdk:1.0')
+		
+		compile ('com.google.code.gson:gson:2.3.1')
+		compile ('commons-configuration:commons-configuration:1.10')
+		compile files('lib/alipay-sdk-java20161213173952.jar')
+		
+	} 
+	group = 'com.tydic.unicom'
+	ext {
+	    upcServiceApiAppName= 'upcServiceApi'
+	    upcServiceAppName= 'upcService'
+	    appVersion= '1.0-SNAPSHOT'
+	    builtBy="gradle 1.9"	
+	}
+	
+
+    task copyLib(type: Copy) {
+	        from configurations.runtime
+	        destinationDir file("dubboDeploy/lib")        
+	        from ("$buildDir/libs/${upcServiceAppName}-${appVersion}.jar")
+	        destinationDir file("dubboDeploy/lib")  	        
+	}    
+	
+    task cleanLib(type: Delete) {
+	    Set<File> fileSet = fileTree("dubboDeploy/lib").getFiles();
+	    for(File file:fileSet){
+			delete file
+	    }    
+	} 	
+	
+	copyLib.dependsOn cleanLib,jar
+
+
+    task upcServiceApiJar(type:Jar){
+        version "${appVersion}"
+        from sourceSets.main.output
+		include 'com/tydic/unicom/upc/**'
+        manifest {
+            attributes 'packageName': "${upcServiceApiAppName}", 'Built-By': builtBy,'Built-date': new Date().format('yyyy-MM-dd HH:mm:ss'),'Manifest-Version':version
+        }
+    }
+      
+    
+    task upcServiceJar(type:Jar){
+        version "${appVersion}"
+        from sourceSets.main.output
+        include '**'
+        exclude 'applicationContext.xml'
+		
+        manifest {
+            attributes 'packageName': "${upcServiceAppName}", 'Built-By': builtBy,'Built-date': new Date().format('yyyy-MM-dd HH:mm:ss'),'Manifest-Version':version
+        }
+    }       
+	
+    artifacts { archives upcServiceApiJar,upcServiceJar}
+    
+	jar {
+	    version "${appVersion}"
+	    baseName "${upcServiceAppName}"
+        include '**'
+        exclude 'applicationContext.xml'
+	    manifest {
+	        attributes 'packageName': "${upcServiceAppName}", 'Built-By': builtBy,'Built-date': new Date().format('yyyy-MM-dd HH:mm:ss'),'Manifest-Version':version
+	    }
+	    
+	}
+    
+    publishing {
+        publications {
+		upcService(MavenPublication) {
+		    groupId group
+		    artifactId "${upcServiceAppName}"
+		    version "${appVersion}"     
+		    artifact  upcServiceJar
+		}          
+                upcServiceApi(MavenPublication) {
+                    groupId group
+                    artifactId "${upcServiceApiAppName}"
+                    version "${appVersion}"
+                    artifact  upcServiceApiJar
+                }
+        }
+    }
+    

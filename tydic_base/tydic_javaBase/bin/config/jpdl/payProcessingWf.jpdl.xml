@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="payProcessingWf" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="314,-8,63,48" name="start">
+      <transition g="-43,-22" name="to B00" to="B00"/>
+   </start>
+   <state g="292,130,92,52" name="B00">
+      <transition g="-43,-22" name="to B10" to="end"/>
+   </state>
+   <end g="311,277,48,48" name="end" state="B10"/>
+</process>

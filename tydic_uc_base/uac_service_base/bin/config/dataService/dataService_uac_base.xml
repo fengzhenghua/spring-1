@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	
+    <service data="com.tydic.unicom.uac.base.database.po.UniformInfoOperPo" type="jdbc">
+        <query name="queryUniformInfoOperLoginIn">
+            select uniform_info_oper,uniform_oper_name,oper_id_card,oper_device_number,salary_account,oper_pwd,oper_dept_no,oper_local_net,to_char(create_date, 'YYYY-MM-dd hh24:mi:ss') create_date,to_char(eff_date, 'YYYY-MM-dd') eff_date,to_char(exp_date, 'YYYY-MM-dd ') exp_date,flag,question,answer,pwd_encode,memo,check_mode,err_count,to_char(lock_time, 'YYYY-MM-dd') lock_time,ignore_login_errcount,oper_no,jsessionid,sub_oper_flag,ms_flag,account_name,account_number,account_type,bind_flag from uniform_info_oper where flag = 0
+            <if test="filter.uniform_info_oper != null and filter.uniform_info_oper != ''">
+          			 and uniform_info_oper =#{filter.uniform_info_oper}
+         	</if>
+         	<if test="filter.oper_device_number != null and filter.oper_device_number != ''">
+          			 and oper_device_number=#{filter.oper_device_number}
+         	</if>
+         	<if test="filter.oper_id_card != null and filter.oper_id_card != ''">
+          			 and oper_id_card=#{filter.oper_id_card}
+         	</if>
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.LogUniformInfoOperPo" type="jdbc">
+        <create>
+            INSERT into log_uniform_info_oper(log_id,UNIFORM_INFO_OPER,operate_time,log_flag,mac_type,oper_no,jsessionid,log_password) values(#{log_id},#{uniform_info_oper},SYSDATE,#{log_flag},#{mac_type},#{oper_no},#{jsessionid},#{log_password})
+        </create>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.OperRelationPo" type="jdbc">
+        <query name="queryOperRelationByUniformInfoOper">
+            select info_oper from oper_relation a where uniform_info_oper = #{filter.uniform_info_oper} order by (select oper_no from crm_pub.uniform_info_oper where uniform_info_oper = a.uniform_info_oper and oper_no = a.info_oper)
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoOperPo" type="jdbc">
+        <query name="queryInfoOperOperNo">
+            select oper_no,dept_no,oper_name from info_oper where 1=1 and oper_no=#{filter.oper_no};
+        </query>
+        <get>
+            select oper_no,region_id,dept_no,role_code,oper_name,login_name,oper_pwd,
+       question,answer,gender,position,phone,email,mobile_no,need_sms,oper_message,eff_date,
+       exp_hint_date,exp_date,init_flag,deal_type,app_type,oper_alias,login_count,res_init1,
+       res_init2,res_char1,statistical_dept_no,res_char2,pwd_encode,oper_status,oper_kind,flag,
+       acct_status,busi_type,derate_flag,is_online,login_ip,bind_flag,load_flag,memo,decode(((select count(*) from rule_spec_role b where spec_role = '01' and dept_no = a.dept_no) + 1 - (select count(*) from info_dept where dept_no = a.dept_no and nvl(channel_run_type, '02') = '02')),'0','0','1') menu_flag,(select count(*) from rule_spec_role where dept_no = a.dept_no and spec_role = '02' and rownum = 1) id_type_flag,decode(((select count(*) from rule_spec_role b where spec_role = '03' and dept_no = a.dept_no) + 1 - (select count(*) from info_dept where dept_no = a.dept_no and nvl(channel_run_type, '02') = '02')),'0','0','1') phone_flag,oper_id,oper_pwd_cb,account_name,account_number,
+       account_type,area_code,channel_type,commission_out_type,commission_pay_type,create_date,create_operator_id,
+       eff_flag,is_commission_out,oper_agent_type,oper_comment,oper_dept,oper_email,oper_gender,oper_mobile,oper_online,
+       oper_phone,pay_mode from INFO_OPER a where oper_no = #{oper_no} and flag = 0         
+        </get>
+        <query name="queryInfoOperByOperNoAndOperName">
+            select r.oper_no,r.oper_name,r.region_id,r.dept_no from (select o.*,dd.dept_name from info_oper o left join info_dept dd on o.dept_no=dd.dept_no where o.dept_no in (select d.dept_no from info_dept d start with d.dept_no=#{filter.currDeptNo} connect by prior d.dept_no=d.parent_dept_no)) r where 1=1
+            <if test="filter.operNo != null and filter.operNo != ''">
+          			 and r.oper_no=#{filter.operNo}
+         	</if>
+       		 <if test="filter.operName != null and filter.operName != ''">
+          			 and r.oper_name like '%${filter.operName}%'
+         	</if>
+        </query>
+    </service>
+	
+    <service data="com.tydic.unicom.uac.base.database.po.InfoAgentPo" type="jdbc">
+        <query name="queryInfoAgentByDeptNo">
+            select agent_no,parent_agent_no,channel_type,sub_channel_type,agent_type,owner,agent_passwd,agent_name,agent_eng_name,dept_no,statistical_dept_no,area_id,create_date,eff_date,destroy_date,exp_date,agent_status_code,agent_area_type,agent_deal_type,agent_level,corp_license_type,corp_license_no,corp_create_date,corp_size,corp_kind,corp_register_fund,corp_address,corp_post,corp_web_address,cachet_name,tax_number,man_license_number,corper_name,corper_id_type,corper_id,corper_phone,principal_name,principal_id_type,principal_id,principal_phone,principal_address,principal_email,link_name,link_id_type,link_id,link_phone,link_address,link_email,fax_number,salepoint_type,memo,local_net,sub_area_id,agent_eng_c_name,exp_flag,company_name,aircharge_flag,derate_flag,fee_dept_type,valid_flag,channel_area_type,channel_level_type,channel_group_type,chnl_code,jiao_fei_zhan_flag,servicearea,device_number,webaccess,callingnumberandtype1,callingnumberandtype2,callingnumberandtype3,callingnumberandtype4,callingnumberandtype5,manager_area_code,manager_dept_code from info_agent where dept_no=#{filter.dept_no}       
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.ZBInfoAgentRelationPo" type="jdbc">
+        <query name="queryZBInfoAgentRelationByAgentNo">
+            select chnl_code,chnl_name,manage_dept_no,agent_no,dev_code,belong_type,flag_jl,zb_dev_code,main_flag from zb_info_agent_relation where agent_no=#{filter.agent_no}
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.ZBInfoAgentPo" type="jdbc">
+        <query name="queryZBInfoAgentByChnlCode">
+            select PROVINCE_CODE,OPERATE_TYPE,CHNL_CODE,CHNL_NAME,CHNL_DESC,CHNL_ORG_ID,STATE,STATE_DESC,CHNL_KIND_ID,LOCAL_KIND_ID,CHNL_CLASS_ID,CHAIN_FLAG,IS_RWD_CNT,PAY_SCOPE,PAY_CHNL_CODE,SUPER_CHNL_CODE,SEFL_CHNL_CODE,RWD_CNT_DATE,PROVINCE_CODE,CITY_CODE,MANAGER_AREA_CODE,AREA_TYPE,CHNL_CHAIN_LEVEL,CHNL_LEVEL,IS_INPUT_SYSTEM,SYSTEM_NUM,IS_MINI_HALL,CHNL_AREA_KIND_ID,BANK_CODE,BANK_NO,BANK_ACCT_NAME,ADDRESS,CHNL_LINKMAN_NAME,CHNL_LINKMAN_SEX,CHNL_EMAIL,CHNL_FAX,CHNL_ADDR,CHNL_OFFICE_PHONE,CHNL_PHONE,CHNL_POSTALCODE,MANAGER_DEPT_CODE,MANAGER_STAFF_CODE,MANAGER_PHONE,REMARK,AFFILIATETIME,CREATE_STAFF_CODE,CREATE_TIME,DEV_OPERATE,DEV_CODE,DEV_TYPE_ID,DEV_NAME,DEV_STAFF_CODE,USER_PID,LINKMAN_PHONE,LINKMAN_EMAIL,GROUP_ACCT,LINKMAN_ADDR,LINKMAN_POSTCODE,D_REMARK,BSS_SYS_CODE,BSS_SYS_CODE2,FLAG_JL,VALID_FLAG,LIQUIDATION_PAY_FLAG,LIQUIDATION_START_DATE,OPER_TYPE,JOINT_FLAG,BUILD_AREA,LONGITUDE,LATITUDE,JOINT_SOC_FLAG,AGENT_BUSINESS_FORM,TERMINAL_TYPE,AUTH_POWER_TYPE,APPLE_ID,AUTH_TYPE from zb_info_agent where chnl_code=#{filter.chnl_code}
+        </query>
+        <query name="queryZBInfoAgentByChnlCodeOrNameOrRegionId">
+        	select zia.CHNL_CODE,zia.CHNL_NAME from zb_info_agent zia
+				where 1=1
+				and exists (select iad.CHNL_CODE from info_agent_developers iad where zia.CHNL_CODE = iad.CHNL_CODE )
+			<if test="filter.chnl_code != null and filter.chnl_code != ''">
+         		and zia.CHNL_CODE=#{filter.chnl_code}
+        	</if>
+        	<if test="filter.chnl_name != null and filter.chnl_name != ''">
+         		and zia.CHNL_NAME like '%${filter.chnl_name}%'
+        	</if>
+        	<if test="filter.manager_area_code != null and filter.manager_area_code != ''">
+         		and manager_area_code=#{filter.manager_area_code}
+        	</if>
+        	and rownum&lt;1000
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoCommendOperPo" type="jdbc">
+        <query name="queryInfoCommendOperByOperNo">
+            select a.commend_no,a.oper_no,a.create_date,a.flag,b.oper_name from crm_pub.info_commend_oper a ,crm_pub.info_oper b where a.oper_no=#{filter.oper_no} and b.oper_no=a.oper_no and a.flag=0
+        </query>
+        <query name="queryInfoCommendOperByDevelopNo">
+            select a.commend_no,a.oper_no,a.create_date,a.flag,b.oper_name from crm_pub.info_commend_oper a ,crm_pub.info_oper b where a.commend_no=#{filter.commend_no} and b.oper_no=a.oper_no
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoAgentDevelopersPo" type="jdbc">
+        <query name="queryInfoAgentDevelopersByOperNo">
+           SELECT * FROM info_agent_developers d where dev_code in(SELECT i.commend_no FROM info_commend_oper i where i.oper_no=#{filter.oper_no}) and d.validflag=0
+        </query>
+        <get>
+             select a.*, b.chnl_name  from info_agent_developers a left join zb_info_agent b on a.chnl_code=b.chnl_code where a.dev_code = #{dev_code} and a.validflag=0      
+        </get>
+         <query name="queryInfoAgentDevelopers">
+           SELECT * FROM crm_pub.info_agent_developers d ,crm_pub.zb_info_agent t WHERE t.chnl_code = d.chnl_code and d.validflag = '0' and  t.city_code =#{filter.local_net}
+             <if
+				test="filter.dev_code != null and  filter.dev_code !=''">
+			    and  d.dev_code= #{filter.dev_code}
+			</if>
+             <if
+				test="filter.dev_name != null and  filter.dev_name !=''">
+			   and (d.dev_name like '%${filter.dev_name}%' or d.LINKMAN_PHONE like '%${filter.dev_name}%')
+			</if>
+			<if
+				test="filter.product_id != null and  filter.product_id !=''">
+				and (not exists (select 1 from crm_pub.rule_product_developer where product_id = #{filter.product_id}) or d.dev_code in (select dev_code from crm_pub.rule_product_developer where product_id = #{filter.product_id}) )
+			</if>
+			and rownum&lt;1000
+        </query>
+        
+        <query name="queryInfoAgentDevelopersByCodeOrName">
+        	select iad.DEV_NAME,iad.DEV_CODE from info_agent_developers iad where 1=1
+        	<if test="filter.dev_code != null and  filter.dev_code !=''">
+			    and iad.DEV_CODE= #{filter.dev_code}
+			</if>
+            <if test="filter.dev_name != null and  filter.dev_name !=''">
+			   and iad.DEV_NAME like '%${filter.dev_name}%'
+			</if>
+        	<if test="filter.chnl_code != null and  filter.chnl_code !=''">
+			    and iad.CHNL_CODE= #{filter.chnl_code}
+			</if>
+            <if test="filter.region != null and  filter.region !=''">
+			   and exists (select zia.CHNL_CODE from zb_info_agent zia where zia.CHNL_CODE = iad.CHNL_CODE and manager_area_code = #{filter.region})
+			</if>
+        	and rownum&lt;1000
+        </query>
+        
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoDeptPo" type="jdbc">
+        <get>
+            select dept_no,parent_dept_no,path_code,dept_type,dept_name,local_net,comments,phone,fax,address,flag,res_init1,res_init2,res_char1,res_char2,area_id,channel_type,sub_channel_type,dept_level,channel_run_type,
+      department_type,type_channel,channel_properties,type_sub_channel,channel_region_type,level_channel,channel_assort,belong_to_dept,channel_assort_2,type_channel_3g,
+      apple,business_analysis_flag,count_score_flag,manager_area_code from info_dept where dept_no=#{dept_no}
+        </get>
+        <query name="queryInfoDeptByDeptNoAndDeptName">
+            select * from (select * from info_dept d start with d.dept_no=#{filter.currDeptNo} connect by prior d.dept_no=d.parent_dept_no) l where 1=1
+            <if test="filter.departNo != null and filter.departNo != ''">
+          			 and l.dept_no=#{filter.departNo}
+         	</if>
+       		 <if test="filter.departName != null and filter.departName != ''">
+          			 and l.dept_name like '%${filter.departName}%'
+         	</if>
+        </query>
+        <query name="queryInfoDeptByOperNo">
+            select d.* from info_dept d,info_oper o where 1=1 and o.oper_no=#{filter.oper_no} and d.dept_no=o.dept_no
+        </query>
+        <query name="queryInfoDeptByDeptType">
+            select dept_no,dept_name from info_dept where dept_type=#{filter.dept_type}
+            <if test="filter.dept_no != null and filter.dept_no != ''">
+          			 and dept_no=#{filter.dept_no}
+         	</if>
+         	<if test="filter.area_id != null and filter.area_id != ''">
+          			 and area_id=#{filter.area_id}
+         	</if>
+       		 <if test="filter.dept_name != null and filter.dept_name != ''">
+          			 and dept_name like '%${filter.dept_name}%'
+         	</if>
+        </query>
+         <query name="queryInfoDeptByLocalNet">
+            select dept_no,dept_name from info_dept where local_net=#{filter.local_net}
+            <if test="filter.dept_no != null and filter.dept_no != ''">
+          			 and dept_no=#{filter.dept_no}
+         	</if>
+       		 <if test="filter.dept_name != null and filter.dept_name != ''">
+          			 and dept_name like '%${filter.dept_name}%'
+         	</if>
+         	and rownum&lt;1000
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoOperPasswordPo" type="jdbc">
+        <query name="queryInfoOperPasswordByOperId">
+            select a.oper_id,a.oper_pw,a.system from INFO_OPER_PASSWORD a where oper_id = #{filter.oper_id}
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoPagesMobilePo" type="jdbc">
+        <query name="queryInfoPagesMobileByOperId">
+            select * from info_pages_mobile a where authority_id in (select authority_id from RULE_AUTHORITY_ROLE where ROLE_ID in (select role_id from rule_oper_role where oper_id = #{filter.oper_id})) and flag = 0
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.RuleOperRolePo" type="jdbc">
+        <query name="queryRuleOperRoleByOperId">
+            select ror.OPER_ROLE_ID,ror.OPER_ID,ror.ROLE_ID,ror.CREATE_DATE,ror.CREATE_OPERATOR_ID from rule_oper_role ror where oper_id=#{filter.oper_id} union all select b.OPER_ROLE_ID,b.uniform_OPER_ID,b.ROLE_ID,b.CREATE_DATE,b.CREATE_OPERATOR_ID from rule_uniform_oper_role b where uniform_OPER_ID =#{filter.uni_oper_id}
+        </query>
+        <query name="queryRuleOperRoleNameByOperId">
+        	SELECT CPIR.ROLE_ID, CPIR.ROLE_NAME FROM CRM_PUB.INFO_ROLE CPIR WHERE CPIR.ROLE_ID IN (SELECT ror.ROLE_ID FROM rule_oper_role ror WHERE oper_id=#{filter.oper_id} UNION ALL SELECT b.ROLE_ID FROM rule_uniform_oper_role b)
+        </query>
+        <query name="queryRuleOperRoleByCreateOperatorId">
+        	select CPIR.ROLE_ID, CPIR.ROLE_NAME from CRM_PUB.INFO_ROLE CPIR WHERE CPIR.CREATE_OPERATOR_ID=#{filter.createOperatorId}
+        </query>
+         <query name="queryRuleOperRoleByOperNoOrRoleId">
+            select ror.oper_role_id,ror.oper_id,ror.role_id,ror.create_date,ror.create_operator_id,ir.role_name,io.oper_name  from rule_oper_role ror join info_role ir on ror.role_id=ir.role_id inner join info_oper io on ror.oper_id=io.oper_no where ror.role_id in (select info_role.role_id from crm_pub.info_role where info_role.create_operator_id = 'UOC')
+            <if test="filter.oper_id != null and filter.oper_id != ''">
+          			 and ror.oper_id=#{filter.oper_id}
+         	</if>
+       		 <if test="filter.role_id != null and filter.role_id != ''">
+          			 and ror.role_id=#{filter.role_id}
+         	</if>
+        </query>
+        <create>
+            insert into rule_oper_role(oper_role_id,oper_id,role_id,create_date,create_operator_id) values(#{oper_role_id},#{oper_id},#{role_id},sysdate,#{create_operator_id})
+        </create>
+        <delete>
+            delete from rule_oper_role where role_id=#{role_id} and oper_id=#{oper_id}
+        </delete>
+        <update>
+        </update>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoMenuPo" type="jdbc">
+        <query name="queryInfoMenuByOperIDNew">
+            select * from info_menu a where authority_id in (select authority_id from RULE_AUTHORITY_ROLE where ROLE_ID in (select role_id from rule_oper_role where oper_id = #{filter.oper_id})) and flag = 0 order by a.sort_mark asc
+        </query>
+        <query name="queryInfoMenuByOperID">
+              select im.* from info_menu im where menu_id in (select rmr.menu_id from rule_menu_role rmr where rmr.role_id in (select ror.role_id from rule_oper_role ror where ror.oper_id=#{filter.oper_id} union all select role_id from rule_uniform_oper_role where uniform_oper_id=#{filter.uni_oper_id})) and im.authority_id=#{filter.authority_id} and flag=0 order by im.sort_mark asc 
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoRegionPo" type="jdbc">
+    	<query name="queryInfoRegions">
+    		select AREA_CODE as region_id,AREA_NAME as region_name,PARENT_AREA_CODE as parent_region_id,AREA_LEVEL as region_level  from ZB_INFO_REGION where 1=1
+    		<if test="filter.region_id != null and filter.region_id != ''">
+          		and AREA_CODE=#{filter.region_id}
+         	</if>
+      		<if test="filter.region_name != null and filter.region_name != ''">
+         		and AREA_NAME like '%${filter.region_name}%'
+        	</if>
+  	    	<if test="filter.parent_region_id != null and filter.parent_region_id != ''">
+          		and PARENT_AREA_CODE=#{filter.parent_region_id}
+         	</if>
+      		<if test="filter.region_level != null and filter.region_level != ''">
+         		and AREA_LEVEL=#{filter.region_level}
+        	</if>
+        	and rownum&lt;1000
+    	</query>
+    </service>
+    
+    <service data="com.tydic.unicom.uac.base.database.po.InfoInputOrderPo" type="jdbc">
+        <create>
+            insert into info_input_order (order_id, order_name, order_type, order_sub_type, order_number, order_date, end_date, chnl_code, oper_id, oper_dept_no, create_date, check_status, link_order_id, compute_flag) values(#{order_id}, #{order_name}, #{order_type}, #{order_sub_type}, #{order_number}, sysdate, sysdate, #{chnl_code}, #{oper_id}, #{oper_dept_no}, sysdate, #{check_status}, #{link_order_id}, #{compute_flag})
+        </create>
+    </service>
+    
+</services>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>云销售</title>
+<link href="../css/public_pc.css" rel="stylesheet" type="text/css" />
+<link href="../css/pre_accept.css" rel="stylesheet" type="text/css" />
+
+<link type="text/css" rel="stylesheet" href="js/webBase/css/tydic.dialog.css">
+
+<link type="text/css" rel="stylesheet" href="js/webBase/statics/js/jquerylib/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.css">
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/webBase/statics/js/jquerylib/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+
+<script type="text/javascript" src="js/webBase/js/tydic.dialog.js"></script>
+
+
+<script type="text/javascript" >
+
+	$(document).ready(function(){
+
+		/*var dialog=$.dialog({
+			   title:'提示',
+			   content:'该证件与需绑定号码姓名不一致，请重新校验。',
+			   buttons:[
+					{id:'btn_ok',text:'确定',
+						   onClick:function(){	
+							   dialog.close();
+							   
+				
+						   }},  {id:'btn_ok',text:'取消',
+							   onClick:function(){	
+								   dialog.close();
+					
+							   }}
+				   ]
+			}); 	*/	
+		
+		
+		
+	});
+	
+	
+	function lgwtest() {
+			var dialog=$.dialog({
+			   title:'提示',
+			   content:'该证件与需绑定号码姓名不一致，请重新校验。',
+			   buttons:[
+					{id:'btn_ok',text:'确定',
+						   onClick:function(){	
+							   dialog.close();
+							   
+				
+						   }},  {id:'btn_ok',text:'取消',
+							   onClick:function(){	
+								   dialog.close();
+					
+							   }}
+				   ]
+			}); 
+		};
+
+
+</script>
+
+</head>
+
+<body>
+
+<div class="top_new">
+	<div class="top_bg">
+        <div class="top_content">
+        	<img src="../images/banner_income.png"/>              
+            <div class="top_info">
+                
+                <div class="float_right button_data" style=" margin:3px 25px 0px 0px; *width:108px;">
+                	<div class="button_data_right"></div>
+                    <div class="button_data_left"></div>
+                    <div class="button_data_txt">手机号码绑定维护</div>
+                </div>
+                
+                <a href="###" class="code_exit">安全退出</a>                
+            </div>
+            <div class="seat text_large24">营业坐席</div>  
+            <!--
+            <div class="crumb">当前位置：云销售PC版</div>     -->            
+        </div>            
+    </div>
+</div>
+
+<div class="show" style=" height:662px;">
+    
+    <div class="info">
+    	<div class="detail_white">
+        	<div class="title"></div>
+            
+            <div class="title_tab">        
+                <div class="text_large bold"><span class="red_band_line"></span>云销售APP验证码发送号码维护</div>
+            </div>   
+            <div class="padding_blank01"></div> 
+            <div class="padding_blank01"></div>
+            <div class="line_red_top"></div>
+        </div> 
+
+    </div> 
+    
+    <div class="info">
+    	<div class="title text_big">
+        	<span class="text_large24">1</span>号码查询
+        </div>
+		
+        <ul class="detail">
+        	<div class="padding_blank10"></div>
+        	<li class="list padding_no_t">
+            	<div class="left">
+                    <div class="left_lable">请输入需绑定的联通号码：</div>
+                    <div class="left_lable">
+                		<input type="text" placeholder="" class="input_text width_15"></input>
+               		</div>
+                    <a href="###" onclick="lgwtest();"><div class="input_button">查询</div></a>
+                </div>
+                <div class="right">
+                	<div class="left_lable">姓名：</div>
+                    <div class="left_data">333333333</div>                 
+                </div>            
+            </li>
+            <div class="padding_blank10"></div>
+        </ul>
+    </div>
+              
+    <div class="info">
+    	<div class="title text_big">
+        	<span class="text_large24">2</span>校验证件
+        </div>
+		
+        <ul class="detail">
+        	<li class="list">
+            	<div class="left">
+                	<div class="left_lable">选择型号：</div>
+                    <div class="left_data">
+                    	<select class="select_down">
+                            <option>通用</option>
+                        </select>
+                    </div>
+                    <a href="###"><div class="input_button">读取</div></a>
+                </div>
+                <div class="right">
+                	<div class="left_lable">校验信息：</div>
+                    <div class="left_data">未校验</div>
+                </div>
+            </li>
+            
+        	<li class="list">
+            	<div class="left">
+                	<div class="left_lable">证件类型：</div>
+                    <div class="left_data">身份证</div>
+                </div>
+                <div class="right">
+                	<div class="left_lable">证件号码：</div>
+                    <div class="left_data"></div>
+                </div>
+            </li>
+            
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">证件名称：</div>
+                    <div class="left_data">李志强</div>
+                </div>
+                <div class="right">
+                	<div class="left_lable">证件地址：</div>
+                    <div class="left_data">南宁市江南区淡村路12号3栋1单元203房</div>
+                </div>            
+            </li>
+            
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">联系电话：</div>
+                    <div class="left_data">
+                		<input type="text" placeholder="18907712316"></input>
+               		</div>
+                </div>
+                <div class="right">
+                	<div class="left_lable">联系地址：</div>
+                    <div class="left_data">
+                		<input type="text" placeholder="南宁市江南区淡村路12号3栋1单元203房" class="width_32"></input>
+               		</div>
+                </div>            
+            </li>
+        	
+            <li class="list">
+            	<div class="line_dashed_h"></div>
+            </li>
+            
+            <li class="list text_big">
+                <div class="list_title">本人身份证</div>
+            </li>
+			
+            <li>
+
+            	<table width="938" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                  <tr>
+                    <td width="468" align="center" style="border-right:1px dashed #CCC;"><table width="340" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                      <tr>
+                        <td height="216" valign="top" class="card_bg_front"><table width="340" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td height="24"></td>
+                          </tr>
+                        </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="55" height="26"><div style="width:55px;"></div></td>
+                              <td width="81" height="26" align="left">张三</td>
+                              <td width="68" height="26"></td>
+                              <td colspan="2" rowspan="4" valign="top" width="136" align="left"><img src="../images/photo.png" width="94" height="118" class="card_img" /></td>
+                            </tr>
+                            <tr>
+                              <td width="55" height="26"></td>
+                              <td height="26" align="left">男</td>
+                              <td height="26" align="left">汉</td>
+                            </tr>
+                            <tr>
+                              <td width="55" height="26"></td>
+                              <td height="26" colspan="2"><table width="149" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td width="57" align="left">1990</td>
+                                  <td width="33" align="left">12</td>
+                                  <td width="59" align="left">12</td>
+                                </tr>
+                              </table></td>
+                            </tr>
+                            <tr>
+                              <td width="55"></td>
+                              <td height="61" colspan="2" valign="top" class="card_addr"><div style="width:149px;  height:64px; overflow:hidden;">北京市朝阳区北京市朝阳区十八北京市朝阳区北京市朝阳区十八里店乡北京市朝阳区北京市朝阳区十八里店乡北京市朝阳区北京市朝阳区十八里店乡里店乡</div></td>
+                            </tr>
+                          </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="110" height="26">&nbsp;</td>
+                              <td width="230" align="left">100010199012121136</td>
+                            </tr>
+                          </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td>&nbsp;</td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                    <td width="468" align="center"><table width="340" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                      <tr>
+                        <td height="216" valign="top" class="card_bg_reverse"><table width="340" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                              <td height="148">&nbsp;</td>
+                            </tr>
+                        </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="135" height="30">&nbsp;</td>
+                              <td width="205" align="left">北京市公安局</td>
+                            </tr>
+                            <tr>
+                              <td height="26">&nbsp;</td>
+                              <td align="left">2010.02.02―2030.02.02</td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table>
+               
+            </li>         
+            
+            <li class="list"></li>   
+
+        </ul>
+        
+        <div class="padding_blank10"></div>
+            
+        <li class="text_large">
+            <!-- <div class="ok"><a href="###">确  认</a></div> -->
+            <div class="ok_disabled"><a href="###">确  认</a></div>
+        </li> 
+    	
+   	
+    </div> 
+    
+  <div class="padding_blank"></div>
+  <div class="clear"></div>
+</div>
+
+<div class="bg_mask" id="bg_mask">
+	<iframe class="bg_mask_iframe"> </iframe>
+</div>
+
+
+</body>
+</html>

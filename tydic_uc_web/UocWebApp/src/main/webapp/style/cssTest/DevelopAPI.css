@@ -1,0 +1,18 @@
+.box_left{width:49.5%; float:left; border-right:1px solid #ccc;}
+.box_right{width:50%; float:right;}
+
+.operate_box{*height:280px; margin-top:10px; padding:10px; border:1px solid #ccc; white-space:normal;}
+.operate_box:after{height:0; content:"."; display:block; clear:both; visibility:hidden;}
+.operate_box .title{margin-top:5px; font-size:14px; font-weight:bold;}
+.operate_box .content{padding:5px 0;}
+.operate_box .content p{padding:3px 0;}
+.operate_box .content input{margin-right:5px;}
+.operate_box .color p span{margin-right:5px; padding:5px; display:inline-block; *zoom:1; *display:inline; color:#fff;}
+
+.code_box{margin-top:10px; padding:10px; border:1px solid #ccc;}
+.code_box .title{font-size:14px; font-weight:bold;}
+.code_box pre{margin:0; padding:5px 0;}
+
+.log_box{margin-top:10px; padding:10px; border:1px solid #ccc;}
+.log_box .title{font-size:14px; font-weight:bold;}
+.log_box .content{padding:5px 0;}

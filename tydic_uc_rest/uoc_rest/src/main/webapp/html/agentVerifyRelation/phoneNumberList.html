@@ -1,0 +1,645 @@
+<style>
+.list {background-color:inherit;}
+</style>
+<div class="show" style="display:none;  height:512px;" id="bindNumPage">
+    <div class="info">
+    	<div class="detail_white">
+        	<div class="title"></div>
+            
+            <div class="title_tab">        
+                <div class="text_large bold"><span class="red_band_line"></span>云销售APP验证码发送号码维护</div>
+            </div>   
+            <div class="padding_blank01"></div> 
+            <div class="padding_blank01"></div>
+            <div class="line_red_top"></div>
+        </div> 
+
+    </div> 
+    
+    <!--  begin -->
+    <div class="product" id="bindNumList">
+        
+        <div class="info">
+           <div class="padding_blank"></div> 
+           
+            <ul class="">
+            	<div class="padding_blank10"></div>
+            	<div class="" style=" margin:0 auto; width:804px;">
+                    <li class="list" style="*display:inline;" id="phoneNumlistheader">
+                        <div class="order_row" style="width:804px;">
+
+                            <div class="order_cell" style="width:200px;">
+                                联通手机号码
+                            </div>
+                            <div class="order_cell" style="width:200px;">
+                                姓名
+                            </div>
+                            <div class="order_cell" style="width:200px;">
+                                绑定时间
+                            </div>
+                            <div class="order_cell" style="width:200px;">
+                                号码状态/操作
+                            </div>
+                        </div>
+                    </li>
+                    <div id="phoneNumlist">                   
+                    </div>
+                </div>
+       
+                <div class="padding_blank"></div>
+            </ul>
+            <div class="bottom_blank"></div>
+            <div class="bottom_blank"></div>
+            <div class="bottom_blank"></div>
+            
+            <div class="">
+                <div class="left ">
+                    <div class="button_ok right" style=" margin-right:10px;" id="btn_xingzenghaoma">新增号码</div>
+                    
+                </div>
+                <div class="left ">
+                    <div class="button_cancel white_bgcolor left_lable" style=" margin-left:10px;" id="btn_fanghui_bindNumPage">返 回</div>
+                </div>
+            </div>
+            	
+        </div>
+    
+    </div>
+    <!--  end -->
+  
+  <div class="padding_blank"></div>
+  <div class="clear"></div>
+</div>
+<div class="show" style="display:none; height:612px;" id="addAgentVerifyRelationPage">
+        <div class="info">
+    	<div class="title text_big">
+        	<span class="text_large24">1</span>号码查询
+        </div>
+		
+        <ul class="detail">
+        	<div class="padding_blank10"></div>
+        	<li class="list padding_no_t">
+            	<div class="left">
+                    <div class="left_lable">请输入需绑定的联通号码：</div>
+                    <div class="left_lable">
+                		<input type="text" placeholder="" class="input_text width_15" id="bind_device_number"></input>
+               		</div>
+                    <a href="###" id="btn_search"><div class="input_button">查询</div></a>
+                </div>
+                <div class="right">
+                	<div class="left_lable">姓名：</div>
+                    <div class="left_data" id="bind_cust_name"></div>                 
+                </div>            
+            </li>
+            <div class="padding_blank10"></div>
+        </ul>
+    </div>
+              
+    <div class="info">
+    	<div class="title text_big">
+        	<span class="text_large24">2</span>校验证件
+        </div>
+		
+        <ul class="detail">
+        	<li class="list">
+            	<div class="left">
+                	<div class="left_lable">选择型号：</div>
+                    <div class="left_data">
+                    	<select class="select_down" name="id_card_mech" id="id_card_mech">
+                            <option value ="crvu">通用</option>
+                        </select>
+                    </div>
+                    <a href="###"><div class="input_button" id="btn_load">读取</div></a>
+                </div>
+                <div class="right">
+                	<div class="left_lable">校验信息：</div>
+                    <div class="left_data" id="jiaoyanxinxi">未校验</div>
+                </div>
+            </li>
+            
+        	<li class="list">
+            	<div class="left">
+                	<div class="left_lable">证件类型：</div>
+                    <div class="left_data">身份证</div>
+                </div>
+                <div class="right">
+                	<div class="left_lable">证件号码：</div>
+                    <div class="left_data" id="pCardNo"></div>
+                </div>
+            </li>
+            
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable">证件名称：</div>
+                    <div class="left_data" id="pName"></div>
+                </div>
+                <div class="right">
+                	<div class="left_lable">证件地址：</div>
+                    <div class="left_data" id="pAddress"></div>
+                </div>            
+            </li>            
+
+        	
+            <li class="list">
+            	<div class="line_dashed_h"></div>
+            </li>
+            
+            <li class="list text_big">
+                <div class="list_title">本人身份证</div>
+            </li>
+			
+            <li>
+
+            	<table width="938" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                  <tr>
+                    <td width="468" align="center" style="border-right:1px dashed #CCC;"><table width="340" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                      <tr>
+                        <td height="216" valign="top" class="card_bg_front"><table width="340" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td height="24"></td>
+                          </tr>
+                        </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="55" height="26"><div style="width:55px;"></div></td>
+                              <td width="81" height="26" align="left" id="bg_card_name"></td>
+                              <td width="68" height="26"></td>
+                              <td colspan="2" rowspan="4" valign="top" width="136" align="left"><img src="../../images/photo.png" width="94" height="118" class="card_img" id="idCradImage" /></td>
+                            </tr>
+                            <tr>
+                              <td width="55" height="26"></td>
+                              <td height="26" align="left" id="bg_card_sex"></td>
+                              <td height="26" align="left" id="bg_card_nation"></td>
+                            </tr>
+                            <tr>
+                              <td width="55" height="26"></td>
+                              <td height="26" colspan="2"><table width="149" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td width="57" align="left" id="bg_card_born_year"></td>
+                                  <td width="33" align="left" id="bg_card_born_month"></td>
+                                  <td width="59" align="left" id="bg_card_born_day"></td>
+                                </tr>
+                              </table></td>
+                            </tr>
+                            <tr>
+                              <td width="55"></td>
+                              <td height="61" colspan="2" valign="top" class="card_addr"><div style="width:149px;  height:64px; overflow:hidden;" id="bg_card_born_addrss"></div></td>
+                            </tr>
+                          </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="110" height="26">&nbsp;</td>
+                              <td width="230" align="left" id="bg_card_born_id_number"></td>
+                            </tr>
+                          </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td>&nbsp;</td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                    <td width="468" align="center"><table width="340" border="0" align="center" cellpadding="0" cellspacing="0" class="auto">
+                      <tr>
+                        <td height="216" valign="top" class="card_bg_reverse"><table width="340" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                              <td height="148">&nbsp;</td>
+                            </tr>
+                        </table>
+                          <table width="340" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="135" height="30">&nbsp;</td>
+                              <td width="205" align="left" id="bg_card_idcard_addr"></td>
+                            </tr>
+                            <tr>
+                              <td height="26">&nbsp;</td>
+                              <td align="left" id="bg_card_valid"></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table>
+               
+            </li>         
+            
+            <li class="list"></li>   
+
+        </ul>
+        
+        <div class="padding_blank10"></div>
+            
+        <li class="text_large">
+            <!-- <div class="ok"><a href="###">确  认</a></div> -->
+            <div class="ok_disabled" id="btn_addAgentVerifyRelation"><a href="###">确  认</a></div>
+        </li> 
+    	
+   	
+    </div> 
+    
+   
+  <div class="padding_blank"></div>
+  <div class="clear"></div>
+    </div>
+
+<!-- 弹出窗口 功能说明及风险提示  -->
+<div class="pop_win" id="fun_explain" style="display:none; width:560px; height:524px; ">
+	<div class=" padding_blank10"></div>
+    <div class="pop_title_big">功能说明及风险提示</div>
+	<div class=" padding_blank10"></div>
+    
+    <div class="msgbox" style=" padding:0px 20px;">
+        <ul class="pop_info" style=" padding:0px 0px;">
+            <li><span class="bold red">功能说明</span></li>
+            <li>
+                <div class="left_lable">
+                    用于对云销售手机APP验证码发送号码进行维护，因目前登录云销售手机APP需输入验证码，对部分只有一个统一工号的代理商较为不便，通过该功能可将验证码同时发送到设置好的手机号码上，方便代理商使用云销售APP。
+                </div>
+            </li>
+            <div class="clear"></div>
+            <li><span class="bold red">风险提示</span></li>
+            <li><span class="bold">不及时维护号码造成营业员非法使用可能造成的风险有：</span></li>
+            <li>
+                <div class="left_lable">
+                    <div><span class="space24"></span><span class="bold">1、营业费用：</span>给非该代理商的营业员登录云销售办理业务，容易造成账实不符的情况。</div>
+  					<div><span class="space24"></span><span class="bold">2、资金归集：</span>银行卡已绑定工号，如未及时对绑定的号码进行维护，有可能泄露银行卡信息及银行卡内资金。</div>
+    				<div><span class="space24"></span><span class="bold">3、号码开户：</span>有可能导致用户想要的号码资源被开户，或其他违规开户的情况。</div>
+    				<div><span class="space24"></span><span class="bold">4、手机终端：</span>沃创富局别的手机丢失、或被套机的现象。</div>
+					<div>或其他所有未被考虑在内的风险情况。</div>
+                </div>
+            </li>
+         	
+            <div class=" padding_blank10"></div>
+            <div>
+            	<div class="pop_info_special red">云销售只为代理商提供号码绑定的便利，因不妥善使用所造成的一切不良后果均由代理商自行负责，与广西联通无关。</div>
+            </div>
+		                    
+            <div class=" padding_blank10" style="_display:inline;"></div>
+            <div class=" padding_blank10" style="_display:inline;"></div>
+			
+            <div style=" _margin-top:10px;">
+                <div class="left left_lable">
+                    <div class="button_ok" onClick="showBindNumPage();">继续办理</div>
+                </div>
+                <div class="left left_lable">
+                    <div class="button_cancel" onClick="hidediv('fun_explain');" >返 回</div>
+                </div>
+            </div>
+        </ul>        
+    </div>    
+</div>
+<script type="text/javascript">
+
+var agentVerifyRelationBindinfo={
+	    registClient : {
+	            onComplete: function (args) {            
+	                if (args.cust_info.length > 0) {  
+	                	//遍历数组  获取与输入一直的设备号码
+	                	$(args.cust_info).each(function(index,element){
+	                		if($("#bind_device_number").val()==element.device_number){
+	                			agentVerifyRelationBindinfo.cust_info=element;
+	                			//return false;
+	                		}
+	                	});	
+	                	if($("#bind_device_number").val()==agentVerifyRelationBindinfo.cust_info.device_number){
+	                		$("#bind_cust_name").html(agentVerifyRelationBindinfo.cust_info.cust_name);
+	                	}else{
+	                		$.alert("查不到相应的用户信息");
+	                	}     
+	                }else {
+	                	$.alert("查不到相应的用户信息");
+	                }     
+	            },
+	            onError: function (error) {
+	            	$.alert(" "+error);
+	            }
+	        },
+	    "agentVerifyRelationBindList":"",  
+	    //由主页面index页面加载完成后赋值，
+		"uniform_info_oper":"",
+		"jsessionid":"",
+		"idreader_info":"",
+		"cust_info":"",
+		"jiaoyangflag":false};
+function showBindNumPage(){
+	hidediv("fun_explain");
+	//document.getElementById("").style.display ="block";
+	$("#bindNumPage").show();	
+	$("#addAgentVerifyRelationPage").hide();
+	$("#caiDanYe").hide();
+	$("#uss_iframe_main").hide();	
+	queryAgentVerifyRelation();
+};
+//新增号码
+function xingzenghaoma(){
+	$("#bindNumPage").hide();	
+	$("#addAgentVerifyRelationPage").show();
+};
+//btn_fanghui_bindNumPage
+function fanghui_bindNumPage(){
+	$("#bindNumPage").hide();
+	$("#caiDanYe").show();
+	$("#uss_iframe_main").show();
+};
+function showdiv(popWinId) {
+	document.getElementById("bg_mask").style.display ="block";
+	console.log(document.getElementById(popWinId));
+	document.getElementById(popWinId).style.display ="block";
+};
+function hidediv(popWinId) {
+	document.getElementById("bg_mask").style.display ='none';
+	document.getElementById(popWinId).style.display ='none';
+};
+function queryAgentVerifyRelation(){
+	var URL = application.fullPath + 'rest/agentVerifyRelation/queryAgentVerifyRelation';
+	var data1={
+			"uniform_info_oper":agentVerifyRelationBindinfo.uniform_info_oper,	
+			"jsessionid":agentVerifyRelationBindinfo.jsessionid
+			   };
+	$.ajax({
+		url:URL,
+		//type:'get',
+		type:'post',
+		data:data1,
+		waitMsg:"读取中..",
+		success:function(message){
+			var rlist=message.args.rlist;
+			//var result=message.args.result;
+			var result=(message.type=="success"?true:false);
+			//查询成功
+			if(result){
+				if ( rlist== null || rlist == undefined ||rlist.length==0){
+					$.alert("无对应的手机号码绑定信息");					
+				}else{
+					var lists=$("#phoneNumlist");
+					agentVerifyRelationBindinfo.agentVerifyRelationBindList=rlist;
+				    $("#phoneNumlist").html("");
+					for(var j = 0;j < rlist.length;j++){
+		        		var data = rlist[j];
+		        		var line;
+	        			line='<li class="list" style="*display:inline;"><div class="order_row white_bgcolor" style="width:804px;">';
+	        			line=line+'<div class="order_cell white_bgcolor" style="width:200px;">'+data.bind_device_number+'</div>';
+	        			line=line+'<div class="order_cell white_bgcolor" style="width:200px;">'+data.custom_name+'</div>';
+	        			line=line+'<div class="order_cell white_bgcolor" style="width:200px;">'+data.oper_date+'</div>';
+	        			line=line+'<div id="'+data.bind_device_number+'" class="order_cell white_bgcolor" style="width:200px;">'+'<span style="*float:left;">已绑定/</span><a href="javascript:;" onclick="delAgentVerifyRelation('+j+')"><div class="input_button">删 除</div></a>'+'</div>';
+	        			line=line+'</div></li>';
+	        			lists.append(line);
+					}	        	
+				}
+		    //查询失败
+			}else{
+				$.alert("查询失败:"+message.content);
+			}
+		},
+		error: function (XMLHttpRequest, textStatus,errorThrown) {
+            var status = XMLHttpRequest.status;
+            //var errorInfo = HTTP_ERROR_STATUES[status];
+            var hint = "网络繁忙，请稍后再试!";//通用万金油提示，都懂得。                
+            var error = hint + ",后台接口报错!";
+            $.alert(error);
+        }
+	});	
+};
+function delAgentVerifyRelation(ListIndex){
+	$.confirm('确定删除?', '删除对话框', function(r) {
+		if(r){
+			
+			data=agentVerifyRelationBindinfo.agentVerifyRelationBindList[ListIndex];
+			var URL = application.fullPath + 'rest/agentVerifyRelation/delAgentVerifyRelation';	
+			var data1={	
+					"jsessionid":agentVerifyRelationBindinfo.jsessionid+"PC",
+					"bind_device_number":data.bind_device_number			
+					};
+			$.ajax({
+				url:URL,
+				type:'post',
+				data:data1,
+				async:false,
+				waitMsg:"读取中..",
+				success:function(message){
+					//== null || message.arg.reslut == undefined ||message.arg.reslut
+					var result=(message.type=="success"?true:false);
+					if (result){
+						$.alert("删除失败:"+message.content);			
+					}else{
+						//alert("删除成功");
+						$("#phoneNumlist").html("");
+						queryAgentVerifyRelation();
+					}
+				},
+				error: function (XMLHttpRequest, textStatus,errorThrown) {
+		            var status = XMLHttpRequest.status;
+		            //var errorInfo = HTTP_ERROR_STATUES[status];
+		            var hint = "网络繁忙，请稍后再试!";//通用万金油提示，都懂得。                
+		            var error = hint + ",后台接口报错!";
+		            $.alert(error);
+		        }
+			});
+		}else{
+			return false;
+		}
+	});
+
+	
+	
+};
+function addAgentVerifyRelation(data){
+	//调用接口
+	var URL = application.fullPath + 'rest/agentVerifyRelation/addAgentVerifyRelation';	
+	
+	var data1={
+			"uniform_info_oper":agentVerifyRelationBindinfo.uniform_info_oper,	
+			"jsessionid":agentVerifyRelationBindinfo.jsessionid+"PC",
+			"bind_device_number":data.bind_device_number,
+			"custom_name":data.custom_name,
+			"id_number":data.id_number
+			};
+	$.ajax({
+		url:URL,
+		type:'post',
+		data:data1,
+		async:false,
+		waitMsg:"读取中..",
+		success:function(message){
+			var result=(message.type=="success"?true:false);
+			if (result){
+				$.alert("绑定成功！");
+				$("#bindNumPage").show();	
+				$("#addAgentVerifyRelationPage").hide();
+				//还原agentVerifyRelationBindinfo
+				agentVerifyRelationBindinfo.jiaoyangflag=false;
+				agentVerifyRelationBindinfo.idreader_info="";
+				agentVerifyRelationBindinfo.cust_info="";
+				queryAgentVerifyRelation();				
+			}else{
+				alert("增加失败:"+message.content);
+			}
+		},
+		error: function (XMLHttpRequest, textStatus,errorThrown) {
+            var status = XMLHttpRequest.status;
+            //var errorInfo = HTTP_ERROR_STATUES[status];
+            var hint = "网络繁忙，请稍后再试!";//通用万金油提示，都懂得。                
+            var error = hint + ",后台接口报错!";
+            $.alert(error);
+        }		
+	});
+};
+
+$("#id_card_mech").change(function(){
+	id_card_mech=$("#id_card_mech").val();
+	PC_IDREADER.pc_idreader_info.id_card_mech=id_card_mech;	
+});
+
+//更新页面显示
+function myPcIdReaderCallBack(){
+	$('#pName').text(PC_IDREADER.pc_idreader_info.pName);
+	$('#pAddress').text(PC_IDREADER.pc_idreader_info.pAddress);
+	$('#pCardNo').text(PC_IDREADER.pc_idreader_info.pCardNo);
+	$('#idCradImage').attr('src',PC_IDREADER.pc_idreader_info.id_card_image_path+PC_IDREADER.pc_idreader_info.pCardNo+".png");
+	//图片上的信息
+	$('#bg_card_name').text(PC_IDREADER.pc_idreader_info.pName);
+	$('#bg_card_sex').text(PC_IDREADER.pc_idreader_info.pSexShow);
+	$('#bg_card_nation').text(PC_IDREADER.pc_idreader_info.pNation);
+	$('#bg_card_born_year').text(PC_IDREADER.pc_idreader_info.year);
+	$('#bg_card_born_month').text(PC_IDREADER.pc_idreader_info.month);
+	$('#bg_card_born_day').text(PC_IDREADER.pc_idreader_info.day);
+	$('#bg_card_born_addrss').text(PC_IDREADER.pc_idreader_info.pAddress);
+	$('#bg_card_idcard_addr').text(PC_IDREADER.pc_idreader_info.pPolice);
+	$('#bg_card_born_id_number').text(PC_IDREADER.pc_idreader_info.pCardNo);
+	$('#bg_card_valid').text(PC_IDREADER.pc_idreader_info.valid_start+"―"+PC_IDREADER.pc_idreader_info.valid_end);
+	//后台拼出来的身份信息和前台的身份信息是否 相互覆盖
+	//$("#idCradImage").attr('src',PC_IDREADER.pc_idreader_info.id_card_image_path+PC_IDREADER.pc_idreader_info.pCardNo+".png");
+};
+
+//清空页面
+function clearPage(){
+	$('#pName').text("");
+	$('#pAddress').text("");
+	$('#pCardNo').text("");
+	//$('#photo_buffer_val').val(base64jpg);
+	$('#idCradImage').attr('src',"../../images/photo.png");
+	//图片上的信息
+	$('#bg_card_name').text("");
+	$('#bg_card_sex').text("");
+	$('#bg_card_nation').text("");
+	$('#bg_card_born_year').text("");
+	$('#bg_card_born_month').text("");
+	$('#bg_card_born_day').text("");
+	$('#bg_card_born_addrss').text("");
+	$('#bg_card_idcard_addr').text("");
+	$('#bg_card_born_id_number').text("");
+	$('#bg_card_valid').text("");
+	$("#bind_device_number").val("");
+	//后台拼出来的身份信息和前台的身份信息是否 相互覆盖
+	//$("#idCradImage").attr('src',PC_IDREADER.pc_idreader_info.id_card_image_path+PC_IDREADER.pc_idreader_info.pCardNo+".png");
+};
+function addAgentVerifyRelationPcIdReader(){	
+
+
+	PC_IDREADER.load_card_mech();
+	//测试  身份真读取，校验并添加到数据库
+	var readflag=PC_IDREADER.readCard(application.fullPath,myPcIdReaderCallBack);
+	if(!readflag){
+		$.alert("读取失败！");
+	}
+	//校验：获取到的值
+	agentVerifyRelationBindinfo.jiaoyangflag=(agentVerifyRelationBindinfo.cust_info.id_number==PC_IDREADER.pc_idreader_info.pCardNo);
+	if(agentVerifyRelationBindinfo.jiaoyangflag){
+		$("#btn_addAgentVerifyRelation").removeClass("ok_disabled").addClass("ok").attr("disabled", false);		
+		$("#jiaoyanxinxi").html("校验");
+	}else{
+		$("#btn_addAgentVerifyRelation").removeClass("ok").addClass("ok_disabled").attr("disabled", true);
+		$("#jiaoyanxinxi").html("未校验");
+	}
+	/* 测试时屏蔽校验
+	if(agentVerifyRelationBindinfo.jiaoyangflag){
+		$("#btn_addAgentVerifyRelation").removeClass("input_button").addClass("ok_disabled");
+		$("#jiaoyanxinxi").html("未校验");
+	}else{
+		$("#btn_addAgentVerifyRelation").removeClass("ok_disabled").addClass("input_button");
+		$("#jiaoyanxinxi").html("校验");
+	}
+	*/
+	
+};
+$("#btn_load").click(addAgentVerifyRelationPcIdReader);
+$("#btn_search").click(agentVerifyRelationGetUserList);
+$("#btn_xingzenghaoma").click(xingzenghaoma);
+$("#btn_fanghui_bindNumPage").click(fanghui_bindNumPage);
+$("#btn_addAgentVerifyRelation").click(addAgentVerifyRelationClick);
+$("#btn_addAgentVerifyRelation").addClass("ok_disabled").attr("disabled", true);	
+
+function addAgentVerifyRelationClick() { 
+	//通过身份证和号码获取到的姓名及其身份证号码是否一致
+	if(!agentVerifyRelationBindinfo.jiaoyangflag){
+		$.alert("读取的客户身份证和绑定的设备号码归属客户不一致！");
+		return ;
+	};
+	//设置标识
+	var data ={
+			//获取用户列表 信息
+		"bind_device_number":agentVerifyRelationBindinfo.cust_info.device_number ,//$("#bind_device_number").val();
+		"custom_name": PC_IDREADER.pc_idreader_info.pName,//$("#custom_name").html();
+		"id_number":PC_IDREADER.pc_idreader_info.pCardNo
+	};
+	addAgentVerifyRelation(data);
+	//清空增加功能页面信息
+	clearPage();
+};
+/**
+ * 号码搜索事件
+ */
+function getUserList(data,registClient) {
+	//调用接口
+	var URL = application.fullPath + 'rest/saleOpen/getUserList';	
+	
+	if( data.device_num!="" ){
+		var phoneRegex = /^[0|1]\d{10}$/;//手机号验证
+		 if (!phoneRegex.test(data.device_num) || data.device_num.length !=11 ) {
+			 $.alert("请输入完整并正确的手机号码!");
+			 return;
+	     }		 
+	};
+	var data1={
+	        "input_text":data.device_num,
+	        "jsessionid": data.jsessionid
+			};
+	$.ajax({
+		url:URL,
+		type:'post',
+		data:data1,
+		async:false,
+		waitMsg:"读取中..",
+		success:function(message){	
+			if(message.type == "success"){
+				//error
+				agentVerifyRelationBindinfo.registClient.onComplete(message.args);				
+			}else{
+				agentVerifyRelationBindinfo.registClient.onError(message.content);				
+			}
+		}
+	});
+};
+function agentVerifyRelationGetUserList() {
+	var data ={"device_num":$("#bind_device_number").val(),"jsessionid":agentVerifyRelationBindinfo.jsessionid+"PC"};
+	getUserList(data,agentVerifyRelationBindinfo.registClient);
+	agentVerifyRelationBindinfo.jiaoyangflag=(agentVerifyRelationBindinfo.cust_info.id_number==PC_IDREADER.pc_idreader_info.pCardNo);
+	if(agentVerifyRelationBindinfo.jiaoyangflag){
+		$("#btn_addAgentVerifyRelation").removeClass("ok_disabled").addClass("ok").attr("disabled", false);		
+		$("#jiaoyanxinxi").html("校验");
+	}else{
+		$("#btn_addAgentVerifyRelation").removeClass("ok").addClass("ok_disabled").attr("disabled", true);
+		$("#jiaoyanxinxi").html("未校验");
+	}
+	/* 测试时屏蔽校验
+	if(agentVerifyRelationBindinfo.jiaoyangflag){
+		$("#btn_addAgentVerifyRelation").removeClass("input_button").addClass("ok_disabled");
+		$("#jiaoyanxinxi").html("未校验");
+	}else{
+		$("#btn_addAgentVerifyRelation").removeClass("ok_disabled").addClass("input_button");
+		$("#jiaoyanxinxi").html("校验");
+	}
+	*/
+};
+
+</script>

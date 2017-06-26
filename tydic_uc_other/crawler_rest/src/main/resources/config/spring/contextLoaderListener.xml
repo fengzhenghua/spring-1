@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 	<context:property-placeholder location="file:${CRA_REST_PROPERTY_FILE}" />
+ -->	
+	<context:property-placeholder location="file:D:\tydic\usrspace\UC_Properties\CrawlerProperties.properties"/>
+ 
+	<dubbo:application name="crawler_rest" />
+	<dubbo:registry address="${dubbo.registry.address}" />
+
+	<!-- 爬虫抓取相关的服务 -->
+	<dubbo:reference id="CrawlerServiceBus"
+		interface="com.tydic.unicom.crawler.business.interfaces.CrawlerServiceBus" />
+
+	<!-- 获取信息相关服务 -->
+	<dubbo:reference id="GetInfoServiceBus"
+		interface="com.tydic.unicom.crawler.business.interfaces.GetInfoServiceBus" />
+
+	<!-- 登录登出相关服务 -->
+	<dubbo:reference id="LoginServiceBus"
+		interface="com.tydic.unicom.crawler.business.interfaces.LoginServiceBus" />
+
+	<!-- 爬虫回写相关服务 -->
+	<dubbo:reference id="WriteBackServiceBus"
+		interface="com.tydic.unicom.crawler.business.interfaces.WriteBackServiceBus" />
+
+</beans>

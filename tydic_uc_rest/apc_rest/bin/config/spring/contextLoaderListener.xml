@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 本地开发使用 -->
+	<context:property-placeholder location="file:C:/Test/ApcProperties.properties"/>
+	<dubbo:application name="apc_rest" />
+	<dubbo:registry address="${dubbo.registry.address}" />
+	
+	<!-- APC0002-获取可选工号 -->
+	<dubbo:reference id="GetOptionalOperServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetOptionalOperServDu" />
+	
+	<!-- APC0003-获取可选发展人 -->
+	<dubbo:reference id="GetOptionalDeveServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetOptionalDeveServDu" />
+	
+	<!-- APC0012-获取可选渠道 -->
+	<dubbo:reference id="GetOptionalAgentServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetOptionalAgentServDu" />
+	
+	<!-- APC0013-获取可选地区 -->
+	<dubbo:reference id="GetOptionalRegionServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetOptionalRegionServDu" />
+
+	<!-- CodeList服务 -->
+	<dubbo:reference id="CodeListServDu" interface="com.tydic.unicom.apc.business.common.interfaces.CodeListServDu" />
+	
+	<!-- APC0014-触点属性维护、 APC0015-触点属性查询-->
+	<dubbo:reference id="ApAttrServDu" interface="com.tydic.unicom.apc.business.pub.interfaces.ApAttrServDu" />
+	
+	<dubbo:reference  id= "ApServDu"  interface="com.tydic.unicom.apc.business.pub.interfaces.ApServDu" />
+	
+	<!-- 获取可选营业厅信息 -->
+	<dubbo:reference id="GetInfoServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetInfoServDu" />
+	
+	<!-- APC0004-获取可选商品 -->
+	<dubbo:reference id="GetOptionalGoodsServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetOptionalGoodsServDu" />
+	
+	<!-- APC0001-获取触点信息 -->
+	<dubbo:reference id="GetApMsgServDu" interface="com.tydic.unicom.apc.business.pub.interfaces.GetApMsgServDu" />
+	
+	<!-- （oppo）触点订单相关服务接口 -->
+	<dubbo:reference id="OppoOrderServiceServDu" interface="com.tydic.unicom.apc.business.order.interfaces.OppoOrderServiceServDu" />
+	
+	<!-- (oppo)触点号码相关服务接口 -->
+	<dubbo:reference id="OppoNumberServiceServDu" interface="com.tydic.unicom.apc.business.ofr.interfaces.OppoNumberServiceServDu" />
+	
+	<!-- (oppo)触点校验相关服务接口 -->
+	<dubbo:reference id="OppoCheckServiceServDu" interface="com.tydic.unicom.apc.business.ofr.interfaces.OppoCheckServiceServDu" />
+	
+	<!-- （oppo）通用服务接口 -->
+	<dubbo:reference id="OppoCommonServiceServDu" interface="com.tydic.unicom.apc.business.ofr.interfaces.OppoCommonServiceServDu" />
+	
+	<!-- （oppo）微信服务接口 -->
+	<dubbo:reference id="OppoPayServiceServDu" interface="com.tydic.unicom.apc.business.pub.interfaces.OppoPayServiceServDu" />
+	
+	<!-- (oppo)活体审核相关服务 -->
+	<dubbo:reference id="OppoExamineServiceServDu" interface="com.tydic.unicom.apc.business.pub.interfaces.OppoExamineServiceServDu" />
+	
+	<!-- （oppo）中台订单服务接口 -->
+	<dubbo:reference id="OppoUocOrderServiceServDu" interface="com.tydic.unicom.apc.business.pub.interfaces.OppoUocOrderServiceServDu" />
+	
+	<!-- 获取可选触点 -->
+	<dubbo:reference id="GetOptionalContactServDu" interface="com.tydic.unicom.apc.business.common.interfaces.GetOptionalContactServDu" />
+	
+	<!-- apc分发调度器 -->
+	<dubbo:reference id="ApcServiceDispatchServDu" interface="com.tydic.unicom.apc.business.common.interfaces.ApcServiceDispatchServDu" />
+</beans>

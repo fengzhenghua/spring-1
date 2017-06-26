@@ -1,0 +1,24 @@
+.wrap{background:#ffffff }
+.download_header{height:447px; width:100%;}
+.download_body{ }
+.download_body ul{padding-left:10px;  }
+.download_body ul li{height:50px;}
+.download_body ul li.ios{height:60px;float:left;padding-left:179px;padding-right:40px;}
+.download_body ul li.ios a{background:url(../images/download_ios_mobi.png) no-repeat left bottom; display:inline-block; height:50px; width:295px;}
+.download_body ul li.ios a:hover{background:url(../images/download_ios_mobi.png) no-repeat left top;}
+.download_body ul li.android{}
+.download_body ul li.android a{background:url(../images/download_android_mobi.png) no-repeat left bottom; display:inline-block; height:50px; width:295px;}
+.download_body ul li.android a:hover{background:url(../images/download_android_mobi.png) no-repeat left top;}
+.download_body .download_scan{padding-left:20px; padding-top:10px; float:right; margin-right:10px;}
+
+.download_body ul li.download_scan_ios{float:left;padding-left:203px;padding-right:10px; height:100px;display:inline-block;}
+.download_body ul li.download_scan_android{padding-left:110px; float:none; margin-right:10px;height:100px;display:inline-block;}
+.scan{ float:left; width:820px; height:215px;padding-left:180px;}
+.scan_img{ float:left;width:215px; height:215px;padding:0px 60px;}
+
+.download_instruction{line-height:30px; color:rgba(0,0,0,0.6); font-size:18px; padding:10px 10px 10px 179px;}
+.download_instruction a{color:rgba(255,0,0,1); text-decoration:underline;}
+.download_instruction .color{opacity:1; color:rgba(255,0,0,1);}
+.download_scan_bg{background:url(../images/download_scan_mobi.png) no-repeat right 10px; height:120px;}
+.download_footer{text-align:center; line-height:60px; color:#666; font-size:18px; font-family:Arial, Helvetica, sans-serif; background:#CCC;}
+

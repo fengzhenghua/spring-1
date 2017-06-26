@@ -1,0 +1,57 @@
+allprojects{
+    apply plugin: 'java'
+	apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'maven-publish'
+    
+    configurations.all {
+    		//check for updates every build
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+    
+    [compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'
+	ext {
+		springVersion = "4.0.5.RELEASE"
+		hibernateVersion = "3.6.10.Final"
+		snapshotsUrl= "http://123.147.223.93:8081/nexus/content/repositories/UCDevelop/"
+	}    
+
+    repositories {
+		mavenLocal()
+        maven{ url "http://123.147.223.93:8081/nexus/content/groups/public/"  }
+        maven{ url "${snapshotsUrl}"  }
+        maven{ url "http://maven.oschina.net/content/groups/public"  }
+    }
+    
+		eclipse {
+		    classpath {
+		       downloadSources=false
+		    }
+		}
+		
+	dependencies { 
+		compile ("org.springframework:spring-core:${springVersion}")
+		compile ("org.springframework:spring-context:${springVersion}")
+		compile ('com.alibaba:dubbo:2.4.10') {
+			exclude group: 'org.springframework', module: 'spring'
+		}			
+		compile 'com.101tec:zkclient:0.4'
+		compile 'org.apache.zookeeper:zookeeper:3.4.6'
+		compile 'cglib:cglib:3.1'
+        compile ("org.slf4j:slf4j-log4j12:1.7.12")
+
+	} 
+	
+    publishing {
+        repositories {
+            maven {
+                url  "${snapshotsUrl}"
+                credentials {
+                    username = "admin"
+                    password = "admin123"
+                }
+            }
+        } 
+    }			
+
+}

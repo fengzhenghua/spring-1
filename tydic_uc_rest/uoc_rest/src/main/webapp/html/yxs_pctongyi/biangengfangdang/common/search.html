@@ -1,0 +1,208 @@
+<script type="text/javascript" src="/uss_web/js/search.js"></script>
+
+<!-- 查询用户号码 begin -->
+<div id="biangengsearchpage">
+        <div class="title text_big">
+           <span class="text_large24"></span>查询用户号码
+        </div>
+        
+        <ul class="detail">
+            <div class="padding_blank10"></div>
+            <li class="list padding_no_t">
+                <div class="left">
+                    <div class="left_lable">
+                        <input type="text" placeholder="请输入用户号码" class="input_text width_15" id="input_phone"></input>
+                    </div>
+                    <div class="left_data"><a href="#" class="search" id="search_customer_info">查询</a></div>
+                </div>
+            </li>
+
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">用户姓名：</div>
+                    <div class="left_data" id="customer_name"></div>
+                </div>
+                <div class="right">
+                	<div class="left_lable bold">套餐名称：</div>
+                    <div class="left_data">
+                        
+                        <a class="tip" href="javascript:void(0)" id="product_name">
+                            <span class="tip_info" style=" position:absolute; width:387px; left:0px; top:26px;">
+                            	<span class="bold"></span>
+                                <span class="line_dashed"></span>
+                                <span></span>
+                            </span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">用户号码：</div>
+                    <div class="left_data" id="customer_phone"></div>
+                </div>
+                <div class="right">
+                	<div class="left_lable bold">可用余额：</div>
+                    <div class="left_data"><span class="red" id="available_money"></span>&nbsp;元</div>
+                    <a href="###" id="detail"><div class="input_button">费用详情</div></a>
+                </div>
+            </li>
+            <li class="list">
+            	<div class="left">
+                	<div class="left_lable bold">号码归属地：</div>
+                    <div class="left_data" id="guishudi"></div>
+                </div>
+          		<div class="right" id="usim_number_div" style="display:none;">
+                	<div class="left_lable bold">USIM卡号：</div>
+                    <div class="left_data" id="usim_number"></div>
+                </div>
+            </li>
+            
+            <div class="padding_blank10"></div>
+             <li class="text_large">              
+                <div class="ok_disabled" disabled="disabled" id="next_class"><a href="###" disabled="disabled" id="serachnext">下一步</a></div>
+                <!-- <div><a href="###" id="serachnext">下一步</a></div> --> 
+            </li>
+            <div class="padding_blank"></div>
+        </ul> 
+        </div>      
+        <!-- 查询用户号码 end   -->
+<script type="text/javascript">
+function kehuhaomachaxunnext(){
+	//查询不成功或者没查询不能进行下一步
+	if(CUSTOMER_INFO_SEARCH.customer_info.next_flag==false){
+		return;
+	}
+	//返档标识    1:未返档;3:已返档
+	if (CUSTOMER_INFO_SEARCH.returndata[0].isfandang=="1"){
+		//加载返档fandang_idreader.js		
+		var dialog=$.dialog({
+			   title:'提示',//提示title
+			   content:'该号码未返档请进行返档操作',//显示的内容，支持html格式。
+			   buttons:[{id:'btn_ok',text:'确定',
+				   onClick:function(){	
+					   //身份真读取页面 返档内容
+					   loadjavascript(window.parent.application.fullPath+"js/change/fandang_idreader.js");
+					   dialog.close();					   
+				   }//点击时候回调函数
+			   }]
+			});
+
+		//子业务控制
+        $("#change_seoncd_menus").hide();
+	}else{
+		//子业务控制
+		$("#change_seoncd_menus").show();
+	}
+	if($("#biangengreaderpage").length > 0){
+		$("#biangengreaderpage").show();
+	}else{
+		kehuhaomachaxunnextload();
+	}	
+	$("#biangengsearchpage").hide();
+	
+
+};
+function kehuhaomachaxunnextload(){	
+		 $.ajax({
+				url:window.parent.application.fullPath+"html/yxs_pctongyi/biangengfangdang/common/idreader.html",
+				//global: false,
+			    type: "GET",
+			    dataType: "html",
+			    async:false,
+			    success: function(data,textStatus){			    	
+			    	$("#xiaodipaihanban").append(data);			    	
+			    },
+			    error: function (XMLHttpRequest, textStatus,errorThrown) {
+	               var status = XMLHttpRequest.status;
+	               var errorInfo = HTTP_ERROR_STATUES[status];
+	               var hint = "网络繁忙，请稍后再试!";//通用万金油提示，都懂得。                
+	               var error = hint + ",后台接口报错!";
+	               $.alert(errorThrown);
+	           }
+			});
+
+	
+};
+$("#serachnext").click(kehuhaomachaxunnext);
+//查询客户信息
+$("#search_customer_info").bind("click",function(){
+	CUSTOMER_INFO_SEARCH.queryCustomerInfo(getUsimIn_DepondsOn_queryCustomerInfo);
+	//CUSTOMER_INFO_SEARCH.queryCustomerInfo();
+	//var myorder="20160817100000036126";
+	//window.open(application.fullPath+"authority/dealShowOrder/showOrderChange?order_id="+myorder+"&pcFlag=1","_self");
+});
+function getUsimIn_DepondsOn_queryCustomerInfo () {
+	//返档标识    1:未返档;3:已返档
+	if (CUSTOMER_INFO_SEARCH.returndata[0].isfandang=="1"){
+		yewufengzhi="fangdang";
+		//查询对应的卡号：
+		getUsimInfo({
+	        "jsessionid": window.parent.application.jsessionid+"PC",
+	        "device_number": CUSTOMER_INFO_SEARCH.returndata[0].device_number
+	    });
+		//CUSTOMER_INFO_SEARCH.returndata[0].usim_info={"usim_number":"123456789"};
+		//更新页面显示
+		
+		$("#usim_number_div").show();
+	}
+};
+function getUsimInfo (postData) {   
+    $.ajax({
+  		type : "POST",
+  		url : window.parent.application.fullPath + "rest/usim/qryUsimByDevice",
+  		data :postData, 
+  		//async:false,
+  		async:true,
+  		waitMsg:"请稍等......",
+  		success:function(message){
+  			if(message.type=="success"){
+  				CUSTOMER_INFO_SEARCH.returndata[0].usim_info=message.args.usim_info;  
+  				$("#usim_number").html(CUSTOMER_INFO_SEARCH.returndata[0].usim_info.usim_number);
+  			}else{
+  				$.alert(message.content);
+  				return;
+  			}
+  		 },
+  		error:function(message){
+			var dialog=$.dialog({
+				   title:'提示',//提示title
+				   content:'查询异常',//显示的内容，支持html格式。
+				   buttons:[{id:'btn_ok',text:'确定',
+					   onClick:function(){					   
+						   dialog.close();
+					   }//点击时候回调函数
+				   }]
+			});
+		}
+  		});
+};
+
+//费用详情
+$("#detail").click(function(){
+	CUSTOMER_INFO_SEARCH.feeDetail();
+});
+function loadjavascript(myurl,callback){	
+	 $.ajax({
+			url:myurl,
+			//global: false,
+		    type: "GET",
+		    dataType: "script",
+		    async:false,
+		    success: function(data,textStatus){			    	
+ 				if(callback){
+ 					callback();
+ 				}
+		    },
+		    error: function (XMLHttpRequest, textStatus,errorThrown) {
+				console.log("XMLHttpRequest.status"+XMLHttpRequest.status);
+				console.log("textStatus"+textStatus);
+				console.log("errorThrown"+errorThrown);
+              var status = XMLHttpRequest.status;              
+              var hint = "网络繁忙，请稍后再试!";//通用万金油提示，都懂得。                
+              $.alert(hint);
+          }
+		});
+};
+</script>

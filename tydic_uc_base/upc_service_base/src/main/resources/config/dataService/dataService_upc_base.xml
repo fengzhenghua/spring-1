@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	
+	<service data="com.tydic.unicom.upc.base.database.po.code.InfoBusiPo" type="jdbc">
+        <query name="queryByBusiId">
+            select * from info_busi where busi_id=#{filter.busi_id}
+        </query>
+        
+        <query name="queryAllInfoBusi">
+            select * from info_busi where state = '0' 
+        </query>
+	</service>
+	
+	<service data="com.tydic.unicom.upc.base.database.po.code.CapacityParaPo" type="jdbc">
+		<query name="queryCapacityPara">
+			select * from capacity_para where busi_id=#{filter.busi_id}	and aopname=#{filter.aopname}	
+		</query>
+	</service>
+	
+	<!--  <service data="com.tydic.unicom.upc.base.database.po.code.SettleTransPo" type="jdbc">
+		<query name="getSettleTransBillByDate">
+			select * from pay_settle_trans where bill_date = #{filter.bill_date}
+		</query>
+		<create>
+			insert into pay_settle_trans(bill_date,order_id,busi_id,bill_trans_id,order_type,order_type_name,pay_type,pay_type_name,out_order_id,
+			create_time,detall_name,transaction_id,buyer_id,total_fee,real_fee,refund_no,mer_fee) values(
+				#{bill_date},#{order_id},#{busi_id},#{bill_trans_id},#{order_type},#{order_type_name},#{pay_type},#{pay_type_name},
+				#{out_order_id},#{create_time},#{detall_name},#{transaction_id},#{buyer_id},#{total_fee},#{real_fee},#{refund_no},
+				#{mer_fee})
+		</create>
+		
+	
+	</service>-->
+	
+	<service data="com.tydic.unicom.upc.base.database.po.inst.InfoOrderPo" type="jdbc">
+        <create>
+           insert into info_order(order_id,busi_id,order_type,pay_type,order_status,create_time,out_order_id,create_ip_address,
+           		total_fee, discount_fee, real_fee, pay_notify_time, pay_notify_code, pay_notify_msg, pay_notify_trans_id,
+           		cust_notify_time, cust_notify_code, cust_notify_msg, out_refund_no, detail_name, out_remark,req_way,pay_order_id)
+           	values (#{order_id},#{busi_id},#{order_type},#{pay_type},#{order_status},#{create_time},#{out_order_id},
+           	#{create_ip_address},#{total_fee},#{discount_fee},#{real_fee},#{pay_notify_time},#{pay_notify_code},#{pay_notify_msg},
+           	#{pay_notify_trans_id},#{cust_notify_time},#{cust_notify_code},#{cust_notify_msg},#{out_refund_no},
+           	#{detail_name},#{out_remark},#{req_way}, #{pay_order_id})
+        </create>
+        <update>
+        	update info_order set pay_type=#{pay_type},order_status=#{order_status}, out_order_id=#{out_order_id}, 
+        		create_ip_address=#{create_ip_address}, total_fee=#{total_fee},discount_fee=#{discount_fee},
+        		real_fee=#{real_fee},pay_notify_time=#{pay_notify_time},pay_notify_code=#{pay_notify_code},
+        		pay_notify_msg=#{pay_notify_msg},pay_notify_trans_id=#{pay_notify_trans_id},cust_notify_time=#{cust_notify_time},
+        		cust_notify_code=#{cust_notify_code},cust_notify_msg=#{cust_notify_msg},out_refund_no=#{out_refund_no},
+        		detail_name=#{detail_name},out_remark=#{out_remark}, order_refund_id=#{order_refund_id}, pay_order_id=#{pay_order_id},
+        		trade_time=#{trade_time}
+        	where order_id=#{order_id}
+        </update>
+        <query name="queryInfoOrderByOrderId">
+            select * from info_order where order_id=#{filter.order_id}
+        </query>
+        <query name="queryInfoOrderByOutOrderId">
+            select * from info_order where busi_id=#{filter.busi_id} and out_order_id=#{filter.out_order_id} 
+			<if test ="filter.order_type != null and filter.order_type != ''" >
+				 and order_type = #{filter.order_type} 
+  			</if>
+        </query>
+        <query name="queryInfoOrderByPayOrderId">
+            select * from info_order where pay_order_id=#{filter.pay_order_id}
+        </query>
+	</service>
+	
+	
+	<service data="com.tydic.unicom.upc.base.database.po.code.InfoPayParaAttrPo" type="jdbc">
+        <query name="getPayParaByPayType">
+            select a.*
+			from info_busi b
+			inner join info_busi_pay_relation r on r.busi_id=b.busi_id and r.state='0' and r.pay_type=#{filter.pay_type}
+			inner join info_pay_para p on p.pay_para_id = r.pay_para_id and p.busi_id=b.busi_id and p.state='0'
+			inner join info_pay_type t on t.pay_type = r.pay_type
+			inner join info_pay_para_attr a on a.pay_para_id=p.pay_para_id
+			where b.busi_id=#{filter.busi_id}
+        </query>
+	</service>
+	
+	<service data="com.tydic.unicom.upc.base.database.po.code.InfoBusiPayRelationPo" type="jdbc">
+        <query name="queryByBusiId">
+        	select * from INFO_BUSI_PAY_RELATION where busi_id=#{filter.busi_id} and state = '0'
+        </query>
+        <query name="queryByBusIdPayType">
+        	select * from INFO_BUSI_PAY_RELATION where busi_id=#{filter.busi_id} and pay_type=#{filter.pay_type} and state = '0'
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.upc.base.database.po.inst.OrderPayTransPo" type="jdbc">
+        <create>
+           insert into ORDER_PAY_TRANS(pay_order_id,order_id,pay_type,order_status, create_time, pay_msg) values 
+           (#{pay_order_id},#{order_id},#{pay_type},#{order_status},sysdate, #{pay_msg})
+        </create>
+        <update>
+        	update ORDER_PAY_TRANS set order_id=#{order_id},pay_type=#{pay_type},order_status=#{order_status},
+        	update_time=sysdate, pay_msg = #{pay_msg}
+        	where pay_order_id=#{pay_order_id}
+        </update>
+        
+        <query name="queryByPayOrderId">
+            select * from ORDER_PAY_TRANS where pay_order_id=#{filter.pay_order_id}
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.upc.base.database.po.code.SystemBusiParaPo" type="jdbc">
+        <query name="queryByParaGroup">
+            select * from SYSTEM_BUSI_PARA where param_group=#{filter.param_group} 
+            
+            <if test ="filter.param_code != null and filter.param_code != ''" >
+				 and param_code = #{filter.param_code} 
+  			</if>
+        </query>
+    </service>
+    
+    
+    <service data="com.tydic.unicom.upc.base.database.po.inst.InfoOrderGoodsDetailPo" type="jdbc">
+        <create>
+           insert into INFO_ORDER_GOODS_DETAIL(order_id,busi_id,goods_id,goods_name, goods_num, goods_price, create_time) values 
+           (#{order_id},#{busi_id},#{goods_id},#{goods_name}, #{goods_num}, #{goods_price},sysdate)
+        </create>
+        
+        <query name="queryGoodsDetailByOrderId">
+            select * from INFO_ORDER_GOODS_DETAIL where order_id=#{filter.order_id}
+        </query>
+    </service>
+    
+    <service data="com.tydic.unicom.upc.base.database.po.inst.TransWXPayPo" type="jdbc">
+        <create>
+           insert into TRANS_WXPAY(bill_date,bill_trans_id,bill_check_flag,trans_time,appid,mchid,
+           		sub_mchid,device_info,transaction_id,out_trade_no,openid,trade_type,result_code,bank,
+           		fee_type,total_fee,red_fee,refund_id,out_refund_no,settlement_refund_fee,
+           		red_refund_fee,refund_type,refund_code,body,detail,mer_fee,rate_fee) values 
+           (#{bill_date},#{bill_trans_id},#{bill_check_flag},#{trans_time},#{appid},#{mchid},#{
+           		sub_mchid},#{device_info},#{transaction_id},#{out_trade_no},#{openid},#{trade_type},#{result_code},#{bank},
+           		#{fee_type},#{total_fee},#{red_fee},#{refund_id},#{out_refund_no},#{settlement_refund_fee},
+           		#{red_refund_fee},#{refund_type},#{refund_code},#{body},#{detail},#{mer_fee},#{rate_fee})
+        </create>
+        
+        <queryfor>
+			<choose>
+				<when test="name == 'getCountTransByBillDate'" >
+					select count(*) from TRANS_WXPAY where bill_date = #{filter.bill_date} and appid = #{filter.appid} 
+            					and mchid = #{filter.mchid}
+				</when>
+			</choose>
+		</queryfor>
+    </service>
+    
+    <service data="com.tydic.unicom.upc.base.database.po.inst.TransAliPayPo" type="jdbc">
+        <create>
+           insert into TRANS_ALIPAY(bill_date, bill_trans_id, bill_check_flag, trade_no, out_trade_no,
+           		busi_type, subject, trans_time, finish_time, store_id, store_name, operator_id,terminal_id,
+           		buyer_logon_id, total_amount, receipt_amount, alipay_amount, point_amount, alipay_discount_amount,
+           		mch_discount_amount, voucher_amount, voucher_name, mch_red_amount, card_amount, refund_trade_no,
+           		mer_fee, fen_amount, remark, appid) values 
+           (#{bill_date},#{bill_trans_id},#{bill_check_flag},#{trade_no},#{out_trade_no},
+			#{busi_type},#{subject},#{trans_time},#{finish_time},#{store_id},#{store_name},#{operator_id},#{terminal_id},
+			#{buyer_logon_id},#{total_amount},#{receipt_amount},#{alipay_amount},#{point_amount},#{alipay_discount_amount},
+			#{mch_discount_amount},#{voucher_amount},#{voucher_name},#{mch_red_amount},#{card_amount},#{refund_trade_no},
+			#{mer_fee},#{fen_amount},#{remark},#{appid})
+        </create>
+        
+        <queryfor>
+			<choose>
+				<when test="name == 'getCountTransByBillDate'" >
+					select count(*) from TRANS_ALIPAY where bill_date = #{filter.bill_date} and appid = #{filter.appid}
+				</when>
+			</choose>
+		</queryfor>
+		
+    </service>
+    
+    <service data="com.tydic.unicom.upc.base.database.po.inst.PaySettleTransPo" type="jdbc">
+    
+    <query name="isBillByDate">
+     select count(*) from pay_settle_trans where bill_date=#{filter.bill_date}
+    </query>
+    
+    <query name="getBillByDate_busi">
+    	select * from pay_settle_trans where busi_id= #{filter.busi_id} and bill_date= #{filter.bill_date}
+    </query>
+    
+    </service>
+    
+</services>

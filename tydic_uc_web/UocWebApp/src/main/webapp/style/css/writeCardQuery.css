@@ -1,0 +1,12 @@
+/* 查询条件 */
+.info_list{width:100%; margin:0; border:0; border-spacing:0; border-collapse:collapse; text-align:center;}
+.info_list th{line-height:40px; color:#fff; font-size:14px; border:1px solid #ddd; background-color:#26a69a;}
+.info_list td{padding:5px; border:1px solid #ddd; white-space:normal;}
+.info_list td.link:hover{color:#d94032; cursor:pointer;}
+
+/* 订单列表 */
+.width300{width:300px;}
+.width210{width:210px;}
+.width100{width:100px;}
+.width140{width:140px;}
+.text-left{text-align:left;}

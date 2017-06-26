@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试收银台收费</title>
+<!-- <link href="../css/payCommon.css" rel="stylesheet" type="text/css" /> -->
+<script type="text/javascript" src="../js/jquery/jquery.min.js" ></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$.post("http://127.0.0.1:8090/upc_web/authority/testReq/testPayReq",{},function(msg){
+		var	req_way = "APP";
+		if(msg.type == "success"){
+		 	var url = "http://127.0.0.1:8090/upc_web/authority/busiReq/payrdr?data="+msg.args.data+"&req_way="+req_way;
+			//var url = "http://127.0.0.1:8089/upc_web/authority/busiReq/pay?id="+id+"&key="+key;
+			openWin = window.open(url);
+			openLoop = setInterval(intervalOpen, 1000);
+		}else{
+			alert(msg.content);
+		}
+			
+
+			/*  //生成支付订单
+			$.post("http://135.24.252.62:8091/upc_web/authority/busiReq/createPayOrder", {"xmldata": msg.args.xmldata}, function(msg){
+				if(msg.type == "success"){
+					var id = msg.args.id;
+					var key = msg.args.key;
+					var req_way = "APP";
+					
+					//跳转到app收银台页面
+					var url = "http://135.24.252.62:8091/upc_web/authority/busiReq/pay?id="+id+"&key="+key+"&req_way=" + req_way;
+					openWin = window.open(url);
+					openLoop = setInterval(intervalOpen, 1000);
+					//var url = "http://127.0.0.1:8090/upc_web/authority/busiReq/pay?id="+id+"&key="+key;
+					/*  $("<iframe width='" +  $(window).width() + "' height='" + $(window).height() + "'id='YuFrame1' name='YuFrame1'  frameborder='no' marginheight='0' marginwidth='0' allowTransparency='true'></iframe>").prependTo('body');    
+					 $("#YuFrame1").attr("src", url); 
+					
+					window.addEventListener('message', function(e){
+						alert("status:" + e.data.result);
+						alert("pay_type:" + e.data.args.pay_type);
+					    if(e.data.result == "SUCCESS"){
+					    	// 现金收费方式 收银台为30 沃受理以前状态为201
+					    	//alert("pay_type" + e.data.args.pay_type);
+					    	//payDetail.pay_type = e.data.args.pay_type == "30"? "201":e.data.args.pay_type;
+					    	//启动支付扫描页面
+							// scanPayResult(payDetail.order_id);
+					    }
+					    $("#YuFrame1").remove();
+					}, false);	 
+				}	
+				else{
+					alert(msg.content);
+				}
+			}); 
+			
+		} */
+	});
+	function intervalOpen(){
+		if(openWin.closed) {    
+			clearInterval(openLoop); 
+	        alert('closed');
+	        
+	        openLoop = null;
+	    } 
+	}
+
+		
+/* 	
+	$("#iframe").load(function(){
+		$(this).height($(window).height());
+	});
+	
+	
+	$(".pop-top-left-fanhui").bind("click", function(){
+		window.history.go(-1);
+	}); */
+});
+
+
+
+
+</script>
+
+</head>
+<body>
+	<div class="top">
+		<div class="top_left">
+			<span class="pop-top-left-fanhui"></span>
+		</div>
+		<div class="top_right"></div>
+		<div class="top_title" style="padding: 0px 60px;">测试收银台</div>
+	</div>
+	<div class="top_blank"></div>
+	<iframe src="" id="iframe" frameborder="0" scrolling="no" width="100%"></iframe>
+</body>
+</html>

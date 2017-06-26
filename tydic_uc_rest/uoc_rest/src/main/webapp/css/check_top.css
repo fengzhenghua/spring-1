@@ -1,0 +1,10 @@
+.top{height:32px; line-height:32px; background:#efefef;}
+.top .top_chr{width:1000px; margin:0 auto; font-family:"宋体";}
+.top .top_chr span{color:#ababab;}
+.top .top_chr a.code_exit{float:right; background:url(../images/code_exit.png) no-repeat left top; padding-left:30px; width:55px; height:24px; line-height:24px; margin-top:5px;}
+
+
+.banner{background:#dbcaac; height:116px;}
+.banner .box{width:1000px; margin:0 auto;}
+.banner .box .l{float:left;}
+.banner .box .r{float:right; margin-top:41px;}

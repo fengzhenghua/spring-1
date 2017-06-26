@@ -1,0 +1,64 @@
+/*
+------------------------------
+	tap能力平台样式
+------------------------------
+*/
+.jqifade{position: absolute; background-color: #393939; }
+div.jqi{left:-450px; width: 400px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; position: absolute; background-color: #FFFFFF; 	font-size: 11px; text-align: left; border: solid 0px #787878;-moz-border-radius: 10px;-webkit-border-radius: 10px;padding: 0px;}
+div.jqi .jqicontainer{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; color: #A4C6E2;background: #FFF;	border: solid 0px #999;color: #000;font-size: 12px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+div.jqi .jqiclose{ position: absolute;top: 15px; right: 17px; width: 24px; cursor:pointer; color: #999999; font-weight: bold; height:24px; }
+div.jqi .jqimessage{ padding: 0px 10px 10px 10px; color: #4D4D4D; background-image: url(../images/title_bg.jpg); margin: 0px;background-repeat: repeat-x;}
+div.jqi .jqititle{margin:0 20px;border-bottom:1px solid #ccc;height:60px;}
+div.jqi .jqititle .jqitip{color: #e15a00;line-height:75px;text-align:left;font-weight: bold;font-size:20px;}
+div.jqi .jqibuttons{ text-align: center; padding: 0 10px 20px 10px; background-color: #FFFFFF;}
+div.jqi .jqibuttons .jqifooter{margin:0 20px;padding:10px;border-top:1px solid #ccc;}
+div.jqi button{}
+div.jqi .jqicontainer #jqistates .jqi_state .jqibuttons button::-moz-focus-inner{ border:0; padding:0; margin:0; }
+
+div.jqi button.jqidefaultbutton{background:url(../images/cancel.jpg) center 0 no-repeat;width:57px;height:24px;overflow:hidden;text-align: center; border:0;color:#4d4d4d;cursor: pointer;margin:0 8px; padding:0;}
+div.jqi button.jqiokdefaultbutton{background:url(../images/submit.jpg) center 0 no-repeat;color:#fff;}
+/*big按钮*/
+div.jqi button.jqibigbutton{background:url(../images/big_buttons.png) no-repeat left top;width:106px;height:36px;overflow:hidden;line-height:36px; font-weight:bold;text-align: center; border:0;color:#666;cursor: pointer;margin:0 8px; padding:0;}
+div.jqi button.jqiokbigbutton{background:url(../images/big_buttons.png) no-repeat left -36px;color:#fff;}
+div.jqi button.jqismallbutton{background:url(../images/small_cancel.png) center 0 no-repeat;width:66px;height:26px;overflow:hidden;text-align: center; border:0;color:#666;cursor: pointer;margin:0 8px; padding:0;}
+div.jqi button.jqioksmallbutton{background:url(../images/small_submit.png) center 0 no-repeat;color:#666;}
+
+div.jqi button:hover{}
+.jqiwarning .jqi .jqibuttons{}
+
+.spans{color: #4D4D4D;line-height:24px;font-size: 28px;vertical-align: middle;font-weight:bold;padding-top:15px;}
+div.jqi .jqimessage table.table{margin:10px 20px 5px 20px;}
+div.jqi .jqimessage iframe{margin:10px auto 0;display:block;overflow-x:hidden}
+.impromptu_alert_image{padding:40px 15px 40px 70px; float:right;}
+.image_msg{width:56px;height:56px;}
+.right_msg{background:url(../images/ico_4.jpg) no-repeat;}
+.ask_msg{background:url(../images/ico_1.jpg) no-repeat;}
+.msg_msg{background:url(../images/ico_2.jpg) no-repeat;}
+.warn_msg{background:url(../images/ico_5.jpg) no-repeat;}
+.error_msg{background:url(../images/ico_3.jpg) no-repeat;}
+.sucess_msg{background:url(../images/ico_6.jpg) no-repeat;}
+.kindly_tip{background:url(../images/kindly_tip.png) no-repeat;width:133px; height:60px;}
+
+.button_area{color: #666666;font-size: 12px;font-weight:normal; text-align:center;line-height:26px;}
+.button_area a:hover{text-decoration:none;cursor:pointer;}
+a.button_style1{background:url(../images/button_style1.png) no-repeat; width:86px; height:26px; display: inline-block;margin-right:10px;}
+a.button_style2{background:url(../images/button_style2.png) no-repeat; width:106px; height:26px; display: inline-block;margin-right:10px;}
+a.button_style3{background:url(../images/button_style3.png) no-repeat; width:66px; height:26px; display: inline-block;margin-right:10px;}
+.paddingTop10{padding-top:10px;}
+.paddingTop20{padding-top:20px;}
+
+.demo-row{margin-left:20px; margin-bottom:20px;height:45px;}
+.demo-span{float:left;margin-left: 20px;min-height:1px; margin-top:30px;}
+.demo-btn-block{ display:block; width:100%;}
+.demo-btn {border: none;background: #bdc3c7;color: #ffffff;padding: 9px 12px 10px;line-height: 22px;text-decoration: none;text-shadow: none;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;-webkit-transition: 0.25s;-moz-transition: 0.25s;-o-transition: 0.25s;  transition: 0.25s; -webkit-backface-visibility: hidden; cursor:pointer;}
+.demo-btn:hover{background-color: #cacfd2;color: #ffffff;outline: none;-webkit-transition: 0.25s;-moz-transition: 0.25s;-o-transition: 0.25s;transition: 0.25s;-webkit-backface-visibility: hidden;text-decoration:none;}
+.demo-btn-large {font-size: 16.996px;line-height: 20px;padding: 12px 18px 13px;}
+.demo-btn-danger {background-color: #e74c3c;}
+.demo-btn-danger:hover{background-color: #ec7063;}
+.demo-btn-danger:active{background-color: #c44133;}
+.demo-btn-primary {background-color: #1abc9c;}
+.demo-btn-primary:hover{background-color: #48c9b0;}
+.demo-btn-primary:active{background-color: #16a085;}
+.demo-btn-info {background-color: #3498db;}
+.demo-btn-info:hover{background-color: #5dade2;}
+.demo-btn-info:active{background-color: #2c81ba;}

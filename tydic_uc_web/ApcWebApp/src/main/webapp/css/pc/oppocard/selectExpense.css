@@ -1,0 +1,27 @@
+/*  common  */
+.padding{padding:0 10%;}
+.ie-clr{display:inline\9;overflow:hidden\9;_display:inline;_overflow:hidden;}
+/*  搜索  */
+.ss{width:100%;height:60px;+height:100px;border-bottom:1px solid #eaeaea;}
+.s-box{width:40%;height:60%;+height:35%;border:1px solid #e6061e;margin:30px auto;+margin:30px auto;}
+.s-ctn{width:84%;height:100%;}
+.s-ctn .s-input{border:0;padding:0 5px;width:100%;}
+.s-search{width:16%;height:100%;background:#e6061e;font-size:18px;color:#fff;line-height:30px;+line-height:35px;text-align:center;}
+.s-search:hover{cursor:pointer;}
+
+/*  套餐  */
+.title{width:100%;height:30px;line-height:30px;font-size:18px;margin-top:10px;}
+.title i{display:inline-block;width:10px;height:100%;vertical-align:middle;margin-right:10px;}
+
+.taocan{margin-top:20px;}
+.t-li{width:18%;+widht:15%;height:255px;+height:240px;margin-right:20px;margin-bottom:20px;padding:22px 25px;border:1px solid #eee;}
+.t-li:hover{cursor:pointer;border:1px solid #e6061e;}
+.t-img{width:100%;+width:90%;height:85px;margin-top:20px;+margin:40px auto;}
+.t-middle{width:100%;}
+.t-mt{margin-top:15px;}
+.fs16{font-size:14px;color:#808080;}
+.fs14{font-size:12px;color:#9a9a9a;}
+.tc{text-align:center;}
+.t-bottom{padding-left:72%;color:#ee6c00;font-weight:bold;font-size:18px;}
+.t-bottom i{display:inline-block;width:13px;height:15px;margin-right:5px;}
+.normal{white-space:normal;}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<!-- 消息队列 -->
+	<service data="com.tydic.unicom.webUtil.UocMessage" type="activemq"></service>
+</services>

@@ -1,0 +1,18 @@
+.menu_bar{width:250px; min-height:60px; margin:15px 0 15px 10px; position:fixed; top:0; left:0; bottom:0; z-index:10; -moz-border-radius:4px 4px 2px 2px; -webkit-border-radius:4px 4px 2px 2px; border-radius:4px 4px 2px 2px; border:1px solid #26a69a; overflow:hidden;}
+.menu_bar .menu_head{height:40px; padding:10px; color:#fff; -moz-border-radius:4px 4px 0 0; -webkit-border-radius:4px 4px 0 0; border-radius:4px 4px 0 0; border-color:#26a69a; background-color:#26a69a; white-space:nowrap; *height:20px;}
+.menu_bar .menu_head .menu_switch_btn{font-size:14px; cursor:pointer;}
+.menu_bar .menu_head .menu_switch_btn:hover{color:#ddd;}
+.menu_bar .menu_body{position:absolute; top:50px; left:2px; right:-17px; bottom:5px; z-index:10; font-size:14px; overflow-x:hidden; overflow-y:scroll;}
+.menu_bar .menu_body .issue{line-height:30px; padding:5px; cursor:default;}
+.menu_bar .menu_body .issue .active{color:#2dafda;}
+.menu_bar .menu_body .issue i{width:18px; height:18px; margin-top:-2px; display:inline-block; *zoom:1; *display:inline; vertical-align:middle; background-repeat:no-repeat; background-position:center center; background-size:contain;}
+.menu_bar .menu_body .issue i.icon_sale{background-image:url("../images/icon/small_sale_active.png");}
+.menu_bar .menu_body .issue i.icon_goods{background-image:url("../images/icon/small_goods_active.png");}
+.menu_bar .menu_body .issue i.icon_service{background-image:url("../images/icon/small_service_active.png");}
+.menu_bar .menu_body .issue b{margin-right:2px; vertical-align:middle; cursor:pointer;}
+.menu_bar .menu_body .issue b:hover{color:#428bca;}
+.menu_bar .menu_body .issue span{margin-left:2px; vertical-align:middle; cursor:pointer;}
+.menu_bar .menu_body .issue span:hover{color:#2dafda;}
+.menu_bar .menu_body .issue .order_level2{margin-left:10px;}
+.menu_bar .menu_body .issue .order_level3{margin-left:25px;}
+.detail_area{height:100%; margin-right:-20px; padding:15px 25px 15px 260px; font-size:14px; background-color:#fff; overflow-x:hidden; overflow-y:scroll;}

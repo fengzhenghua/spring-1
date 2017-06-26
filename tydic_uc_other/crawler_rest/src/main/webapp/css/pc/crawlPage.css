@@ -1,0 +1,41 @@
+.br{border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;-o-border-radius: 4px;}
+.cursor{cursor:pointer;}
+.mt{+margin-top:-18px;}
+.text_alignl{text-align:left;}
+.text_alignc{text-align:center;}
+.relative{position:relative;}
+.absolute{position:absolute;}
+
+.container{padding:10px;}
+.title{width:100%;height:30px;line-height:30px;font-size:16px;}
+.title i{display:inline-block;width:6px;height:25px;vertical-align:middle;background-image:url("../imgs/title.png");background-repeat:no-repeat;background-size:6px 25px;background-position:center;}
+.item{width:100%;margin:10px 0 0 0;}
+.o-span .o-input{display:inline-block;background:#fff;vertical-align:middle\0/;width: 20%;height:30px;line-height:30px;padding:0 5px;margin:10px 13px;border:1px solid #bfbfbf;}
+.o-select{display: inline-block;vertical-align:middle\0/;width:10%;height: 30px;line-height:30px;border:1px solid #bfbfbf;}
+.o-li{display: inline-block;+display:inline;padding:5px;background: #32b0dd;margin-left: 10px;}
+.o-li:hover{background:#1e92bf;}
+.li-i-o{display:inline-block;width:20px;height: 17px;background-size:20px 17px;background-repeat: no-repeat;vertical-align: middle;}
+.i1{background: url('../imgs/data.png');}
+.li-span-o{color:#fff;font-size: 14px;}
+.i2{background: url('../imgs/order.png');}
+.i3{background: url('../imgs/ary.png');}
+.info_list{width:100%;}
+.info_list th {line-height: 40px;color: #fff;font-size: 14px;border: 1px solid #ddd;background-color: #26a69a;}
+.info_list td {padding: 5px;background:#fff;border: 1px solid #ddd;white-space: normal;}
+.cb{display: inline-block;width: 16px;height: 16px;border:1px solid #bfbfbf;}
+.bottom{padding:0 10px;}
+
+/* 页码 */
+.page{margin-left:30%;}
+.page2 input{border:1px solid #bfbfbf;width:8%;padding:5px;}
+.page3{background:#32b0dd;padding:5px;}
+.page3:hover{background:#1e92bf;}
+
+/* 存放数据 */
+.num{padding:2px;background:red;color:#fff;top:-10px;left:0;height:16px;line-height:16px;font-size:12px;}
+/* 超链接 */
+.href{display:inline-block;width:30px;margin-right:10px;height:15px;vertical-align:middle;background:url(../imgs/href-h.png) no-repeat;background-size:30px 15px;}
+.href:hover{background:url(../imgs/href-b.png) no-repeat;background-size:30px 15px;}
+
+
+

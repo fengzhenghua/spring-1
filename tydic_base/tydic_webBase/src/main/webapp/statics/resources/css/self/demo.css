@@ -1,0 +1,61 @@
+@import url("../share.css");
+
+#sub_nav{height:33px; line-height:33px; background:#F6F6F6; border-bottom:1px solid #E8E8E8;}
+#sub_nav .sub_nav_position{width:1000px; margin:0 auto;height:33px; line-height:33px;}
+#sub_nav .sub_nav_position .sub_nav_l{float:left;}
+#sub_nav .sub_nav_position .sub_nav_l a{color:#3D82DF;}
+#sub_nav .sub_nav_position .sub_nav_l a:hover{color:#F08200;}
+#sub_nav .sub_nav_position .sub_nav_r{float:right;}
+#sub_nav .sub_nav_position .sub_nav_r a{float:right; padding:0 6px; right top no-repeat;}
+
+.logo_bg{background:#FFF;}
+.logo{width:1000px; margin:0 auto; height:87px; background:#FFF;}
+.logo .logo_l{float:left; width:510px;}
+.logo .logo_r{float:left; width:490px;}
+.logo .logo_r h1{height:60px; padding-top:27px;float:right; color:#F08200; font-size:24px; font-weight:bold; height:60px; line-height:60px;padding-left:20px; padding-right:50px;background:url(../../images/self/ico.png) left bottom no-repeat; padding-left:30px; padding-right:50px;}
+.logo .logo_r h2{height:60px; padding-top:27px;float:right; color:#F08200; font-size:24px; font-weight:bold; height:60px; line-height:60px;padding-left:20px; padding-right:50px;padding-left:30px; padding-right:50px;}
+.sub_menu{height:3px; background:#3F3B3A; color:#FFF;}
+
+.content { background:#F5F4F4 url(../../images/self/content_bg.png) repeat-x; padding-top:20px;}
+.content_body { background:#FFF;border: 1px solid #DBDBDB;border-bottom:3px solid #3F3B3A;margin:10px auto; padding: 0 0 12px;width: 998px;min-height: 400px;}
+.content_body h2{background:url(../../images/self/body_header.png) no-repeat; height:55px; width:315px; margin:20px auto 0; text-indent:30px; font-size:20px; line-height:36px; color:#000;width: 900px; font-weight:normal;}
+
+.product-list{margin: 0 auto;width: 900px;}
+.product-list dl{float: left;height: 100px;overflow: hidden;padding: 7px 0 10px 10px;width: 400px;}
+.product-list dt{margin:10px;float: left;height: 52px; padding-top: 10px;width:64px;overflow: hidden; background:url(../../images/self/dt_bg.png) no-repeat; text-align:center; line-height:48px; font-size:30px; font-weight:bold;}
+.product-list dl dd{color: #666666;overflow: hidden;margin-left:10px;}
+.product-list dl dd.title {width: 231px;font-size:16px;font-weight: bold;height: 26px;line-height: 26px;}
+.product-list dl dd.title a{display: block;float: left;position: relative;color: #014D87;}
+.product-list dl dd.title a.red{color: #FF0000}
+.product-list dl dd.title a:hover{color: #ff6600;}
+.product-list dl dd.description{height: 20px;line-height: 20px;} 
+.product-list dl dd.empty{height: 10px;}
+.product-list p{border-bottom: 1px dashed #DEDEDE;clear: both;height: 5px;overflow: hidden;width: 100%;}
+
+#main{padding:20px; margin:20px auto;background:#fff;min-height: 400px;width: 998px;}
+.demo_body h2{ font-size:18px; font-weight:400; color:#333;}
+.demo_title{height:40px; line-height:40px;background:#f6f6f6 url("../../images/self/title_bg.jpg") no-repeat;color: #333; font-size:16px; padding:0 20px; font-weight:400; margin:15px 0;}
+.demo_list ul{clear: both;padding:0 15px;}
+.demo_list li{ background: url("../../images/self/line-1000-1.gif") no-repeat scroll 0 bottom rgba(0, 0, 0, 0);margin-top: 15px;padding-bottom: 12px;padding-left: 15px;}
+.demo_list li span.demo_list_item{margin-left:-11px;background:url("../../images/self/list-4-4.png") no-repeat scroll left 8px transparent;}
+.demo_list li span a{padding-left: 11px;color:#0088cc;}
+.demo_list li span a:hover{text-decoration:underline;}
+.demo_list li span.demo_list_code{float:right; width:500px;}
+.demo_list li p.demo_list_intro {
+    line-height: 22px;
+    margin:10px 0 0 20px;
+    width: 900px;
+}
+
+/* fieldset */
+fieldset {border: 1px solid #CCCCCC;border-radius: 3px 3px 3px 3px;padding: 0.5em;}
+legend {border-radius: 3px 3px 3px 3px;color: #445566;font-weight: bold;padding: 1px 6px 2px;}
+.fieldCon{padding:10px 0 0 10px;width:32%; float:left;}
+.imgCon{padding:5px; margin:10px;float:left;}
+.imgCon legend a{ display:block;width:20px; height:20px; background:url(../../images/self/icon_del.gif)}
+.imgCon legend a:hover{ background:url(../../images/self/icon_del_hover.gif)}
+.imgArea{}
+.imgDetail{text-align:center}
+
+.footer{height:3px; color:#FFF; text-align:center; background:#3F3B3A; margin:20px 0 5px 0;}
+.copyright{text-align:center; height:30px; line-height:30px;}

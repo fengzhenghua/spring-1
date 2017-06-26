@@ -1,0 +1,23 @@
+/* common */
+.cursor{cursor:pointer}
+/* 写卡 2017-1-20 lgw */
+.writeCard_content{ margin:20px 5px;/*修改：margin:15px 5px;  */ text-align:center; width:auto; min-width:930px; height:74px; }
+.writeCard_info{ float:left; width:76.5%; height:72px; *height:auto; padding:12px 0px 12px 15px;*padding:10px 0px 12px 15px; border-radius:10px 0px 0px 10px ; border:1px solid #CCCCCC; background:#fafafa;}
+.writeCard_info_label{ float:left; width:23.5%; *width:163px; height:72px; line-height:72px; text-align:center; color:#FFFFFF;background:#2fb1dd; font-size:28px; border-radius:0px 36px 36px 0px ; }
+.writeCard_info_label:hover{cursor:pointer;background:#428bca;}/*修改：开始写卡移入效果*/
+.writeCard_info .text_left{  float:left; width:27%; height:24px; line-height:12px; clear:both;}
+.writeCard_info .text_left .label{float:left; width:60px; height:12px;}
+.writeCard_info .text_left .text{float:left;width:68%; height:auto;line-height:12px; text-align:left;white-space:normal;word-break:break-all; word-wrap:break-word;}
+.writeCard_info .text_mid{ float:left; width:16.5%; height:auto; line-height:12px; text-align:left;}
+.writeCard_info .text_right{ float:left; width:15.2%; height:auto; line-height:12px; text-align:left;}
+
+.writeCard_info .loop_check{ float:left; width:20px; height:20px;background:url("../images/icon/selected_circle.png");margin-top:-6px}/*修改：循环写卡背景图片位置(添加了一个margin-top)*/
+.writeCard_info .loop_check:hover{background:url("../images/icon/selected_circle_active.png");}
+.writeCard_info .loop_checked{float:left; width:20px; height:20px;background:url("../images/icon/selected_circle_active.png");}
+
+.writeCard_info .text_input{ width:40px; height:24px; line-height:24px; padding-left:2px; text-align:left;border-radius:2px 2px ; border:1px solid #959595;}
+/*修改：添加移入阴影效果*/
+.writeCard_info .text_input:hover{box-shadow:0 0 15px 2px #ddd;}
+
+.writeCard_detail_img{ float:left;width:6px; height:16px; margin-right:5px; background:url("../images/icon/writeCard_detail_img.jpg");}
+.writeCard_detail{margin:10px 5px 20px 5px;/*修改：margin:5px 5px 15px 5px;*/width:auto; min-width:900px; height:135px; line-height:24px; padding-left:10px; text-align:left; overflow-y:auto; border:1px solid #CCCCCC;}

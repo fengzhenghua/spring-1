@@ -1,0 +1,5 @@
+/* 物流明细列表 */
+.info_list{width:160%; margin:0; border:0; border-spacing:0; border-collapse:collapse;}
+.info_list th{line-height:40px;color:#fff;font-size:14px;border:1px solid #ddd;background-color:#5cb85c;}
+.info_list td{padding:5px;border:1px solid #ddd;}
+.info_list td.link:hover{color:#d94032; cursor:pointer;}

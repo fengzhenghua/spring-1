@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<service data="com.tydic.unicom.service.workFlow.po.Jbpm4HistActinst" type="jdbc">
+		<query name="queryHistActinstByExecution">
+			pub.Jbpm4HistActinst.queryHistActinstByExecution(#{filter.execution_})
+		</query>
+	</service>
+	<service data="com.tydic.unicom.service.workFlow.po.Jbpm4Dual" type="jdbc">
+		<query name="queryJbpm4DualByJbpmKey">
+			pub.Jbpm4Dual.queryJbpm4DualByJbpmKey(#{filter.jbpm_name})
+		</query>
+		<query name="queryJbpm4DualForSql">
+			pub.Jbpm4Dual.queryJbpm4DualForSql(){
+			<if test="filter.sql_where != null  and filter.sql_where !=''">
+				vds.sql.append("and ${filter.sql_where}");
+			</if>
+			}
+		</query>
+	</service>
+	<service data="com.tydic.unicom.service.workFlow.po.VdsTabShardding" type="jdbc">
+		<query name="querySharddingByTabName">
+			vds.VdsTabShardding.querySharddingByTabName(#{filter.table_name})
+		</query>
+	</service>
+</services>

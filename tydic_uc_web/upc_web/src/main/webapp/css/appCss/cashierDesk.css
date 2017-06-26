@@ -1,0 +1,17 @@
+.item:after{content:""; display:block; clear:both;}
+.item{line-height:30px; font-size:14px;}
+.border-bottom{border-bottom:1px solid #e5e5e5;}
+.padding5{padding:5px 10px;}
+.method{padding-left:10px;}
+.color-gray{color:#999;}
+.color-red{color:#EE384F;}
+.pay-money{font-size:16px;}
+.pay-title{height:45px; line-height:45px;}
+.icon-alipay{background-image:url("../../images/app/alipay.png");}
+.icon-wechat{background-image:url("../../images/app/wechat.png");}
+.icon-cash{background-image:url("../../images/app/pay-in-cash.png");}
+.list-lg .pay-title{ display:block; height:18px; line-height:18px; font-size:16px; color:#333;}
+.list-lg .pay-tip{ display:block; height:14px; line-height:14px; padding-top:8px; font-size:14px; color:#999;}
+@media screen and (max-width: 400px) and (min-width: 221px){
+.list-lg .pay-title{height:17px; line-height:17px; font-size:15px; }
+} 

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<service data="com.tydic.unicom.service.sequence.po.SysSequence"
+		type="jdbc">
+		<query name="querySysSequenceBySeqName">
+			pub.SysSequence.querySysSequenceBySeqName(#{filter.seq_name})
+		</query>
+		<update>
+			pub.SysSequence.updateSysSequence(#{seq_name},#{seq_start},#{seq_max},#{seq_step},#{seq_ranges},#{seq_id})
+		</update>
+	</service>
+	<service data="com.tydic.unicom.service.sequence.po.SequenceId"
+		type="jdbc">
+		<query name="seq_order_id">
+
+			pub.SequenceId.queryOrderId()
+		</query>
+
+		<query name="seq_message_id">
+			pub.SequenceId.queryMessageId()
+		</query>
+
+
+		<query name="seq_device_id">
+			pub.SequenceId.queryDeviceId()
+		</query>
+
+		<query name="seq_auth_id">
+			pub.SequenceId.queryAuthId()
+		</query>
+
+		<query name="seq_customer_id">
+			pub.SequenceId.queryCustomerId()
+		</query>
+
+		<query name="seq_imsi_id">
+			pub.SequenceId.queryImsiId()
+		</query>
+
+		<query name="seq_order_attr_id" flushCache = "true">
+			pub.SequenceId.queryOrderAttrId()
+		</query>
+
+		<query name="seq_order_detail_id">
+			pub.SequenceId.queryOrderDetailId()
+		</query>
+
+		<query name="seq_order_discount_detail_id">
+			pub.SequenceId.queryOrderDiscountDetailId()
+		</query>
+
+		<query name="seq_order_materials_attr_id">
+			pub.SequenceId.queryOrderMaterialsAttrId()
+		</query>
+
+		<query name="seq_pay_id">
+			pub.SequenceId.queryPayId()
+		</query>
+
+		<query name="seq_pay_user_id">
+			pub.SequenceId.queryPayUserId()
+		</query>
+
+
+		<query name="seq_post_id">
+			pub.SequenceId.queryPostId()
+		</query>
+
+		<query name="seq_user_id">
+			pub.SequenceId.queryUserId()
+		</query>
+
+		<query name="seq_user_product_id">
+			pub.SequenceId.queryUserProductId()
+		</query>
+
+		<query name="seq_user_status_id">
+			pub.SequenceId.queryUserStatusId()
+		</query>
+
+		<query name="seq_oper_order_id">
+			pub.SequenceId.queryOperOrderId()
+		</query>
+
+		<query name="seq_dev_channel_order_id">
+			pub.SequenceId.queryDevChannelOrderId()
+		</query>
+
+		<query name="seq_fee_detail_id">
+			pub.SequenceId.queryFeeDetailId()
+		</query>
+		<query name="seq_tran_id">
+			pub.SequenceId.queryTranId()
+		</query>
+
+		<query name="seq_oper_message_rel_id">
+			pub.SequenceId.queryOperMessageRelId()
+		</query>
+		<query name="seq_id_seq">
+			pub.SequenceId.queryIdSeq()
+		</query>
+
+		<query name="seq_sign_seq_id">
+			pub.SequenceId.querySignSeqId()
+		</query>
+		<query name="seq_message_attr_id">
+			pub.SequenceId.queryMessageAttrId()
+		</query>
+		<query name="seq_order_seq_id">
+			pub.SequenceId.queryOrderSeqId()
+		</query>
+		<query name="seq_seq_tran_id">
+			pub.SequenceId.querySeqTranId()
+		</query>
+		<query name="seq_tido">
+			pub.SequenceId.queryCbssTido()
+		</query>
+		<query name="seq_log_id">
+			pub.SequenceId.queryLogId()
+		</query>
+		<query name="seq_seq_trans_idc">   
+			pub.SequenceId.queryTransIdc()
+		</query>
+		<query name="seq_key_id">   
+			pub.SequenceId.queryKeyId()
+		</query>
+		<query name="seq_orders_id">   
+			pub.SequenceId.queryOrdersId()
+		</query>
+		<query name="seq_wcf_order_id">   
+			pub.SequenceId.queryWcfOrderId()
+		</query>
+		<!--chongqing add  -->
+		<query name="seq_cs_order_id">   
+			pub.SequenceId.queryCsOrderId()
+		</query>
+		<query name="seq_comm_sn">   
+			pub.SequenceId.queryCommSn()
+		</query>
+		<query name="seq_service_sn">   
+			pub.SequenceId.queryServiceSn()
+		</query>
+		<query name="seq_pay_cs_id">   
+			pub.SequenceId.queryPayCsId()
+		</query>
+		<query name="seq_get_cash_cs_id">   
+			pub.SequenceId.queryGetCashCsId()
+		</query>
+		<query name="seq_addr_sn">   
+			pub.SequenceId.queryAddrSn()
+		</query>
+		<query name="seq_recommend_id">
+			pub.SequenceId.queryRecommendId()
+		</query>
+		<query name="seq_group_id">
+			pub.SequenceId.queryGroupId()
+		</query>
+		<query name="seq_terminal_shop_reward_id">
+			pub.SequenceId.queryTerminalShopRewardId()
+		</query>
+		<query name="seq_terminal_standing_book_id">
+			pub.SequenceId.queryTerminalStandingBookId()
+		</query>
+		<!--chongqing add end  -->
+	</service>
+</services>

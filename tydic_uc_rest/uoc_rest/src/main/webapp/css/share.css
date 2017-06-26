@@ -1,0 +1,18 @@
+body{margin:0; padding:0; font-size:12px; color:#727272; font-family:"微软雅黑","宋体"; background:#F5F4F4;}
+a{color:#6e6e6e; text-decoration:none;}
+a:hover{color:#F08200;}
+img{border:0;}
+ul,li,dl,dt,dd,form,p,h1,h2,h3,h4{margin:0; padding:0; list-style:none;}
+
+.null{
+	cursor: pointer;
+}
+.common_li{
+	margin-top: 5px !important;
+}
+
+.clear{clear:both; height:0; font-size:0; overflow:hidden;}
+.cursor{cursor:pointer;}
+.crumbs{height:16px; line-height:16px; color:#999; font-family:"宋体"; width:1000px; margin:0 auto; position:relative; top:10px;}
+.crumbs a{color:#999;}
+.crumbs a:hover{color:#000;}

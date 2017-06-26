@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<title>微信支付</title>
+<link href="../../css/mobile/common/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/mobile/common/zepto.min.js" ></script>
+<script type="text/javascript" src="../../js/mobile/common/WebUtil.js"></script>
+<script type="text/javascript" src="../../js/mobile/common/common.js" ></script>
+<script type="text/javascript" src="../../js/mobile/baby/babyPay.js" ></script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+</head>
+
+<body>
+<div class="main-page" style="display:block;">
+	<div class="top_blank"></div>
+	 
+	<ul class="content">
+    	<div class="padding_blank"></div>
+        
+    	<div class="QR_code">
+        	<img src="" id="PIC_QR"/>
+        </div>
+        <div class="padding_blank10"></div>
+        <div class="float_center">
+        	<div class="red">微信支付：<span><span id="fee_all"></span> 元</span></div>
+            <div class="padding-lr" id="tip1">请长按图片识别二维码进行支付，<p>或用另一台手机的微信扫描屏幕上的二维码支付；</div>
+            <div class="padding-lr" id="tip2">支付完成前请不要关闭此页面。</div>
+        </div>
+        
+        
+
+		<li class="clear"></li>
+		<li class="padding_blank"></li>
+	</ul>
+	<div class="bottom" style="display:none" id="bottom_done">
+		<div id="next_flow_step" class="next next_blank">完 成</div>
+	</div>
+	<div class="bottom" style="display:none" id="re_do">
+		<div id="re_create_order" class="next next_blank">重新下单</div>
+	</div>
+</div>
+
+<div class="dialog gray-bgcolor" id="qr_code_pop" style="display:none;">
+	<ul class="content">
+    	<div class="gray-bgcolor">
+        	<img src="" id="PUBLIC_QR"/>
+		</div>
+        <!-- <div class="padding_blank10"></div> -->
+        <div class="float_center">
+        	<div class="padding-lr" style="font-size:10px;color:red;" id="order_success_tip"></div>
+            <div class="padding-lr" style="font-size:10px;color:red;">请长按图片关注微信公众号，用以完成后续开户激活流程。</div>
+            <div class="padding-lr" style="font-size:10px;color:red;">若已关注该公众号，请忽略。</div>
+        </div>
+        <div class="btn"><a href="###" id="back_main_page">返回</a><a href="###" id="close_all_page">关闭</a></div>
+	</ul>
+</div>
+
+</body>
+</html>
+
+

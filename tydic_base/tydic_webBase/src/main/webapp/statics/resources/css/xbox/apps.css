@@ -1,0 +1,49 @@
+/* CSS Document */
+.ui-separator{color:#b2b2b2;}
+.ui-separator-pd{color:#b2b2b2;padding:0 5px;}
+.ui-link-separator{display:inline;color:#808080;}
+.ui-link-separator a{padding-right:3px;}
+.ui-link-separator .ui-separator-pd{padding:0 11px;}
+
+.sl-linear{background:-webkit-gradient(linear,left top,left bottom,from(#fcfcfc),to(#f1f1f1));background:-moz-linear-gradient(top,#fcfcfc,#f1f1f1);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc',endColorstr='#f1f1f1');background:-o-linear-gradient(top,#fcfcfc,#f1f1f1);background:linear-gradient(top,#fcfcfc,#f1f1f1);}
+.com-search,.c-editable{margin:10px 0;}
+.com-search .date{float:left;}
+.com-search .keyword{float:right;}
+.com-search .i-text{vertical-align:middle;width:150px;height:15px;line-height:16px;padding:2px;border:1px solid #9C9C9C;margin:1px 3px 0 0;color:#B2B2B2;}
+.com-search .fm-focus .i-text{*padding:1px;}
+/* common end */
+.module-appmanager {overflow:hidden;}
+.module-appmanager-item a{color:#08c;cursor:move;}
+.module-appmanager-item a:hover{color:#08c;text-decoration:underline;}
+.module-appmanager-item a:active{color:#f60;}
+.module-appmanager-item a.ui-link-hide{color:#999;}
+.module-appmanager-item a.ui-link-hide:hover{text-decoration:underline;}
+.module-appmanager-title {padding:13px 10px 10px;border-bottom:1px solid #c4c4c4;}
+.module-appmanager-title h1 {font-size:14px;font-weight:bold;}
+.module-appmanager-container {padding:15px 12px 0;}
+.module-appmanager-container h2 {font-size:14px;margin:0 0 6px;clear:both;}
+.module-appmanager-container ul {padding:8px 15px;_padding:8px 15px 16px;min-height:82px;height:auto !important;height:82px;}
+.module-appmanager-item {float:left;display:inline;height:70px;position:relative;width:72px;border:1px solid transparent;_border:1px solid #fff;margin:0 2px 9px;_margin-right:-3px;_margin-left:5px;}
+.module-appmanager-item-hover,.module-appmanager-item-dashedbox,.module-appmanager-item-empty {text-align:center;border:1px dashed #bcbcbc;border-radius:4px;}
+.module-appmanager-item-dashedbox {background-color:#ffffec;}
+.module-appmanager-item-empty p {padding:16px;}
+.module-appmanager-item img {position:absolute;top:6px;margin:0 auto;left:18px;display:block;}
+.module-appmanager-item span {display:block;padding-top:50px;text-decoration:none;text-align:center;}
+.module-appmanager-item span.app-icon {padding-top:0;text-indent:-9999px;position:absolute;top:6px;margin:0 auto;left:18px;display:block;width:36px;height:36px;overflow:hidden;}	
+.module-appmanager-item a {text-decoration:none;color:#4d4d4d;outline:none;}
+.module-appmanager-ico {overflow:hidden;z-index:10;position:absolute;}
+.module-appmanager-ico a {cursor:pointer;display:block;background:transparent url('../../images/xbox/appmanager.png') no-repeat;_background: none;width:40px;height:60px;_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='../../images/xbox/appmanager.png');}
+.ico-delete, .ico-add {height:20px;width:20px;top:-2px;right:7px;}
+.text-delete, .text-add {height:20px;width:30px;top:18px;right:-6px;z-index:11;display:none;}
+.ico-delete a {margin:0;}
+.ico-add a {margin:0 0 0 -20px;}
+.text-delete a {margin-top:-20px;}
+.text-add a {margin-top:-40px;}
+.module-appmanager-catigory {font-size:12px;margin-left:18px;line-height:14px;height:14px;}
+.module-appmanager-catigory {outline:none;}
+.module-appmanager-catigory a:active {color:#08c;}
+.module-appmanager-current {font-weight:bold;text-decoration:none;color:#666;}
+a.module-appmanager-current:active {color:#666;}
+.module-appmanager-current:hover {text-decoration:none;color:#666;}
+#J_module_appmanager_tip {color:#666;background:#ffc;border:1px solid #ddd;border-radius:3px;padding:3px 12px;text-align:right;position:absolute;top:10px;right:72px;}
+.ft-fff {display:none;}

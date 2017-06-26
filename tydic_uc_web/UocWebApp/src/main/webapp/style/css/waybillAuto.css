@@ -1,0 +1,84 @@
+body{width:100mm; margin:0 auto;}
+.waybill{width:100mm; box-sizing:border-box; height:150mm; border:1px solid #ccc; margin:0 auto; padding:0 3mm; overflow:hidden;}
+/* 第一行 */
+.tr1{height:13mm; overflow:hidden; border-bottom:1px solid #ccc;}
+.tr1 li.td1{float:left; padding-top:2mm;}
+.tr1 li.td2{float:right; padding-top:2mm;}
+.tr1 li.td3{margin-left:28mm; padding-top:1mm;}
+.tr1 li img{width:20mm; vertical-align:middle;}
+.tr1 li span.text1{font-size:28pt; font-family:"黑体"; font-weight:bold;}
+/* .tr1 li span.text2{font-size:36pt; font-family:Aril; font-weight:bold;} */
+/* 第二行 */
+.tr2{height:17mm; overflow:hidden; border-bottom:1px solid #ccc;}
+.tr2>li.td1{float:left; width:65%; height:17mm; text-align:center; padding:3mm 0;}
+.bar-code{width:50mm;}
+.bar-code-number{font-family:黑体; font-size:10pt;}
+.tr2>li.td2{border-left:1px solid #ccc; float:left; height:17mm; width:34%; text-align:left; font-family:黑体;}
+.business-type{border-bottom:1px solid #ccc; line-height:4.5mm; font-size:12pt; text-align:center;}
+.collection-on-delivery{float:left; height:12.5mm;}
+.collection-on-delivery>.card_label{line-height:5.5mm; padding-left:2mm; font-size:17pt;}
+.collection-on-delivery>.card_no{line-height:3.5mm; padding-left:0.5mm;}
+.collection-on-delivery>.card_money{line-height:3.5mm; padding-left:0.5mm; font-weight:bold;}
+.collection-payment{font-size:14pt;}
+.card-number{font-size:9pt;}
+.value-of-loan{font-size:9pt; text-align:center;}
+/* 第三行 */
+.tr3,.tr4,.tr5,.my-tr2,.my-tr3{height:10.5mm; overflow:hidden; border-bottom:1px solid #ccc;}
+.tr3 li.td1,.tr4 li.td1,.tr5 li.td1,.tr7 li.td1,.my-tr2 li.td1,.my-tr3 li.td1{float:left; width:10%; border-right:1px solid #ccc; line-height:3.5mm; font-family:黑体; font-size:9pt; text-align:center;}
+.tr3 li.td2{float:left; font-size:26pt; font-family:Arial; padding:0.5mm 0 0 1mm;}
+/* 第四行 */
+.tr4 li.td2{padding:0.5mm; float:left; width:83mm;}
+.receive-tel{font-size:10pt; font-family:Arial;}
+.receive-name,.receive-addr{font-size:10pt; font-weight:bold; font-family:黑体;line-height:3.5mm;width:100%;white-space:normal}
+/* 第五行 */
+.tr5 li{float:left; height:10.5mm;}
+.tr5 li.td3{padding-left:1mm; line-height:10.5mm;}
+.tr5 li.td2{padding:0 0 0 1.5mm; width:63mm; height:10.5mm; border-right:1px solid #ccc; line-height:3.5mm; white-space:normal;}
+.send-tel{font-size:9pt; font-family:Arial;}
+.send-name,.send-addr{font-size:9pt; font-family:"黑体";}
+.tr5 li.td3 span{font-family:黑体; font-size:10pt;}
+/* 第六行 */
+.tr6{height:14mm; overflow:hidden; border-bottom:1px solid #ccc;}
+.tr6 li{float:left; margin-right:1mm; font-size:9pt; font-family:黑体;}
+.tr6 li.td1{width:33mm;}
+.tr6 li.td2{width:23mm;}
+.tr6 li.td3{width:34mm;}
+.tr6 li div{line-height:3.5mm;}
+/* 第七行 */
+.tr7{height:10.5mm; overflow:hidden; border-bottom:1px solid #ccc;}
+.tr7 li{float:left; font-size:9pt; height:11mm; font-family:黑体; border-right:1px solid #ccc;}
+.tr7 li.td2{width:32%; padding:1mm 0 0 1mm;}
+.tr7 li.td2>div{white-space:normal;}
+.tr7 li.td3{width:33%;}
+.tr7 li.td4{width:23%; border-right:0; position:relative;}
+.tr7 li.td4 .text2{text-align:right;}
+.tr7 li div{line-height:3.5mm;}
+.send-date{font-family:Aril;}
+.date{position:absolute; bottom:5px; right:5px;}
+/* 第八行 */
+.tr8{height:5mm; line-height:5mm; overflow:visible;}
+/* 第二联 第一行 */
+.my-tr1{height:21mm; overflow:hidden; border-bottom:1px solid #ccc;}
+.my-tr1 li{float:left; text-align:center; padding:2mm 0 1mm 0;}
+.my-tr1 li.td1{width:29mm; border-right:1px solid #ccc;}
+.my-tr1 li.td1 img{width:22mm;}
+.my-tr1 li.td2>div.text1{margin-top:3mm;}
+/* 第二联 第二行 */
+.my-tr2 li.td2,.my-tr3 li.td2{padding:0mm; float:left; font-size:9pt; font-family:黑体;}
+.my-tr2 li.td2{width:82mm}
+.my-tr2 li.td2 .receive-addr{white-space:normal;width:100%;}
+.receive-tel2,.send-tel2{font-family:Aril;}
+/* 第二联 第三行 */
+.my-tr3 .td2{width:83mm;}
+.my-tr3 .send-addr{width:100%;white-space:normal;line-height:3.5mm }
+/* 第二联 第四行 */
+.my-tr4{overflow:hidden; height:11mm; line-height:3.5mm; margin-top:0.5mm;}
+/* 第二联 第五行 */
+.my-tr5{height:6mm; line-height:5mm; overflow:visible;}
+/*表格 */
+.table{display:table; width:100%; height:100%;}
+.table .cell{display:table-cell; vertical-align:middle;}
+/*通用*/
+.comm{display:inline-block;width:0px;height:10.5mm;vertical-align:middle;}
+.comm-bao{display:inline-block;vertical-align:middle;}
+.line-height{line-height:3.5mm}
