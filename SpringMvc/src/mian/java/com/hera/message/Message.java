@@ -3,7 +3,9 @@ package com.hera.message;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+ * json输出对象
+ */
 public class Message implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
