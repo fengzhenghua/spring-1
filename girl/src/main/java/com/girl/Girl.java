@@ -6,6 +6,7 @@ import javax.persistence.Id;
 
 /**
  * Created by fzh on 2017/7/23.
+ * 实体类哦
  */
 @Entity
 public class Girl {
