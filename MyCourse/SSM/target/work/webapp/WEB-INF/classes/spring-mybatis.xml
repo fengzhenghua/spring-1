@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--注入propertis配置文件-->
+    <!--<bean id="configProperties"-->
+          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath:ssm.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <context:component-scan base-package="com.hua.service"></context:component-scan>
+    <context:property-placeholder location="classpath:ssm.properties" />
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="initialSize" value="${jdbc.initialSize}"></property>
+        <property name="maxActive" value="${jdbc.maxActive}"/>
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>
+        <property name="maxWait" value="${jdbc.maxWait}"/>
+        <property name="validationQuery" value="${jdbc.validationQuery}"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"></property>
+        <property name="numTestsPerEvictionRun" value="${jdbc.numTestsPerEvictionRun}"></property>
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"></property>
+        <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}"/>
+    </bean>
+
+    <!--注册mybatis文件，SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:mapper/*.xml" />
+        <property name="configLocation" value="classpath:mybatisConfig.xml" />
+    </bean>
+    <!--mybatis Service层 自动扫描-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hua.service.dao" /><!--一定要填对，否则找不到报错-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!--配置事务处理（面）-->
+    <tx:advice id="appAdvice" transaction-manager="transactionManager" >
+        <!--配置事物属性-->
+        <tx:attributes>
+            <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="create*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="batch*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="query*" propagation="REQUIRED" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="read*" propagation="REQUIRED" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="count*" propagation="REQUIRED" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="find*" propagation="REQUIRED" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+    <!--配置aop事务-->
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="pointcut" expression="execution(* com.hua.service.interfaces.*Service.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="appAdvice" pointcut-ref="pointcut" />
+    </aop:config>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <bean id="namedTemplate"
+          class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg index="0" ref="dataSource"></constructor-arg>
+    </bean>
+</beans>

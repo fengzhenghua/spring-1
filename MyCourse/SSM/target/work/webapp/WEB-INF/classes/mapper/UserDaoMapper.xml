@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hua.service.dao.UserDaoMapper" >
+
+    <select id="getUsers" resultType="com.hua.entity.User" parameterType="com.hua.entity.User">
+        SELECT * FROM user where id=#{id}
+    </select>
+    <insert id="insertUser" parameterType="com.hua.entity.User">
+        INSERT INTO user (id,name,dept,website,phone) VALUES (#{id},#{name},#{dept},#{website},#{phone})
+    </insert>
+    <delete id="deleteUser" parameterType="com.hua.entity.User">
+        DELETE FROM user where id=#{id}
+    </delete>
+</mapper>
