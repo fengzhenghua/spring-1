@@ -1,7 +1,0 @@
-.chart_line{padding-top:15px;}
-.chart_part{width:49.8%; height:300px; padding:0 10px; display:inline-block; *zoom:1; *display:inline; vertical-align:top;}
-.chart_part .chart_pie{width:70%; height:100%; display:inline-block; *zoom:1; *display:inline; vertical-align:top;}
-.chart_part .chart_content{width:29%; height:100%; display:inline-block; *zoom:1; *display:inline; vertical-align:top; overflow:hidden;}
-.chart_part .chart_content .content_btn{padding:5px 0;}
-.chart_part .chart_content .content_list{padding:5px 0; line-height:20px;}
-.highcharts-credits{display:none;}

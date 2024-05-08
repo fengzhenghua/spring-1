@@ -1,9 +1,0 @@
-﻿body{-webkit-tap-highlight-color:transparent;}
-ul,li,dt,dd,dl,h1,h2,h3,h4,h5,h6,p{padding:0; margin:0; list-style:none;}
-a{text-decoration:none; color:#444;}
-a:hover{color:#DC0000;}
-img{border:0;}
-.clear{clear:both; font-size:0; height:0; overflow:hidden;}
-input[type=text]{outline:none;  -webkit-tap-highlight-color:transparent;}
-
-body{padding:0; margin:0; list-style:none; font-family:"微软雅黑"; background:#FFF; font-size:18px;}

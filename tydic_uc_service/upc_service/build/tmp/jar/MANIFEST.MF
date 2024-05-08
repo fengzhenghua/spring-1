@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-packageName: upcService
-Built-By: gradle 1.9
-Built-date: 2017-04-19 17:45:06
-
